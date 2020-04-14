@@ -7,3 +7,7 @@ export const PageWrapper = styled.div`
   align-items: center;
   min-height: 100vh;
 `;
+
+export const KardContainer = styled.div`
+  display: flex;
+`;
