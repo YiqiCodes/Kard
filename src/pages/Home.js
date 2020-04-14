@@ -6,6 +6,8 @@ import Book from "./Book";
 
 const Home = () => {
   return (
+    <>
+
     <BrowserRouter>
       <Link to="/book">Book</Link>
 
@@ -15,12 +17,11 @@ const Home = () => {
         </Route>
       </Switch>
     </BrowserRouter>
-
-    <>
+{/* 
       <KardContainer>Album</KardContainer>
       <KardContainer>Restaurant</KardContainer>
       <KardContainer>City</KardContainer>
-      <KardContainer>Books</KardContainer>
+      <KardContainer>Books</KardContainer> */}
     </>
 
   );
