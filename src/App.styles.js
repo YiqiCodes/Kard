@@ -1,5 +1,6 @@
 import styled, { keyframes } from "styled-components";
 
+
 export const PageWrapper = styled.div``;
 
 // Which Phone Styles
@@ -64,6 +65,12 @@ export const KardSelectorContainer = styled.div`
   justify-content: center;
 `;
 
+// display: flex;
+// flex-direction: column;
+// justify-content: space-evenly;
+// align-items: center;
+
+
 export const KardContainer = styled.div`
   display: flex;
   width: 14rem;
@@ -88,5 +95,17 @@ export const KardButton = styled.button`
 `;
 
 export const BookDiv = styled.div`
-  color: white;
+
+  color: white !important;
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+
+`;
+
+
+export const SearchDiv = styled.div`
+  display:grid;
+  justify-content: center;
+  flex-direction: column;
 `;
