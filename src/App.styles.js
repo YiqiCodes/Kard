@@ -57,6 +57,38 @@ export const BooksKardWrapper = styled.div`
   animation: ${animationName} 10s ease infinite;
 `;
 
+export const MoviesKardWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  justify-content: space-around;
+  position: absolute;
+  z-index: -1;
+  min-width: 100vw;
+  min-height: 100vh;
+  background: linear-gradient(270deg, #000000, #a3a3a3);
+  color: white;
+  background-size: 400% 400%;
+  animation: ${animationName} 10s ease infinite;
+`;
+
+export const RestaurantKardWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  justify-content: space-around;
+  position: absolute;
+  z-index: -1;
+  min-width: 100vw;
+  min-height: 100vh;
+  background: linear-gradient(270deg, #000000, #a3a3a3);
+  color: white;
+  background-size: 400% 400%;
+  animation: ${animationName} 10s ease infinite;
+`;
+
 export const KardSelectorContainer = styled.div`
   display: flex;
   flex-direction: column;
