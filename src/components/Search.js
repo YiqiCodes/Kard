@@ -51,6 +51,8 @@ class Search extends Component {
 
   // parse string xml received from goodreads api
   parseXMLResponse = response => {
+
+
     const parser = new DOMParser();
     const XMLResponse = parser.parseFromString(response, "application/xml");
     const parseError = XMLResponse.getElementsByTagName("parsererror");
@@ -63,8 +65,9 @@ class Search extends Component {
     } else {
       const XMLresults = new Array(...XMLResponse.getElementsByTagName("work"));
       const searchResults = XMLresults.map(result => this.XMLToJson(result));
+      const shorterSearch=searchResults.slice(0,5)
       this.setState({ fetchingData: false }, () => {
-        this.props.setResults(searchResults);
+        this.props.setResults(shorterSearch);
       });
     }
   };
@@ -73,6 +76,7 @@ class Search extends Component {
   // Loops through each child and saves it as key, value pair
   // if there are sub-children, call the same function recursively on its children.
   XMLToJson = XML => {
+
     const allNodes = new Array(...XML.children);
     const jsonResult = {};
     allNodes.forEach(node => {
@@ -82,6 +86,8 @@ class Search extends Component {
         jsonResult[node.nodeName] = node.innerHTML;
       }
     });
+
+
     return jsonResult;
   };
 

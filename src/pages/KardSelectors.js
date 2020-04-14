@@ -124,14 +124,10 @@ const KardSelector = () => {
             
             {favBook !== null ? (
               <img
-          style={{ 
-            height:'80%',
-            margin:'auto'
-          }} 
-          className="card-img-top pl-2 pr-2 pt-2"
+        
+          className="Kard-dashboard"
           src={favBook.best_book.image_url}
           alt="Book cover"
-          height="200px"
           />                    
             ) : <p>Books</p>}
 
