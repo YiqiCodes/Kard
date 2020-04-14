@@ -5,11 +5,13 @@ import PropTypes from "prop-types";
 import { SearchDiv } from "../App.styles";
 
 
-const AllResults = ({ books, expandBook }) => {
+const AllResults = ({ books, expandBook, chgBook }) => {
   return (
     <SearchDiv className="row">
       {books.map(book => (
-        <SearchResult bookData={book} key={book.id} expandBook={expandBook} />
+        <SearchResult bookData={book} key={book.id} expandBook={expandBook}
+        chgBook={chgBook} 
+        />
       ))}
     </SearchDiv>
   );

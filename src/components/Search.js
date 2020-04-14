@@ -8,6 +8,8 @@ import { SearchDiv } from "../App.styles";
 const apiKey = 'yOCh6daSoxHqslqgU0Ag';
 
 class Search extends Component {
+
+  
   state = {
     searchText: "",
     error: "",
@@ -96,12 +98,7 @@ class Search extends Component {
             onChange={this.onTextChange}
             value={this.state.searchText}
           />
-          {/* <button
-            className="col-sm-2 btn btn-primary"
-            onClick={this.onButtonClick}
-          >
-            Search
-          </button> */}
+          
         </div>
 
         {/**
@@ -114,6 +111,7 @@ class Search extends Component {
             <p className="text-danger">{this.state.error}</p>
           )) || (
             <AllResults
+              chgBook={this.props.chgBook}
               books={this.props.results}
               expandBook={this.props.expandBook}
             />

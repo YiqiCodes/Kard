@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const SearchResult = ({ bookData, expandBook }) => {
+const SearchResult = ({ bookData, expandBook, chgBook }) => {
   /**
    * truncate book title to first 4 words and append it with '...'
    * indicating it is truncated.
@@ -63,6 +63,14 @@ const SearchResult = ({ bookData, expandBook }) => {
               justifyContent:"center",
               marginBottom:"1em"
               }}>
+
+            <button
+              className="btn btn-primary"
+              onClick={() => chgBook(bookData)}
+            >
+              Select
+            </button>
+
             <button
               className="btn btn-primary"
               onClick={() => expandBook(bookData)}

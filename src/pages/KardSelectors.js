@@ -42,6 +42,17 @@ const KardSelector = () => {
     marginBottom: "10px",
   };
 
+  const [favBook, setFavBook] = useState(null)
+
+  const chgBook = function (info){
+    console.log (info)
+    setFavBook(info)
+    setSelectedKard(0)
+  }
+
+
+
+
   return (
     <>
       {selectedKard === 0 ? (
@@ -109,7 +120,22 @@ const KardSelector = () => {
                 }
                 onClick={() => setSelectedKard(2)}
               >
-                Books
+
+            
+            {favBook !== null ? (
+              <img
+          style={{ 
+            height:'80%',
+            margin:'auto'
+          }} 
+          className="card-img-top pl-2 pr-2 pt-2"
+          src={favBook.best_book.image_url}
+          alt="Book cover"
+          height="200px"
+          />                    
+            ) : <p>Books</p>}
+
+
               </MUButton>
 
               <MUButton
@@ -199,7 +225,7 @@ const KardSelector = () => {
       {selectedKard === 2 ? (
         <>
           <BooksKardWrapper>
-            <Books></Books>
+            <Books chgBook={chgBook}></Books>
             <MUButton
               style={{
                 ...styledButton,
