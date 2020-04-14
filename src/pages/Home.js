@@ -1,16 +1,19 @@
 import React from "react";
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
-//styles
-import { KardContainer } from "../App.styles";
+import Book from "./Book";
 
 const Home = () => {
   return (
-    <>
-      <KardContainer>Album</KardContainer>
-      <KardContainer>Restaurant</KardContainer>
-      <KardContainer>City</KardContainer>
-      <KardContainer>LoL Character</KardContainer>
-    </>
+    <BrowserRouter>
+      <Link to="/book">Book</Link>
+
+      <Switch>
+        <Route path="/book">
+          <Book />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 };
 

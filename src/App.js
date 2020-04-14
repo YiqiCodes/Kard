@@ -1,10 +1,9 @@
 import React from "react";
+
 import "./App.css";
 
 // Components
 import { PageWrapper } from "./App.styles";
-
-// Pages
 import Home from "./pages/Home";
 
 function App() {
@@ -14,5 +13,4 @@ function App() {
     </PageWrapper>
   );
 }
-
 export default App;
