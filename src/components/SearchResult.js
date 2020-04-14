@@ -43,7 +43,9 @@ const SearchResult = ({ bookData, expandBook, chgBook }) => {
             title={displayTitle.includes("...") ? bookTitle : ""}
             style={{
               display:"flex",
-              justifyContent:"center"
+              justifyContent:"center",
+              marginTop:"8px",
+              marginBottom: '8px'
             }}
           >
             {displayTitle}
@@ -51,7 +53,10 @@ const SearchResult = ({ bookData, expandBook, chgBook }) => {
           <p className="text-sm-left card-text"
               style={{
                 display:"flex",
-                justifyContent:"center"
+                justifyContent:"center",
+                marginTop:"0px",
+                marginBottom: '8px'
+  
               }}
           >
             {bookData.best_book.author.name}
