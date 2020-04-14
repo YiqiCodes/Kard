@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect } from "react";
 import axios from "axios";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
-import "./Album.css";
+import "./Albums.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Albums = () => {
+const Albums = (props) => {
   const [term, setTerm] = useState("");
   const [results, setResults] = useState([]);
   const [picked, setPicked] = useState(undefined);
@@ -42,6 +42,7 @@ const Albums = () => {
         key={keyValue}
         onClick={(event) => {
           setPicked(result);
+          props.chgAlbum(result);
           console.log(result);
         }}
       >
@@ -65,11 +66,11 @@ const Albums = () => {
           {picked !== undefined ? (
             <>
               <img
-                className="album__thumbnail"
+                className="album_thumbnail"
                 src={picked.artworkUrl60}
                 alt="Album"
               />
-              <div>{picked.collectionName}</div>
+              <div className="album_name">{picked.collectionName}</div>
             </>
           ) : null}
         </div>
