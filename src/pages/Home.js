@@ -1,8 +1,5 @@
 import React from "react";
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
-
-import Book from "./Book";
-
+import KardSelectors from "./KardSelectors";
 
 const Home = () => {
   return (
@@ -22,8 +19,8 @@ const Home = () => {
       <KardContainer>Restaurant</KardContainer>
       <KardContainer>City</KardContainer>
       <KardContainer>Books</KardContainer> */}
-    </>
 
+    </>
   );
 };
 
