@@ -20,11 +20,12 @@ const Albums = () => {
   const [picked, setPicked] = useState(undefined);
 
   const classes = useStyles();
+  let keyValue = 0;
 
   useEffect(() => {
     axios
       .get(
-        `https://itunes.apple.com/search?term=${term}&media=music&entity=album&attribute=artistTerm`
+        `https://itunes.apple.com/search?term=${term}&media=music&entity=album`
       )
       .then((response) => {
         setResults(response.data.results);
@@ -33,9 +34,12 @@ const Albums = () => {
   }, [term]);
 
   const ShowResults = results.map((result) => {
+    keyValue += 1;
+
     return (
       <div
         className="result"
+        key={keyValue}
         onClick={(event) => {
           setPicked(result);
           console.log(result);
