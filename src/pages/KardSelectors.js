@@ -42,7 +42,13 @@ const KardSelector = () => {
     marginBottom: "10px",
   };
 
+  const [favAlbum, setFavAlbum] = useState(null)
   const [favBook, setFavBook] = useState(null)
+
+  const chgAlbum = function (info){
+    console.log ('album', info)
+    setFavAlbum(info)
+  }
 
   const chgBook = function (info){
     console.log (info)
@@ -88,7 +94,22 @@ const KardSelector = () => {
                 }
                 onClick={() => setSelectedKard(1)}
               >
-                Albums
+                
+                {favAlbum !== null ? (
+                  <>
+                    <img
+                      style={{ 
+                        margin:'auto',
+                      }} 
+                      className="card-img-top pl-2 pr-2 pt-2"
+                      src={favAlbum.artworkUrl60}
+                      alt="Album cover"
+                      height="100px"
+                    />
+                    <div>{favAlbum.collectionName}</div>
+                  </>               
+                ) : <p>Album</p>}
+
               </MUButton>
 
               <MUButton
@@ -121,7 +142,6 @@ const KardSelector = () => {
                 onClick={() => setSelectedKard(2)}
               >
 
-            
             {favBook !== null ? (
               <img
           style={{ 
@@ -208,7 +228,7 @@ const KardSelector = () => {
       {selectedKard === 1 ? (
         <>
           <AlbumsKardWrapper>
-            <Albums></Albums>
+            <Albums chgAlbum={chgAlbum}></Albums>
             <MUButton
               style={{
                 ...styledButton,
