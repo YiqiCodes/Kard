@@ -19,3 +19,8 @@ export const KardContainer = styled.div`
   border-radius: 10px;
   color: white;
 `;
+
+export const BookDiv = styled.div`
+ color: white;
+
+`;
