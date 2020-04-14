@@ -4,6 +4,8 @@ import MUButton from "@material-ui/core/Button";
 //components
 import Albums from "./Albums";
 import Books from "./Books";
+import Movies from "./Movies";
+import Restaurants from "./Restaurants";
 
 //styles
 import {
@@ -11,6 +13,8 @@ import {
   WhichKardWrapper,
   AlbumsKardWrapper,
   BooksKardWrapper,
+  MoviesKardWrapper,
+  RestaurantKardWrapper,
 } from "../App.styles";
 
 const KardSelector = () => {
@@ -103,6 +107,66 @@ const KardSelector = () => {
                 }
                 onClick={() => setSelectedKard(2)}
               ></MUButton>
+
+              <MUButton
+                style={{
+                  ...styledButton,
+                  background: firstKardColor.color,
+                }}
+                onMouseLeave={() =>
+                  setFirstKardColor({
+                    ...firstKardColor,
+                    color: "linear-gradient(45deg, #0d7400 30%, #9dff90 90%)",
+                  })
+                }
+                onMouseOver={() =>
+                  setFirstKardColor({
+                    ...firstKardColor,
+                    color: "linear-gradient(45deg, #139b01 30%, #bbffb3 90%)",
+                  })
+                }
+                onMouseUp={() =>
+                  setFirstKardColor({
+                    ...firstKardColor,
+                  })
+                }
+                onMouseDown={() =>
+                  setFirstKardColor({
+                    ...firstKardColor,
+                  })
+                }
+                onClick={() => setSelectedKard(3)}
+              ></MUButton>
+
+              <MUButton
+                style={{
+                  ...styledButton,
+                  background: secondKardColor.color,
+                }}
+                onMouseLeave={() =>
+                  setSecondKardColor({
+                    ...secondKardColor,
+                    color: "linear-gradient(45deg, #ffdc18 30%, #f6f1c1 90%)",
+                  })
+                }
+                onMouseOver={() =>
+                  setSecondKardColor({
+                    ...secondKardColor,
+                    color: "linear-gradient(45deg, #e6c404 30%, #f8f0aa 90%)",
+                  })
+                }
+                onMouseUp={() =>
+                  setSecondKardColor({
+                    ...secondKardColor,
+                  })
+                }
+                onMouseDown={() =>
+                  setSecondKardColor({
+                    ...secondKardColor,
+                  })
+                }
+                onClick={() => setSelectedKard(4)}
+              ></MUButton>
             </KardSelectorContainer>
           </WhichKardWrapper>
         </>
@@ -184,6 +248,84 @@ const KardSelector = () => {
               Go Back
             </MUButton>
           </BooksKardWrapper>
+        </>
+      ) : null}
+      {selectedKard === 3 ? (
+        <>
+          <MoviesKardWrapper>
+            <Movies></Movies>
+            <MUButton
+              style={{
+                ...styledButton,
+                background: firstKardColor.color,
+                minHeight: "40px",
+              }}
+              onMouseLeave={() =>
+                setFirstKardColor({
+                  ...firstKardColor,
+                  color: "linear-gradient(45deg, #0d7400 30%, #9dff90 90%)",
+                })
+              }
+              onMouseOver={() =>
+                setFirstKardColor({
+                  ...firstKardColor,
+                  color: "linear-gradient(45deg, #139b01 30%, #bbffb3 90%)",
+                })
+              }
+              onMouseUp={() =>
+                setFirstKardColor({
+                  ...firstKardColor,
+                })
+              }
+              onMouseDown={() =>
+                setFirstKardColor({
+                  ...firstKardColor,
+                })
+              }
+              onClick={() => setSelectedKard(0)}
+            >
+              Go Back
+            </MUButton>
+          </MoviesKardWrapper>
+        </>
+      ) : null}
+      {selectedKard === 4 ? (
+        <>
+          <RestaurantKardWrapper>
+            <Restaurants></Restaurants>
+            <MUButton
+              style={{
+                ...styledButton,
+                background: firstKardColor.color,
+                minHeight: "40px",
+              }}
+              onMouseLeave={() =>
+                setFirstKardColor({
+                  ...firstKardColor,
+                  color: "linear-gradient(45deg, #0d7400 30%, #9dff90 90%)",
+                })
+              }
+              onMouseOver={() =>
+                setFirstKardColor({
+                  ...firstKardColor,
+                  color: "linear-gradient(45deg, #139b01 30%, #bbffb3 90%)",
+                })
+              }
+              onMouseUp={() =>
+                setFirstKardColor({
+                  ...firstKardColor,
+                })
+              }
+              onMouseDown={() =>
+                setFirstKardColor({
+                  ...firstKardColor,
+                })
+              }
+              onClick={() => setSelectedKard(0)}
+            >
+              Go Back
+            </MUButton>
+          </RestaurantKardWrapper>
         </>
       ) : null}
     </>

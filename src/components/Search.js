@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Axios from "axios";
 import AllResults from "./AllResults";
 import PropTypes from "prop-types";
+import { SearchDiv } from "../App.styles";
+
 
 const apiKey = 'yOCh6daSoxHqslqgU0Ag';
 
@@ -16,28 +18,34 @@ class Search extends Component {
     this.setState({
       searchText: e.target.value
     });
-  };
 
-  onButtonClick = () => {
-    this.setState({
-      fetchingData: true
-    });
-    const { searchText } = this.state;
-    const requestUri =
-      `https://cors-anywhere.herokuapp.com/` +
-      `https://www.goodreads.com/search/index.xml?key=${apiKey}&q=${searchText}`;
 
-    Axios.get(requestUri)
-      .then(res => {
-        this.parseXMLResponse(res.data);
-      })
-      .catch(error => {
-        this.setState({
-          error: error.toString(),
-          fetchingData: false
-        });
+    setTimeout( () =>{
+
+      this.setState({
+        fetchingData: true
       });
+      const { searchText } = this.state;
+      const requestUri =
+        `https://cors-anywhere.herokuapp.com/` +
+        `https://www.goodreads.com/search/index.xml?key=${apiKey}&q=${searchText}`;
+  
+      Axios.get(requestUri)
+        .then(res => {
+          this.parseXMLResponse(res.data);
+        })
+        .catch(error => {
+          this.setState({
+            error: error.toString(),
+            fetchingData: false
+          });
+        });
+
+    }, 500)
+
   };
+
+ 
 
   // parse string xml received from goodreads api
   parseXMLResponse = response => {
@@ -77,9 +85,10 @@ class Search extends Component {
 
   render() {
     return (
-      <div>
-        <div className="form-group row">
+      <SearchDiv>
+        <div style={{margin:'auto'}} className="form-group row">
           <input
+          style={{marginBottom:'2em'}}
             className="mr-1 col-sm-9 form-control"
             type="text"
             placeholder="Search Books By title, author, or ISBN..."
@@ -87,12 +96,12 @@ class Search extends Component {
             onChange={this.onTextChange}
             value={this.state.searchText}
           />
-          <button
+          {/* <button
             className="col-sm-2 btn btn-primary"
             onClick={this.onButtonClick}
           >
             Search
-          </button>
+          </button> */}
         </div>
 
         {/**
@@ -110,7 +119,7 @@ class Search extends Component {
             />
           )
         )}
-      </div>
+      </SearchDiv>
     );
   }
 }

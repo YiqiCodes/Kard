@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Search from "../components/Search";
 import BookInfo from "../components/BookInfo";
+import { BookDiv } from "../App.styles";
+
 
 class Books extends Component {
   state = {
@@ -22,11 +24,11 @@ class Books extends Component {
     this.setState({ expandedBook });
   };
 
-  render() {
+  render() { 
     return (
-      <div className="container">
+      <BookDiv style={{height:'100%'}} className="container">
         <div className="header clearfix mt-5">
-          <h3 className="text-muted">Goodreads Book Search</h3>
+          <h3 style={{display:'flex', justifyContent:'center'}} className="text-muted">Goodreads Search</h3>
         </div>
         <div className="jumbotron">
           {this.state.expandedBook ? (
@@ -42,7 +44,7 @@ class Books extends Component {
             />
           )}
         </div>
-      </div>
+      </BookDiv>
     );
   }
 }

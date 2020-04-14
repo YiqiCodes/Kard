@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
-import Axios from "axios";
+import axios from "axios";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import "./Album.css";
@@ -23,12 +23,14 @@ const Albums = () => {
   let keyValue = 0;
 
   useEffect(() => {
-    Axios.get(
-      `https://itunes.apple.com/search?term=${term}&media=music&entity=album`
-    ).then((response) => {
-      setResults(response.data.results);
-      console.log(response.data.results);
-    });
+    axios
+      .get(
+        `https://itunes.apple.com/search?term=${term}&media=music&entity=album`
+      )
+      .then((response) => {
+        setResults(response.data.results);
+        console.log(response.data.results);
+      });
   }, [term]);
 
   const ShowResults = results.map((result) => {
