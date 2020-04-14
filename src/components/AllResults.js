@@ -2,13 +2,16 @@ import React from "react";
 import SearchResult from "./SearchResult";
 import PropTypes from "prop-types";
 
+import { SearchDiv } from "../App.styles";
+
+
 const AllResults = ({ books, expandBook }) => {
   return (
-    <div className="row">
+    <SearchDiv className="row">
       {books.map(book => (
         <SearchResult bookData={book} key={book.id} expandBook={expandBook} />
       ))}
-    </div>
+    </SearchDiv>
   );
 };
 

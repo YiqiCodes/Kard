@@ -1,13 +1,16 @@
 import styled from "styled-components";
 
 export const PageWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  min-height: 100vh;
-  background: #360101;
+background: #360101;
+min-height: 100vh;
+
 `;
+
+// display: flex;
+// flex-direction: column;
+// justify-content: space-evenly;
+// align-items: center;
+
 
 export const KardContainer = styled.div`
   display: flex;
@@ -33,5 +36,15 @@ export const KardButton = styled.button`
   background: red;`
 
 export const BookDiv = styled.div`
- color: white;
+  color: white !important;
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+`;
+
+
+export const SearchDiv = styled.div`
+  display:grid;
+  justify-content: center;
+  flex-direction: column;
 `;
