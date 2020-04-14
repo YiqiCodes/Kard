@@ -6,11 +6,12 @@ import { PageWrapper } from "./App.styles";
 
 // Pages
 import Home from "./pages/Home";
+import Books from "./pages/Books";
 
 function App() {
   return (
     <PageWrapper>
-      <Home />
+      <Books />
     </PageWrapper>
   );
 }
