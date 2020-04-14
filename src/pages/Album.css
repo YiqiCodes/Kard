@@ -1,0 +1,23 @@
+.resultsBox {
+  background: grey;
+  max-height: 500px;
+  max-width: 90vw;
+  overflow: auto;
+  overflow-wrap: break-word;
+}
+
+.picked {
+  color: white;
+}
+
+.result {
+  color: white;
+}
+
+.result:hover {
+  color: yellow;
+}
+
+.result:active {
+  color: gold;
+}
