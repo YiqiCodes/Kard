@@ -76,7 +76,9 @@ const KardSelector = () => {
                   })
                 }
                 onClick={() => setSelectedKard(1)}
-              ></MUButton>
+              >
+                Albums
+              </MUButton>
 
               <MUButton
                 style={{
@@ -106,7 +108,9 @@ const KardSelector = () => {
                   })
                 }
                 onClick={() => setSelectedKard(2)}
-              ></MUButton>
+              >
+                Books
+              </MUButton>
 
               <MUButton
                 style={{
@@ -136,7 +140,9 @@ const KardSelector = () => {
                   })
                 }
                 onClick={() => setSelectedKard(3)}
-              ></MUButton>
+              >
+                Movies
+              </MUButton>
 
               <MUButton
                 style={{
@@ -166,7 +172,9 @@ const KardSelector = () => {
                   })
                 }
                 onClick={() => setSelectedKard(4)}
-              ></MUButton>
+              >
+                Restaurants
+              </MUButton>
             </KardSelectorContainer>
           </WhichKardWrapper>
         </>
@@ -181,28 +189,6 @@ const KardSelector = () => {
                 background: firstKardColor.color,
                 minHeight: "40px",
               }}
-              onMouseLeave={() =>
-                setFirstKardColor({
-                  ...firstKardColor,
-                  color: "linear-gradient(45deg, #0d7400 30%, #9dff90 90%)",
-                })
-              }
-              onMouseOver={() =>
-                setFirstKardColor({
-                  ...firstKardColor,
-                  color: "linear-gradient(45deg, #139b01 30%, #bbffb3 90%)",
-                })
-              }
-              onMouseUp={() =>
-                setFirstKardColor({
-                  ...firstKardColor,
-                })
-              }
-              onMouseDown={() =>
-                setFirstKardColor({
-                  ...firstKardColor,
-                })
-              }
               onClick={() => setSelectedKard(0)}
             >
               Go Back
@@ -221,28 +207,6 @@ const KardSelector = () => {
                 minHeight: "40px",
                 color: "black",
               }}
-              onMouseLeave={() =>
-                setSecondKardColor({
-                  ...secondKardColor,
-                  color: "linear-gradient(45deg, #ffdc18 30%, #f6f1c1 90%)",
-                })
-              }
-              onMouseOver={() =>
-                setSecondKardColor({
-                  ...secondKardColor,
-                  color: "linear-gradient(45deg, #e6c404 30%, #f8f0aa 90%)",
-                })
-              }
-              onMouseUp={() =>
-                setSecondKardColor({
-                  ...secondKardColor,
-                })
-              }
-              onMouseDown={() =>
-                setSecondKardColor({
-                  ...secondKardColor,
-                })
-              }
               onClick={() => setSelectedKard(0)}
             >
               Go Back
@@ -260,28 +224,6 @@ const KardSelector = () => {
                 background: firstKardColor.color,
                 minHeight: "40px",
               }}
-              onMouseLeave={() =>
-                setFirstKardColor({
-                  ...firstKardColor,
-                  color: "linear-gradient(45deg, #0d7400 30%, #9dff90 90%)",
-                })
-              }
-              onMouseOver={() =>
-                setFirstKardColor({
-                  ...firstKardColor,
-                  color: "linear-gradient(45deg, #139b01 30%, #bbffb3 90%)",
-                })
-              }
-              onMouseUp={() =>
-                setFirstKardColor({
-                  ...firstKardColor,
-                })
-              }
-              onMouseDown={() =>
-                setFirstKardColor({
-                  ...firstKardColor,
-                })
-              }
               onClick={() => setSelectedKard(0)}
             >
               Go Back
@@ -299,28 +241,6 @@ const KardSelector = () => {
                 background: firstKardColor.color,
                 minHeight: "40px",
               }}
-              onMouseLeave={() =>
-                setFirstKardColor({
-                  ...firstKardColor,
-                  color: "linear-gradient(45deg, #0d7400 30%, #9dff90 90%)",
-                })
-              }
-              onMouseOver={() =>
-                setFirstKardColor({
-                  ...firstKardColor,
-                  color: "linear-gradient(45deg, #139b01 30%, #bbffb3 90%)",
-                })
-              }
-              onMouseUp={() =>
-                setFirstKardColor({
-                  ...firstKardColor,
-                })
-              }
-              onMouseDown={() =>
-                setFirstKardColor({
-                  ...firstKardColor,
-                })
-              }
               onClick={() => setSelectedKard(0)}
             >
               Go Back
