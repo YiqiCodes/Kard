@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
 import Book from "./Book";
 
+
 const Home = () => {
   return (
     <BrowserRouter>
@@ -14,6 +15,14 @@ const Home = () => {
         </Route>
       </Switch>
     </BrowserRouter>
+
+    <>
+      <KardContainer>Album</KardContainer>
+      <KardContainer>Restaurant</KardContainer>
+      <KardContainer>City</KardContainer>
+      <KardContainer>Books</KardContainer>
+    </>
+
   );
 };
 

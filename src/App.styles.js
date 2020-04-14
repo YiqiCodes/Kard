@@ -20,6 +20,7 @@ export const KardContainer = styled.div`
   color: white;
 `;
 
+
 export const KardButton = styled.button`
   display: flex;
   width: 14rem;
@@ -29,5 +30,8 @@ export const KardButton = styled.button`
   border: 2px solid white;
   border-radius: 10px;
   color: white;
-  background: red;
+  background: red;`
+
+export const BookDiv = styled.div`
+ color: white;
 `;
