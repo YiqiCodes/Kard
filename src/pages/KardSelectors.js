@@ -5,6 +5,7 @@ import Albums from "./Albums";
 import Books from "./Books";
 import Movies from "./Movies";
 import Restaurants from "./Restaurants";
+import musicLogo from "../assets/images/music.jpeg";
 
 //styles
 import {
@@ -16,6 +17,9 @@ import {
   RestaurantKardWrapper,
   KardButtonOne,
   KardButtonTwo,
+  KardButtonThree,
+  KardButtonFour,
+  MainKardImage,
 } from "../App.styles";
 
 const KardSelector = () => {
@@ -25,16 +29,16 @@ const KardSelector = () => {
   const [faveBook, setFaveBook] = useState(null);
   const [faveResto, setFaveResto] = useState(null);
 
-  const changeAlbum = function (info) {
+  const chgAlbum = function (info) {
     setFaveAlbum(info);
   };
 
-  const changeBook = function (info) {
+  const chgBook = function (info) {
     setFaveBook(info);
     setSelectedKard(0);
   };
 
-  const changeResto = function (info) {
+  const chgResto = function (info) {
     setFaveResto(info);
   };
 
@@ -46,7 +50,7 @@ const KardSelector = () => {
             <KardSelectorContainer>
               {faveAlbum === null ? (
                 <KardButtonOne onClick={() => setSelectedKard(1)}>
-                  <p>Album</p>
+                  <MainKardImage src={musicLogo} alt=""></MainKardImage>
                 </KardButtonOne>
               ) : (
                 <>
@@ -80,10 +84,10 @@ const KardSelector = () => {
                   <div>{faveBook.best_book.title}</div>
                 </>
               )}
-              <KardButtonOne onClick={() => setSelectedKard(3)}>
+              <KardButtonThree onClick={() => setSelectedKard(3)}>
                 Movies
-              </KardButtonOne>
-              <KardButtonTwo onClick={() => setSelectedKard(4)}>
+              </KardButtonThree>
+              <KardButtonFour onClick={() => setSelectedKard(4)}>
                 {faveResto !== null ? (
                   <>
                     <div>{faveResto}</div>
@@ -91,7 +95,7 @@ const KardSelector = () => {
                 ) : (
                   <p>Restaurant</p>
                 )}
-              </KardButtonTwo>
+              </KardButtonFour>
             </KardSelectorContainer>
           </WhichKardWrapper>
         </>
@@ -99,7 +103,7 @@ const KardSelector = () => {
       {selectedKard === 1 ? (
         <>
           <AlbumsKardWrapper>
-            <Albums changeAlbum={changeAlbum}></Albums>
+            <Albums chgAlbum={chgAlbum}></Albums>
             <KardButtonOne
               style={{
                 minHeight: "40px",
@@ -114,7 +118,7 @@ const KardSelector = () => {
       {selectedKard === 2 ? (
         <>
           <BooksKardWrapper>
-            <Books changeBook={changeBook}></Books>
+            <Books chgBook={chgBook}></Books>
             <KardButtonTwo
               style={{
                 minHeight: "40px",
@@ -144,7 +148,7 @@ const KardSelector = () => {
       {selectedKard === 4 ? (
         <>
           <RestaurantKardWrapper>
-            <Restaurants changeResto={changeResto}></Restaurants>
+            <Restaurants chgResto={chgResto}></Restaurants>
             <KardButtonTwo
               style={{
                 minHeight: "40px",

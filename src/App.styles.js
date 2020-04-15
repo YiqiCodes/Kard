@@ -113,7 +113,7 @@ export const KardButtonOne = styled.button`
   background: linear-gradient(135deg, #522927 45%, #781031 90%);
   height: 40px;
   width: 163px;
-  padding: 0 30px;
+
   box-shadow: 0 3px 5px 2px white;
   min-height: 20vh;
   margin-right: 1em;
@@ -137,6 +137,36 @@ export const KardButtonTwo = styled.button`
   margin-bottom: 10px;
 `;
 
+export const KardButtonThree = styled.button`
+  border-radius: 12px;
+  border: 0;
+  background: linear-gradient(135deg, #453409 45%, #91701a 90%);
+  height: 40px;
+  width: 163px;
+  padding: 0 30px;
+  box-shadow: 0 3px 5px 2px white;
+  min-height: 20vh;
+  margin-right: 1em;
+  margin-left: 1em;
+  margin-top: 10px;
+  margin-bottom: 10px;
+`;
+
+export const KardButtonFour = styled.button`
+  border-radius: 12px;
+  border: 0;
+  background: linear-gradient(135deg, #21916c 45%, #30d19b 90%);
+  height: 40px;
+  width: 163px;
+  padding: 0 30px;
+  box-shadow: 0 3px 5px 2px white;
+  min-height: 20vh;
+  margin-right: 1em;
+  margin-left: 1em;
+  margin-top: 10px;
+  margin-bottom: 10px;
+`;
+
 export const KardButton = styled.button`
   display: flex;
   width: 14rem;
@@ -149,6 +179,12 @@ export const KardButton = styled.button`
   background: red;
 `;
 
+export const MainKardImage = styled.img`
+  max-width: 100%;
+  max-height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+`;
 export const BookDiv = styled.div`
   color: white !important;
   display: flex;

@@ -3,54 +3,50 @@ import Search from "../components/Search";
 import BookInfo from "../components/BookInfo";
 import { BookDiv } from "../App.styles";
 
-
-function Books (props){
-
-
+function Books(props) {
   const [state, setState] = useState({
     results: [],
-    expandedBook: null
-  })
-   
+    expandedBook: null,
+  });
 
-  const setResults = results => {
+  const setResults = (results) => {
     setState({ results });
   };
 
   const collapseBook = () => {
     setState({
-      expandedBook: null
+      expandedBook: null,
     });
   };
 
-  const expandBook = expandedBook => {
+  const expandBook = (expandedBook) => {
     setState({ expandedBook });
   };
 
- 
-    return (
-      <BookDiv style={{height:'100%'}} className="container">
-        <div className="header clearfix mt-5">
-          <h3 style={{display:'flex', justifyContent:'center'}} className="text-muted">Goodreads Search</h3>
-        </div>
-        <div className="jumbotron">
-          {state.expandedBook ? (
-            <BookInfo
-              bookData={state.expandedBook}
-              collapseBook={collapseBook}
-            />
-          ) : (
-            <Search
-              chgBook={props.chgBook}
-              results={state.results}
-              setResults={setResults}
-              expandBook={expandBook}
-            />
-          )}
-        </div>
-      </BookDiv>
-    );
-  
+  return (
+    <BookDiv style={{ height: "100%" }} className="container">
+      <div className="header clearfix mt-5">
+        <h3
+          style={{ display: "flex", justifyContent: "center" }}
+          className="text-muted"
+        >
+          Goodreads Search
+        </h3>
+      </div>
+      <div className="jumbotron">
+        {state.expandedBook ? (
+          <BookInfo bookData={state.expandedBook} collapseBook={collapseBook} />
+        ) : (
+          <Search
+            chgBook={props.chgBook}
+            results={state.results}
+            setResults={setResults}
+            expandBook={expandBook}
+          />
+        )}
+      </div>
+    </BookDiv>
+  );
 }
 
 export default Books;
