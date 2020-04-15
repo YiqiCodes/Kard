@@ -1,14 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const SearchResultMovie = (props) => {
+const SearchResultMovie = ({movieData, expandBook, chgMovie}) => {
   /**
    * truncate book title to first 4 words and append it with '...'
    * indicating it is truncated.
    * Full title will be shown in a tooltip
    */
 
-  const { movieData } = props
+  // const { movieData } = props
 
    console.log(movieData)
 
@@ -66,14 +66,14 @@ const SearchResultMovie = (props) => {
 
             <button
               className="btn btn-primary"
-              onClick={() => console.log('select')}
+              onClick={() => chgMovie(movieData)}
             >
               Select
             </button>
 
             <button
               className="btn btn-primary"
-              onClick={() => console.log('mor einfo')}
+              onClick={() => expandBook(movieData)}
             >
               More Info
             </button>

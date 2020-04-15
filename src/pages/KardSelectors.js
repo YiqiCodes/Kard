@@ -31,6 +31,8 @@ const KardSelector = () => {
   const [faveAlbum, setFaveAlbum] = useState(null);
   const [faveBook, setFaveBook] = useState(null);
   const [faveResto, setFaveResto] = useState(null);
+  const [faveMovie, setFaveMovie] = useState(null);
+
 
   const chgAlbum = function (info) {
     setFaveAlbum(info);
@@ -43,6 +45,12 @@ const KardSelector = () => {
 
   const chgResto = function (info) {
     setFaveResto(info);
+  };
+
+  const chgMovie = function (info) {
+    setFaveMovie(info);
+    setSelectedKard(0);
+
   };
 
   return (
@@ -97,11 +105,46 @@ const KardSelector = () => {
                   </div>
                 </>
               )}
-              <KardButtonThree onClick={() => setSelectedKard(3)}>
+  {/* movies begin */}
+
+
+              {faveMovie === null ? (
+                <KardButtonThree onClick={() => setSelectedKard(3)}>
                 <MainKardImage src={movieIcon} alt=""></MainKardImage>
               </KardButtonThree>
+
+              ) : (
+                <>
+                  <img
+                    className="Kard-dashboard"
+                    src={`https://image.tmdb.org/t/p/w500${faveMovie.poster_path}`}
+                    alt="Book cover"
+                    onClick={() => setSelectedKard(3)}
+                  />
+                  
+                  <div style={{ color: "white" }}>
+                    {faveMovie.title}
+                  </div>
+                </>
+              )}
+
+              
+  {/* restaurent begins */}
+              <KardButtonFour onClick={() => setSelectedKard(4)}>
+                {faveResto !== null ? (
+                  <>
+                    <img
+                      className="resto_thumbnail"
+                      src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=100&photoreference=${faveResto.photos[0].photo_reference}&key=AIzaSyAcLOiaEp4qBb1Wt2V_dyR6Ze1sgIEfUhs`}
+                      alt="Restaurant"
+                    />
+                    <div>{faveResto.name}</div>
+                  </>
+                ) : (
+
               {faveResto === null ? (
                 <KardButtonFour onClick={() => setSelectedKard(4)}>
+
                   <MainKardImage src={restaurantIcon} alt=""></MainKardImage>
                 </KardButtonFour>
               ) : (
@@ -152,7 +195,7 @@ const KardSelector = () => {
       {selectedKard === 3 ? (
         <>
           <MoviesKardWrapper>
-            <Movies></Movies>
+            <Movies chgMovie={chgMovie}></Movies>
             <KardButtonOne
               style={{
                 minHeight: "40px",
