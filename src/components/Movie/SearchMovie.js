@@ -57,6 +57,10 @@ function SearchMovie (props) {
             {movies !== null ? (
               <AllMovieResults 
               movies={movies}
+              chgMovie={props.chgMovie}
+              expandBook={props.expandBook}
+              mov={props.results}
+
               />
             ) : null }
           </div>

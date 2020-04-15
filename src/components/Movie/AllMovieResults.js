@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import { SearchDiv } from "../../App.styles";
 
 
-const AllMovieResults = ({ movies }) => {
+const AllMovieResults = ({ movies, chgMovie, expandBook, mov }) => {
 
   console.log(movies)
 
@@ -13,7 +13,8 @@ const AllMovieResults = ({ movies }) => {
     <SearchDiv className="row">
       {movies.results.map(movie => (
        
-       <SearchResultMovie movieData={movie}/>
+       <SearchResultMovie movieData={movie} key={movie.id} expandBook={expandBook}
+       chgMovie={chgMovie} />
 
       ))}
     </SearchDiv>

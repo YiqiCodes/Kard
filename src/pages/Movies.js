@@ -1,22 +1,50 @@
-import React from 'react';
+import React, { useState } from "react";
 import SearchMovie from "../components/Movie/SearchMovie";
 import { BookDiv } from "../App.styles";
 
 
 
-class Movies extends React.Component {
+function Movies (props) {
 
- render() {
+  const [state, setState] = useState({
+    results: [],
+    expandedBook: null,
+  });
+
+
+  const setResults = (results) => {
+    setState({ results });
+  };
+
+  const collapseBook = () => {
+    setState({
+      expandedBook: null,
+    });
+  };
+
+  const expandBook = (expandedBook) => {
+    console.log('expanidng book 4 more info')
+    setState({ expandedBook });
+  };
+
+ 
    return (
     <BookDiv style={{height:'100%'}} className="container">
     <div className="header clearfix mt-5">
       <h3 style={{display:'flex', justifyContent:'center'}} className="text-muted">Movie Search</h3>
     </div>
     <div className="jumbotron">
-      <SearchMovie />
+      <SearchMovie 
+      
+      chgMovie={props.chgMovie}
+      results={state.results}
+      setResults={setResults}
+      expandBook={expandBook}
+      
+      />
     </div>
   </BookDiv>
    );
- }
+ 
 }
 export default Movies;
