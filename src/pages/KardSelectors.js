@@ -42,22 +42,19 @@ const KardSelector = () => {
     marginBottom: "10px",
   };
 
-  const [favAlbum, setFavAlbum] = useState(null)
-  const [favBook, setFavBook] = useState(null)
+  const [favAlbum, setFavAlbum] = useState(null);
+  const [favBook, setFavBook] = useState(null);
 
-  const chgAlbum = function (info){
-    console.log ('album', info)
-    setFavAlbum(info)
-  }
+  const chgAlbum = function (info) {
+    console.log("album", info);
+    setFavAlbum(info);
+  };
 
-  const chgBook = function (info){
-    console.log (info)
-    setFavBook(info)
-    setSelectedKard(0)
-  }
-
-
-
+  const chgBook = function (info) {
+    console.log(info);
+    setFavBook(info);
+    setSelectedKard(0);
+  };
 
   return (
     <>
@@ -94,22 +91,22 @@ const KardSelector = () => {
                 }
                 onClick={() => setSelectedKard(1)}
               >
-                
                 {favAlbum !== null ? (
                   <>
                     <img
-                      style={{ 
-                        margin:'auto',
-                      }} 
+                      style={{
+                        margin: "auto",
+                      }}
                       className="card-img-top pl-2 pr-2 pt-2"
                       src={favAlbum.artworkUrl60}
                       alt="Album cover"
                       height="100px"
                     />
                     <div>{favAlbum.collectionName}</div>
-                  </>               
-                ) : <p>Album</p>}
-
+                  </>
+                ) : (
+                  <p>Album</p>
+                )}
               </MUButton>
 
               <MUButton
@@ -141,17 +138,15 @@ const KardSelector = () => {
                 }
                 onClick={() => setSelectedKard(2)}
               >
-
-            {favBook !== null ? (
-              <img
-        
-          className="Kard-dashboard"
-          src={favBook.best_book.image_url}
-          alt="Book cover"
-          />                    
-            ) : <p>Books</p>}
-
-
+                {favBook !== null ? (
+                  <img
+                    className="Kard-dashboard"
+                    src={favBook.best_book.image_url}
+                    alt="Book cover"
+                  />
+                ) : (
+                  <p>Books</p>
+                )}
               </MUButton>
 
               <MUButton
@@ -276,7 +271,7 @@ const KardSelector = () => {
       {selectedKard === 4 ? (
         <>
           <RestaurantKardWrapper>
-            <Restaurants></Restaurants>
+            {/* <Restaurants></Restaurants> */}
             <MUButton
               style={{
                 ...styledButton,
