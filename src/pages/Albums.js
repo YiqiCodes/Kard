@@ -14,12 +14,10 @@ const Albums = (props) => {
     const requestURL =
       `https://cors-anywhere.herokuapp.com/` +
       `https://itunes.apple.com/search?term=${term}&media=music&entity=album`;
-    axios
-      .get(requestURL)
-      .then((response) => {
-        setResults(response.data.results);
-        console.log(response.data.results);
-      });
+    axios.get(requestURL).then((response) => {
+      setResults(response.data.results);
+      console.log(response.data.results);
+    });
   }, [term]);
 
   const ShowResults = results.map((result) => {
@@ -43,16 +41,32 @@ const Albums = (props) => {
   return (
     <Fragment>
       <main>
+        <h3
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            fontWeight: "200",
+          }}
+          className="text-muted"
+        >
+          What's your favourite Album?
+        </h3>
         <form className="formDefault" noValidate autoComplete="off">
           <TextField
             className="textFieldDefault"
             id="outlined-basic"
-            label="Artist Name"
+            label="Search by Artist"
             variant="outlined"
             onChange={(event) => setTerm(event.target.value)}
           />
         </form>
-        <div className="picked">
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            padding: "5px 0",
+          }}
+        >
           {picked !== undefined ? (
             <>
               <img
@@ -60,7 +74,9 @@ const Albums = (props) => {
                 src={picked.artworkUrl60}
                 alt="Album"
               />
-              <div className="album_name">{picked.collectionName}</div>
+              <div style={{ margin: 0 }} className="album_name">
+                {picked.collectionName}
+              </div>
             </>
           ) : null}
         </div>
