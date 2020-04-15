@@ -13,29 +13,29 @@ const Restaurants = (props) => {
   useEffect(() => {
     const requestURL =
       `https://cors-anywhere.herokuapp.com/` +
-      `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${term}&types=establishment&location=37.76999,-122.44696&radius=500&key=AIzaSyAcLOiaEp4qBb1Wt2V_dyR6Ze1sgIEfUhs`;
+      `https://maps.googleapis.com/maps/api/place/textsearch/json?input=${term}&types=food|restaurant&location=43.65290,-79.38490&key=AIzaSyAcLOiaEp4qBb1Wt2V_dyR6Ze1sgIEfUhs`;
 
     axios.get(requestURL).then((response) => {
-      setResults(response.data.predictions);
-      console.log(response);
+      setResults(response.data.results);
+      console.log(response.data.results);
     });
   }, [term]);
 
   const ShowResults = results.map((result) => {
     keyValue += 1;
 
-    console.log(result.terms[0].value);
+    console.log(result.name);
 
     return (
       <div
         className="result"
         key={keyValue}
         onClick={(event) => {
-          setPicked(result.terms[0].value);
-          props.chgResto(result.terms[0].value);
+          setPicked(result.name);
+          props.chgResto(result.name);
         }}
       >
-        {result.terms[0].value}
+        {result.name}
       </div>
     );
   });
