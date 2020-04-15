@@ -95,11 +95,6 @@ export const KardSelectorContainer = styled.div`
   justify-content: center;
 `;
 
-// display: flex;
-// flex-direction: column;
-// justify-content: space-evenly;
-// align-items: center;
-
 export const KardContainer = styled.div`
   display: flex;
   width: 14rem;
@@ -109,6 +104,37 @@ export const KardContainer = styled.div`
   border: 2px solid white;
   border-radius: 10px;
   color: white;
+`;
+
+// buttons
+export const KardButtonOne = styled.button`
+  border-radius: 12px;
+  border: 0;
+  background: linear-gradient(135deg, #522927 45%, #781031 90%);
+  height: 40px;
+  width: 163px;
+  padding: 0 30px;
+  box-shadow: 0 3px 5px 2px white;
+  min-height: 20vh;
+  margin-right: 1em;
+  margin-left: 1em;
+  margin-top: 10px;
+  margin-bottom: 10px;
+`;
+
+export const KardButtonTwo = styled.button`
+  border-radius: 12px;
+  border: 0;
+  background: linear-gradient(135deg, #106178 45%, #6c9dab 90%);
+  height: 40px;
+  width: 163px;
+  padding: 0 30px;
+  box-shadow: 0 3px 5px 2px white;
+  min-height: 20vh;
+  margin-right: 1em;
+  margin-left: 1em;
+  margin-top: 10px;
+  margin-bottom: 10px;
 `;
 
 export const KardButton = styled.button`

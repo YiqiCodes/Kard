@@ -1,6 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
 import axios from "axios";
-import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import "./Albums.css";
 
@@ -16,12 +15,10 @@ const Restaurants = (props) => {
       `https://cors-anywhere.herokuapp.com/` +
       `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${term}&types=establishment&location=37.76999,-122.44696&radius=500&key=AIzaSyAcLOiaEp4qBb1Wt2V_dyR6Ze1sgIEfUhs`;
 
-    axios
-      .get(requestURL)
-      .then((response) => {
-        setResults(response.data.predictions);
-        console.log(response);
-      });
+    axios.get(requestURL).then((response) => {
+      setResults(response.data.predictions);
+      console.log(response);
+    });
   }, [term]);
 
   const ShowResults = results.map((result) => {
@@ -45,27 +42,27 @@ const Restaurants = (props) => {
 
   return (
     <>
-    <Fragment>
-      <main>
-        <form className="formDefault" noValidate autoComplete="off">
-          <TextField
-            className="textFieldDefault"
-            id="outlined-basic"
-            label="Restaurant name"
-            variant="outlined"
-            onChange={(event) => setTerm(event.target.value)}
-          />
-        </form>
-        <div className="picked">
-          {picked !== undefined ? (
-            <>
-              <div className="restaurant_name">{picked}</div>
-            </>
-          ) : null}
-        </div>
-        <div className="resultsBox">{ShowResults}</div>
-      </main>
-    </Fragment>
+      <Fragment>
+        <main>
+          <form className="formDefault" noValidate autoComplete="off">
+            <TextField
+              className="textFieldDefault"
+              id="outlined-basic"
+              label="Restaurant name"
+              variant="outlined"
+              onChange={(event) => setTerm(event.target.value)}
+            />
+          </form>
+          <div className="picked">
+            {picked !== undefined ? (
+              <>
+                <div className="restaurant_name">{picked}</div>
+              </>
+            ) : null}
+          </div>
+          <div className="resultsBox">{ShowResults}</div>
+        </main>
+      </Fragment>
     </>
   );
 };

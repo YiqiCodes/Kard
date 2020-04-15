@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import MUButton from "@material-ui/core/Button";
 
 //components
 import Albums from "./Albums";
@@ -15,52 +14,29 @@ import {
   BooksKardWrapper,
   MoviesKardWrapper,
   RestaurantKardWrapper,
+  KardButtonOne,
+  KardButtonTwo,
 } from "../App.styles";
 
 const KardSelector = () => {
   const [selectedKard, setSelectedKard] = useState(0);
-  const [firstKardColor, setFirstKardColor] = useState({
-    color: "linear-gradient(45deg, #106178 45%, #6C9DAB 90%)",
-  });
 
-  const [secondKardColor, setSecondKardColor] = useState({
-    color: "linear-gradient(135deg, #522927 45%, #781031 90%)",
-  });
+  const [faveAlbum, setFaveAlbum] = useState(null);
+  const [faveBook, setFaveBook] = useState(null);
+  const [faveResto, setFaveResto] = useState(null);
 
-  const styledButton = {
-    borderRadius: 12,
-    border: 0,
-    color: "white",
-    height: 40,
-    width: 163,
-    padding: "0 30px",
-    boxShadow: "0 3px 5px 2px #4a148c 30%",
-    minHeight: "20vh",
-    marginRight: "1em",
-    marginLeft: "1em",
-    marginTop: "10px",
-    marginBottom: "10px",
+  const changeAlbum = function (info) {
+    setFaveAlbum(info);
   };
 
-  const [favAlbum, setFavAlbum] = useState(null)
-  const [favBook, setFavBook] = useState(null)
-  const [favResto, setFavResto] = useState(null)
+  const changeBook = function (info) {
+    setFaveBook(info);
+    setSelectedKard(0);
+  };
 
-  const chgAlbum = function (info){
-    console.log ('album', info)
-    setFavAlbum(info)
-  }
-
-  const chgBook = function (info){
-    console.log (info)
-    setFavBook(info)
-    setSelectedKard(0)
-  }
-
-  const chgResto = function (info){
-    console.log ('resto', info)
-    setFavResto(info)
-  }
+  const changeResto = function (info) {
+    setFaveResto(info);
+  };
 
   return (
     <>
@@ -68,17 +44,10 @@ const KardSelector = () => {
         <>
           <WhichKardWrapper>
             <KardSelectorContainer>
-              {favAlbum === null ? (
-                <MUButton
-                  style={{
-                    ...styledButton,
-                    background: firstKardColor.color,
-                    maxHeight: "20vh",
-                  }}
-                  onClick={() => setSelectedKard(1)}
-                >
+              {faveAlbum === null ? (
+                <KardButtonOne onClick={() => setSelectedKard(1)}>
                   <p>Album</p>
-                </MUButton>
+                </KardButtonOne>
               ) : (
                 <>
                   <img
@@ -86,56 +55,43 @@ const KardSelector = () => {
                       margin: "auto",
                     }}
                     className="card-img-top pl-2 pr-2 pt-2"
-                    src={favAlbum.artworkUrl60}
+                    src={faveAlbum.artworkUrl60}
                     alt="Album cover"
                     height="100px"
+                    onClick={() => setSelectedKard(1)}
                   />
-                  <div>{favAlbum.collectionName}</div>
+                  <div>{faveAlbum.artistName}</div>
+                  <div>{faveAlbum.collectionName}</div>
                 </>
               )}
-              {favBook === null ? (
-                <MUButton
-                  style={{
-                    ...styledButton,
-                    background: secondKardColor.color,
-                    maxHeight: "20vh",
-                  }}
-                  onClick={() => setSelectedKard(2)}
-                >
+              {faveBook === null ? (
+                <KardButtonTwo onClick={() => setSelectedKard(2)}>
                   <p>Books</p>
-                </MUButton>
+                </KardButtonTwo>
               ) : (
-                <img
-                  className="Kard-dashboard"
-                  src={favBook.best_book.image_url}
-                  alt="Book cover"
-                />
+                <>
+                  <img
+                    className="Kard-dashboard"
+                    src={faveBook.best_book.image_url}
+                    alt="Book cover"
+                    onClick={() => setSelectedKard(2)}
+                  />
+                  <div>{faveBook.best_book.author.name}</div>
+                  <div>{faveBook.best_book.title}</div>
+                </>
               )}
-
-              <MUButton
-                style={{
-                  ...styledButton,
-                  background: firstKardColor.color,
-                }}
-                onClick={() => setSelectedKard(3)}
-              >
+              <KardButtonOne onClick={() => setSelectedKard(3)}>
                 Movies
-              </MUButton>
-              <MUButton
-                style={{
-                  ...styledButton,
-                  background: secondKardColor.color,
-                }}
-                onClick={() => setSelectedKard(4)}
-              >
-                
-                {favResto !== null ? (
+              </KardButtonOne>
+              <KardButtonTwo onClick={() => setSelectedKard(4)}>
+                {faveResto !== null ? (
                   <>
-                    <div>{favResto}</div>
-                  </>               
-                ) : <p>Restaurant</p>}
-
-              </MUButton>
+                    <div>{faveResto}</div>
+                  </>
+                ) : (
+                  <p>Restaurant</p>
+                )}
+              </KardButtonTwo>
             </KardSelectorContainer>
           </WhichKardWrapper>
         </>
@@ -143,35 +99,30 @@ const KardSelector = () => {
       {selectedKard === 1 ? (
         <>
           <AlbumsKardWrapper>
-            <Albums chgAlbum={chgAlbum}></Albums>
-            <MUButton
+            <Albums changeAlbum={changeAlbum}></Albums>
+            <KardButtonOne
               style={{
-                ...styledButton,
-                background: firstKardColor.color,
                 minHeight: "40px",
               }}
               onClick={() => setSelectedKard(0)}
             >
               Go Back
-            </MUButton>
+            </KardButtonOne>
           </AlbumsKardWrapper>
         </>
       ) : null}
       {selectedKard === 2 ? (
         <>
           <BooksKardWrapper>
-            <Books chgBook={chgBook}></Books>
-            <MUButton
+            <Books changeBook={changeBook}></Books>
+            <KardButtonTwo
               style={{
-                ...styledButton,
-                background: secondKardColor.color,
                 minHeight: "40px",
-                color: "black",
               }}
               onClick={() => setSelectedKard(0)}
             >
               Go Back
-            </MUButton>
+            </KardButtonTwo>
           </BooksKardWrapper>
         </>
       ) : null}
@@ -179,33 +130,29 @@ const KardSelector = () => {
         <>
           <MoviesKardWrapper>
             <Movies></Movies>
-            <MUButton
+            <KardButtonOne
               style={{
-                ...styledButton,
-                background: firstKardColor.color,
                 minHeight: "40px",
               }}
               onClick={() => setSelectedKard(0)}
             >
               Go Back
-            </MUButton>
+            </KardButtonOne>
           </MoviesKardWrapper>
         </>
       ) : null}
       {selectedKard === 4 ? (
         <>
           <RestaurantKardWrapper>
-            <Restaurants chgResto={chgResto}></Restaurants>
-            <MUButton
+            <Restaurants changeResto={changeResto}></Restaurants>
+            <KardButtonTwo
               style={{
-                ...styledButton,
-                background: firstKardColor.color,
                 minHeight: "40px",
               }}
               onClick={() => setSelectedKard(0)}
             >
               Go Back
-            </MUButton>
+            </KardButtonTwo>
           </RestaurantKardWrapper>
         </>
       ) : null}
