@@ -11,10 +11,11 @@ const Albums = (props) => {
   let keyValue = 0;
 
   useEffect(() => {
+    const requestURL =
+      `https://cors-anywhere.herokuapp.com/` +
+      `https://itunes.apple.com/search?term=${term}&media=music&entity=album`;
     axios
-      .get(
-        `https://itunes.apple.com/search?term=${term}&media=music&entity=album`
-      )
+      .get(requestURL)
       .then((response) => {
         setResults(response.data.results);
         console.log(response.data.results);
