@@ -20,11 +20,11 @@ import {
 const KardSelector = () => {
   const [selectedKard, setSelectedKard] = useState(0);
   const [firstKardColor, setFirstKardColor] = useState({
-    color: "linear-gradient(45deg, #0d7400 30%, #9dff90 90%)",
+    color: "linear-gradient(45deg, #106178 45%, #6C9DAB 90%)",
   });
 
   const [secondKardColor, setSecondKardColor] = useState({
-    color: "linear-gradient(45deg, #ffdc18 30%, #f6f1c1 90%)",
+    color: "linear-gradient(135deg, #522927 45%, #781031 90%)",
   });
 
   const styledButton = {
@@ -62,166 +62,70 @@ const KardSelector = () => {
     setFavResto(info)
   }
 
-
-
   return (
     <>
       {selectedKard === 0 ? (
         <>
           <WhichKardWrapper>
             <KardSelectorContainer>
-              <MUButton
-                style={{
-                  ...styledButton,
-                  background: firstKardColor.color,
-                }}
-                onMouseLeave={() =>
-                  setFirstKardColor({
-                    ...firstKardColor,
-                    color: "linear-gradient(45deg, #0d7400 30%, #9dff90 90%)",
-                  })
-                }
-                onMouseOver={() =>
-                  setFirstKardColor({
-                    ...firstKardColor,
-                    color: "linear-gradient(45deg, #139b01 30%, #bbffb3 90%)",
-                  })
-                }
-                onMouseUp={() =>
-                  setFirstKardColor({
-                    ...firstKardColor,
-                  })
-                }
-                onMouseDown={() =>
-                  setFirstKardColor({
-                    ...firstKardColor,
-                  })
-                }
-                onClick={() => setSelectedKard(1)}
-              >
-                
-                {favAlbum !== null ? (
-                  <>
-                    <img
-                      style={{ 
-                        margin:'auto',
-                      }} 
-                      className="card-img-top pl-2 pr-2 pt-2"
-                      src={favAlbum.artworkUrl60}
-                      alt="Album cover"
-                      height="100px"
-                    />
-                    <div>{favAlbum.collectionName}</div>
-                  </>               
-                ) : <p>Album</p>}
-
-              </MUButton>
-
-              <MUButton
-                style={{
-                  ...styledButton,
-                  background: secondKardColor.color,
-                }}
-                onMouseLeave={() =>
-                  setSecondKardColor({
-                    ...secondKardColor,
-                    color: "linear-gradient(45deg, #ffdc18 30%, #f6f1c1 90%)",
-                  })
-                }
-                onMouseOver={() =>
-                  setSecondKardColor({
-                    ...secondKardColor,
-                    color: "linear-gradient(45deg, #e6c404 30%, #f8f0aa 90%)",
-                  })
-                }
-                onMouseUp={() =>
-                  setSecondKardColor({
-                    ...secondKardColor,
-                  })
-                }
-                onMouseDown={() =>
-                  setSecondKardColor({
-                    ...secondKardColor,
-                  })
-                }
-                onClick={() => setSelectedKard(2)}
-              >
-
-            {favBook !== null ? (
-              <img
-          style={{ 
-            height:'80%',
-            margin:'auto'
-          }} 
-          className="card-img-top pl-2 pr-2 pt-2"
-          src={favBook.best_book.image_url}
-          alt="Book cover"
-          height="200px"
-          />                    
-            ) : <p>Books</p>}
-
-
-              </MUButton>
+              {favAlbum === null ? (
+                <MUButton
+                  style={{
+                    ...styledButton,
+                    background: firstKardColor.color,
+                    maxHeight: "20vh",
+                  }}
+                  onClick={() => setSelectedKard(1)}
+                >
+                  <p>Album</p>
+                </MUButton>
+              ) : (
+                <>
+                  <img
+                    style={{
+                      margin: "auto",
+                    }}
+                    className="card-img-top pl-2 pr-2 pt-2"
+                    src={favAlbum.artworkUrl60}
+                    alt="Album cover"
+                    height="100px"
+                  />
+                  <div>{favAlbum.collectionName}</div>
+                </>
+              )}
+              {favBook === null ? (
+                <MUButton
+                  style={{
+                    ...styledButton,
+                    background: secondKardColor.color,
+                    maxHeight: "20vh",
+                  }}
+                  onClick={() => setSelectedKard(2)}
+                >
+                  <p>Books</p>
+                </MUButton>
+              ) : (
+                <img
+                  className="Kard-dashboard"
+                  src={favBook.best_book.image_url}
+                  alt="Book cover"
+                />
+              )}
 
               <MUButton
                 style={{
                   ...styledButton,
                   background: firstKardColor.color,
                 }}
-                onMouseLeave={() =>
-                  setFirstKardColor({
-                    ...firstKardColor,
-                    color: "linear-gradient(45deg, #0d7400 30%, #9dff90 90%)",
-                  })
-                }
-                onMouseOver={() =>
-                  setFirstKardColor({
-                    ...firstKardColor,
-                    color: "linear-gradient(45deg, #139b01 30%, #bbffb3 90%)",
-                  })
-                }
-                onMouseUp={() =>
-                  setFirstKardColor({
-                    ...firstKardColor,
-                  })
-                }
-                onMouseDown={() =>
-                  setFirstKardColor({
-                    ...firstKardColor,
-                  })
-                }
                 onClick={() => setSelectedKard(3)}
               >
                 Movies
               </MUButton>
-
               <MUButton
                 style={{
                   ...styledButton,
                   background: secondKardColor.color,
                 }}
-                onMouseLeave={() =>
-                  setSecondKardColor({
-                    ...secondKardColor,
-                    color: "linear-gradient(45deg, #ffdc18 30%, #f6f1c1 90%)",
-                  })
-                }
-                onMouseOver={() =>
-                  setSecondKardColor({
-                    ...secondKardColor,
-                    color: "linear-gradient(45deg, #e6c404 30%, #f8f0aa 90%)",
-                  })
-                }
-                onMouseUp={() =>
-                  setSecondKardColor({
-                    ...secondKardColor,
-                  })
-                }
-                onMouseDown={() =>
-                  setSecondKardColor({
-                    ...secondKardColor,
-                  })
-                }
                 onClick={() => setSelectedKard(4)}
               >
                 
