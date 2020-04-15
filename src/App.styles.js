@@ -1,6 +1,5 @@
 import styled, { keyframes } from "styled-components";
 
-
 export const PageWrapper = styled.div``;
 
 // Which Phone Styles
@@ -20,10 +19,9 @@ export const WhichKardWrapper = styled.div`
   min-width: 100vw;
   min-height: 100vh;
   max-height: 100vh;
-  background: linear-gradient(270deg, #000000, #a3a3a3);
-  color: white;
+  background: #104634;
+  color: black;
   background-size: 400% 400%;
-  animation: ${animationName} 10s ease infinite;
 `;
 
 export const AlbumsKardWrapper = styled.div`
@@ -102,7 +100,6 @@ export const KardSelectorContainer = styled.div`
 // justify-content: space-evenly;
 // align-items: center;
 
-
 export const KardContainer = styled.div`
   display: flex;
   width: 14rem;
@@ -127,17 +124,14 @@ export const KardButton = styled.button`
 `;
 
 export const BookDiv = styled.div`
-
   color: white !important;
-  display:flex;
+  display: flex;
   justify-content: center;
   flex-direction: column;
-
 `;
 
-
 export const SearchDiv = styled.div`
-  display:grid;
+  display: grid;
   justify-content: center;
   flex-direction: column;
 `;
