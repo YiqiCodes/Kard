@@ -27,10 +27,14 @@ function Books(props) {
     <BookDiv style={{ height: "100%" }} className="container">
       <div className="header clearfix mt-5">
         <h3
-          style={{ display: "flex", justifyContent: "center" }}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            fontWeight: "200",
+          }}
           className="text-muted"
         >
-          Goodreads Search
+          What's your favourite Book?
         </h3>
       </div>
       <div className="jumbotron">

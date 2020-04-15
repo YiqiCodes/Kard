@@ -34,10 +34,8 @@ export const AlbumsKardWrapper = styled.div`
   z-index: -1;
   min-width: 100vw;
   min-height: 100vh;
-  background: linear-gradient(270deg, #000000, #a3a3a3);
+  background: #111111;
   color: white;
-  background-size: 400% 400%;
-  animation: ${animationName} 10s ease infinite;
 `;
 
 export const BooksKardWrapper = styled.div`
@@ -50,10 +48,8 @@ export const BooksKardWrapper = styled.div`
   z-index: -1;
   min-width: 100vw;
   min-height: 100vh;
-  background: linear-gradient(270deg, #000000, #a3a3a3);
+  background: #111111;
   color: white;
-  background-size: 400% 400%;
-  animation: ${animationName} 10s ease infinite;
 `;
 
 export const MoviesKardWrapper = styled.div`

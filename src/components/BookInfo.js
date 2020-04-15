@@ -9,7 +9,7 @@ class BookInfo extends Component {
     super(props);
     this.state = {
       description: "Fetching description for this book...",
-      error: ""
+      error: "",
     };
   }
 
@@ -23,7 +23,7 @@ class BookInfo extends Component {
       `https://cors-anywhere.herokuapp.com/` +
       `https://www.goodreads.com/book/show/${bookId}?key=${apiKey}`;
     Axios.get(requestUri)
-      .then(res => {
+      .then((res) => {
         const parser = new DOMParser();
         const XMLResponse = parser.parseFromString(res.data, "application/xml");
 
@@ -31,7 +31,7 @@ class BookInfo extends Component {
 
         if (parseError.length) {
           this.setState({
-            error: "There was an error fetching results."
+            error: "There was an error fetching results.",
           });
         } else {
           let description = XMLResponse.getElementsByTagName("description")[0]
@@ -45,9 +45,9 @@ class BookInfo extends Component {
           this.setState({ description });
         }
       })
-      .catch(error => {
+      .catch((error) => {
         this.setState({
-          error: error.toString()
+          error: error.toString(),
         });
       });
   };
@@ -56,9 +56,16 @@ class BookInfo extends Component {
     const { bookData } = this.props;
     return (
       <div className="row col-lg-12">
-        <button className="btn btn-primary" onClick={this.props.collapseBook}>
-          {"<< Go Back"}
-        </button>
+        {/* <button
+          style={{
+            border: "2px solid white",
+            borderRadius: "3px",
+            background: "white",
+          }}
+          onClick={this.props.collapseBook}
+        >
+          {"Go Back"}
+        </button> */}
 
         <h3 className="col-lg-12 mb-3 mt-3">{bookData.best_book.title}</h3>
         <div className="col-lg-2 col-sm-4 ">
@@ -76,24 +83,22 @@ class BookInfo extends Component {
           </p>
           <p>Avg. Rating: {bookData.average_rating}</p>
         </div>
-        <div className="col-lg-10 col-sm-8">
+        {/* <div className="col-lg-10 col-sm-8">
           {(this.state.error && (
             <p className="text-danger">{this.state.error}</p>
           )) || (
             <p dangerouslySetInnerHTML={{ __html: this.state.description }} />
           )}
-        </div>
+        </div> */}
         <div>
           <p>
             Published Date:{" "}
-            {`${bookData.original_publication_day}/${
-              bookData.original_publication_month
-            }/${bookData.original_publication_year}`}
+            {`${bookData.original_publication_day}/${bookData.original_publication_month}/${bookData.original_publication_year}`}
             .{" "}
             <a
-              href={`https://www.goodreads.com/book/show/${
-                bookData.best_book.id
-              }`}
+              href={`https://www.goodreads.com/book/show/${bookData.best_book.id}`}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Learn More
             </a>
@@ -106,7 +111,7 @@ class BookInfo extends Component {
 
 BookInfo.propTypes = {
   bookData: PropTypes.object,
-  collapseBook: PropTypes.func
+  collapseBook: PropTypes.func,
 };
 
 export default BookInfo;

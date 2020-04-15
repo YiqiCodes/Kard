@@ -61,14 +61,22 @@ const SearchResult = ({ bookData, expandBook, chgBook }) => {
             }}
           >
             <button
-              className="btn btn-primary"
+              style={{
+                borderRadius: "5px",
+                marginLeft: "3px",
+                background: "white",
+              }}
               onClick={() => chgBook(bookData)}
             >
               Select
             </button>
 
             <button
-              className="btn btn-primary"
+              style={{
+                borderRadius: "5px",
+                marginLeft: "3px",
+                background: "white",
+              }}
               onClick={() => expandBook(bookData)}
             >
               More Info

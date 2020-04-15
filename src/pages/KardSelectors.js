@@ -71,8 +71,10 @@ const KardSelector = () => {
                     height="100px"
                     onClick={() => setSelectedKard(1)}
                   />
-                  <div>{faveAlbum.artistName}</div>
-                  <div>{faveAlbum.collectionName}</div>
+                  <div style={{ color: "white" }}>{faveAlbum.artistName}</div>
+                  <div style={{ color: "white" }}>
+                    {faveAlbum.collectionName}
+                  </div>
                 </>
               )}
               {faveBook === null ? (
@@ -87,8 +89,12 @@ const KardSelector = () => {
                     alt="Book cover"
                     onClick={() => setSelectedKard(2)}
                   />
-                  <div>{faveBook.best_book.author.name}</div>
-                  <div>{faveBook.best_book.title}</div>
+                  <div style={{ color: "white" }}>
+                    {faveBook.best_book.author.name}
+                  </div>
+                  <div style={{ color: "white" }}>
+                    {faveBook.best_book.title}
+                  </div>
                 </>
               )}
               <KardButtonThree onClick={() => setSelectedKard(3)}>
