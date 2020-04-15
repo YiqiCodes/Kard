@@ -31,8 +31,8 @@ const Restaurants = (props) => {
         className="result"
         key={keyValue}
         onClick={(event) => {
-          setPicked(result.name);
-          props.chgResto(result.name);
+          setPicked(result);
+          props.chgResto(result);
         }}
       >
         {result.name}
@@ -56,7 +56,12 @@ const Restaurants = (props) => {
           <div className="picked">
             {picked !== undefined ? (
               <>
-                <div className="restaurant_name">{picked}</div>
+                <img
+                  className="resto_thumbnail"
+                  src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=100&photoreference=${picked.photos[0].photo_reference}&key=AIzaSyAcLOiaEp4qBb1Wt2V_dyR6Ze1sgIEfUhs`}
+                  alt="Restaurant"
+                />
+                <div className="restaurant_name">{picked.name}</div>
               </>
             ) : null}
           </div>
