@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchMovie from "../components/SearchMovie";
+import SearchMovie from "../components/Movie/SearchMovie";
 import { BookDiv } from "../App.styles";
 
 
