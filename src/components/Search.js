@@ -4,55 +4,44 @@ import AllResults from "./AllResults";
 import PropTypes from "prop-types";
 import { SearchDiv } from "../App.styles";
 
-
-const apiKey = 'yOCh6daSoxHqslqgU0Ag';
+const apiKey = "yOCh6daSoxHqslqgU0Ag";
 
 class Search extends Component {
-
-  
   state = {
     searchText: "",
     error: "",
-    fetchingData: false
+    fetchingData: false,
   };
 
-  onTextChange = e => {
+  onTextChange = (e) => {
     this.setState({
-      searchText: e.target.value
+      searchText: e.target.value,
     });
 
-
-    setTimeout( () =>{
-
+    setTimeout(() => {
       this.setState({
-        fetchingData: true
+        fetchingData: true,
       });
       const { searchText } = this.state;
       const requestUri =
         `https://cors-anywhere.herokuapp.com/` +
         `https://www.goodreads.com/search/index.xml?key=${apiKey}&q=${searchText}`;
-  
+
       Axios.get(requestUri)
-        .then(res => {
+        .then((res) => {
           this.parseXMLResponse(res.data);
         })
-        .catch(error => {
+        .catch((error) => {
           this.setState({
             error: error.toString(),
-            fetchingData: false
+            fetchingData: false,
           });
         });
-
-    }, 500)
-
+    }, 500);
   };
 
- 
-
   // parse string xml received from goodreads api
-  parseXMLResponse = response => {
-
-
+  parseXMLResponse = (response) => {
     const parser = new DOMParser();
     const XMLResponse = parser.parseFromString(response, "application/xml");
     const parseError = XMLResponse.getElementsByTagName("parsererror");
@@ -60,12 +49,12 @@ class Search extends Component {
     if (parseError.length) {
       this.setState({
         error: "There was an error fetching results.",
-        fetchingData: false
+        fetchingData: false,
       });
     } else {
       const XMLresults = new Array(...XMLResponse.getElementsByTagName("work"));
-      const searchResults = XMLresults.map(result => this.XMLToJson(result));
-      const shorterSearch=searchResults.slice(0,5)
+      const searchResults = XMLresults.map((result) => this.XMLToJson(result));
+      const shorterSearch = searchResults.slice(0, 5);
       this.setState({ fetchingData: false }, () => {
         this.props.setResults(shorterSearch);
       });
@@ -75,11 +64,10 @@ class Search extends Component {
   // Function to convert simple XML document into JSON.
   // Loops through each child and saves it as key, value pair
   // if there are sub-children, call the same function recursively on its children.
-  XMLToJson = XML => {
-
+  XMLToJson = (XML) => {
     const allNodes = new Array(...XML.children);
     const jsonResult = {};
-    allNodes.forEach(node => {
+    allNodes.forEach((node) => {
       if (node.children.length) {
         jsonResult[node.nodeName] = this.XMLToJson(node);
       } else {
@@ -87,31 +75,42 @@ class Search extends Component {
       }
     });
 
-
     return jsonResult;
   };
 
   render() {
     return (
       <SearchDiv>
-        <div style={{margin:'auto'}} className="form-group row">
+        <div
+          style={{ margin: "auto", fontWeight: "200" }}
+          className="form-group row"
+        >
           <input
-          style={{marginBottom:'2em'}}
+            style={{
+              marginBottom: "1em",
+              minWidth: "15rem",
+              minHeight: "2rem",
+              borderRadius: "8px",
+              border: "2px solid white",
+              textAlign: "center",
+              fontSize: "large",
+              fontWeight: "200",
+              padding: "0 1rem",
+            }}
             className="mr-1 col-sm-9 form-control"
             type="text"
-            placeholder="Search Books By title, author, or ISBN..."
+            placeholder="Search by title, author or IBSN"
             name="searchText"
             onChange={this.onTextChange}
             value={this.state.searchText}
           />
-          
         </div>
 
         {/**
          * if fetching data, display "loading...", if error, display error message, else display search results
          */}
         {this.state.fetchingData ? (
-          <p className="lead text-center">{"loading... "}</p>
+          <div style={{ textAlign: "center" }}>Loading...</div>
         ) : (
           (this.state.error && (
             <p className="text-danger">{this.state.error}</p>
@@ -131,7 +130,7 @@ class Search extends Component {
 Search.propTypes = {
   results: PropTypes.array,
   setResults: PropTypes.func,
-  expandBook: PropTypes.func
+  expandBook: PropTypes.func,
 };
 
 export default Search;
