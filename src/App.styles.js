@@ -19,7 +19,7 @@ export const WhichKardWrapper = styled.div`
   min-width: 100vw;
   min-height: 100vh;
   max-height: 100vh;
-  background: #104634;
+  background: #111111;
   color: black;
   background-size: 400% 400%;
 `;
@@ -110,11 +110,10 @@ export const KardContainer = styled.div`
 export const KardButtonOne = styled.button`
   border-radius: 12px;
   border: 0;
-  background: linear-gradient(135deg, #522927 45%, #781031 90%);
+  background: #e6fff7;
   height: 40px;
   width: 163px;
-
-  box-shadow: 0 3px 5px 2px white;
+  box-shadow: 0px 3px 5px 2px #eeeeee;
   min-height: 20vh;
   margin-right: 1em;
   margin-left: 1em;
@@ -125,11 +124,11 @@ export const KardButtonOne = styled.button`
 export const KardButtonTwo = styled.button`
   border-radius: 12px;
   border: 0;
-  background: linear-gradient(135deg, #106178 45%, #6c9dab 90%);
+  background: #45806d;
   height: 40px;
   width: 163px;
   padding: 0 30px;
-  box-shadow: 0 3px 5px 2px white;
+  box-shadow: 0 3px 5px 2px #eeeeee;
   min-height: 20vh;
   margin-right: 1em;
   margin-left: 1em;
@@ -140,11 +139,11 @@ export const KardButtonTwo = styled.button`
 export const KardButtonThree = styled.button`
   border-radius: 12px;
   border: 0;
-  background: linear-gradient(135deg, #453409 45%, #91701a 90%);
+  background: #d6fff2;
   height: 40px;
   width: 163px;
   padding: 0 30px;
-  box-shadow: 0 3px 5px 2px white;
+  box-shadow: 0 3px 5px 2px #eeeeee;
   min-height: 20vh;
   margin-right: 1em;
   margin-left: 1em;
@@ -155,11 +154,11 @@ export const KardButtonThree = styled.button`
 export const KardButtonFour = styled.button`
   border-radius: 12px;
   border: 0;
-  background: linear-gradient(135deg, #21916c 45%, #30d19b 90%);
+  background: #6b8079;
   height: 40px;
   width: 163px;
   padding: 0 30px;
-  box-shadow: 0 3px 5px 2px white;
+  box-shadow: 0 3px 5px 2px #eeeeee;
   min-height: 20vh;
   margin-right: 1em;
   margin-left: 1em;
@@ -182,8 +181,6 @@ export const KardButton = styled.button`
 export const MainKardImage = styled.img`
   max-width: 100%;
   max-height: 100%;
-  min-width: 100%;
-  min-height: 100%;
 `;
 export const BookDiv = styled.div`
   color: white !important;

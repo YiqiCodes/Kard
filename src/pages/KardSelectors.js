@@ -5,7 +5,10 @@ import Albums from "./Albums";
 import Books from "./Books";
 import Movies from "./Movies";
 import Restaurants from "./Restaurants";
-import musicLogo from "../assets/images/music.jpeg";
+import musicIcon from "../assets/images/album.png";
+import bookIcon from "../assets/images/book2.png";
+import movieIcon from "../assets/images/movie2.png";
+import restaurantIcon from "../assets/images/restaurant2.png";
 
 //styles
 import {
@@ -50,7 +53,11 @@ const KardSelector = () => {
             <KardSelectorContainer>
               {faveAlbum === null ? (
                 <KardButtonOne onClick={() => setSelectedKard(1)}>
-                  <MainKardImage src={musicLogo} alt=""></MainKardImage>
+                  <MainKardImage
+                    src={musicIcon}
+                    alt=""
+                    style={{ maxHeight: "75%" }}
+                  ></MainKardImage>
                 </KardButtonOne>
               ) : (
                 <>
@@ -70,7 +77,7 @@ const KardSelector = () => {
               )}
               {faveBook === null ? (
                 <KardButtonTwo onClick={() => setSelectedKard(2)}>
-                  <p>Books</p>
+                  <MainKardImage src={bookIcon} alt=""></MainKardImage>
                 </KardButtonTwo>
               ) : (
                 <>
@@ -85,7 +92,7 @@ const KardSelector = () => {
                 </>
               )}
               <KardButtonThree onClick={() => setSelectedKard(3)}>
-                Movies
+                <MainKardImage src={movieIcon} alt=""></MainKardImage>
               </KardButtonThree>
               <KardButtonFour onClick={() => setSelectedKard(4)}>
                 {faveResto !== null ? (
@@ -93,7 +100,7 @@ const KardSelector = () => {
                     <div>{faveResto}</div>
                   </>
                 ) : (
-                  <p>Restaurant</p>
+                  <MainKardImage src={restaurantIcon} alt=""></MainKardImage>
                 )}
               </KardButtonFour>
             </KardSelectorContainer>
