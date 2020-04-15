@@ -8,33 +8,24 @@ const SearchResult = ({ bookData, expandBook, chgBook }) => {
    * Full title will be shown in a tooltip
    */
   const bookTitle = bookData.best_book.title;
-  let displayTitle = bookTitle
-    .split(" ")
-    .slice(0, 6)
-    .join(" ");
+  let displayTitle = bookTitle.split(" ").slice(0, 6).join(" ");
   if (bookTitle.length > displayTitle.length) {
     displayTitle += "...";
   }
 
   return (
-    <div 
-   
-    className="col-lg-2 col-sm-4 col-md-3">
+    <div className="col-lg-2 col-sm-4 col-md-3">
       <div className="card">
         <img
-          style={{ display:'flex ',
-            margin:'auto'
-          }} 
+          style={{ display: "flex ", margin: "auto" }}
           className="card-img-top pl-2 pr-2 pt-2"
           src={bookData.best_book.image_url}
           alt="Book cover"
           height="200px"
         />
-        <div className="card-body"
-             style={{ display:'flex ',
-             flexDirection:'column',
-             margin:'auto'
-             }}
+        <div
+          className="card-body"
+          style={{ display: "flex ", flexDirection: "column", margin: "auto" }}
         >
           <p
             className="text-sm-left card-title font-weight-bold"
@@ -42,33 +33,33 @@ const SearchResult = ({ bookData, expandBook, chgBook }) => {
             data-placement="bottom"
             title={displayTitle.includes("...") ? bookTitle : ""}
             style={{
-              display:"flex",
-              justifyContent:"center",
-              marginTop:"8px",
-              marginBottom: '8px'
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "8px",
+              marginBottom: "8px",
             }}
           >
             {displayTitle}
           </p>
-          <p className="text-sm-left card-text"
-              style={{
-                display:"flex",
-                justifyContent:"center",
-                marginTop:"0px",
-                marginBottom: '8px'
-  
-              }}
+          <p
+            className="text-sm-left card-text"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "0px",
+              marginBottom: "8px",
+            }}
           >
             {bookData.best_book.author.name}
           </p>
 
-          <div 
-              style={{
-              display:"flex",
-              justifyContent:"center",
-              marginBottom:"1em"
-              }}>
-
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginBottom: "1em",
+            }}
+          >
             <button
               className="btn btn-primary"
               onClick={() => chgBook(bookData)}
@@ -91,7 +82,7 @@ const SearchResult = ({ bookData, expandBook, chgBook }) => {
 
 SearchResult.propTypes = {
   bookData: PropTypes.object,
-  expandBook: PropTypes.func
+  expandBook: PropTypes.func,
 };
 
 export default SearchResult;
