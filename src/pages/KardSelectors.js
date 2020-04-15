@@ -130,17 +130,7 @@ const KardSelector = () => {
 
               
   {/* restaurent begins */}
-              <KardButtonFour onClick={() => setSelectedKard(4)}>
-                {faveResto !== null ? (
-                  <>
-                    <img
-                      className="resto_thumbnail"
-                      src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=100&photoreference=${faveResto.photos[0].photo_reference}&key=AIzaSyAcLOiaEp4qBb1Wt2V_dyR6Ze1sgIEfUhs`}
-                      alt="Restaurant"
-                    />
-                    <div>{faveResto.name}</div>
-                  </>
-                ) : (
+      
 
               {faveResto === null ? (
                 <KardButtonFour onClick={() => setSelectedKard(4)}>
