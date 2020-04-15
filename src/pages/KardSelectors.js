@@ -44,6 +44,7 @@ const KardSelector = () => {
 
   const [favAlbum, setFavAlbum] = useState(null)
   const [favBook, setFavBook] = useState(null)
+  const [favResto, setFavResto] = useState(null)
 
   const chgAlbum = function (info){
     console.log ('album', info)
@@ -56,6 +57,10 @@ const KardSelector = () => {
     setSelectedKard(0)
   }
 
+  const chgResto = function (info){
+    console.log ('resto', info)
+    setFavResto(info)
+  }
 
 
 
@@ -219,7 +224,13 @@ const KardSelector = () => {
                 }
                 onClick={() => setSelectedKard(4)}
               >
-                Restaurants
+                
+                {favResto !== null ? (
+                  <>
+                    <div>{favResto}</div>
+                  </>               
+                ) : <p>Restaurant</p>}
+
               </MUButton>
             </KardSelectorContainer>
           </WhichKardWrapper>
@@ -280,7 +291,7 @@ const KardSelector = () => {
       {selectedKard === 4 ? (
         <>
           <RestaurantKardWrapper>
-            <Restaurants></Restaurants>
+            <Restaurants chgResto={chgResto}></Restaurants>
             <MUButton
               style={{
                 ...styledButton,
