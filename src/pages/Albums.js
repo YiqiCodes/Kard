@@ -1,25 +1,13 @@
 import React, { Fragment, useState, useEffect } from "react";
 import axios from "axios";
-import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import "./Albums.css";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    "& > *": {
-      margin: theme.spacing(1),
-      backgroundColor: "white",
-      width: "25ch",
-    },
-  },
-}));
 
 const Albums = (props) => {
   const [term, setTerm] = useState("");
   const [results, setResults] = useState([]);
   const [picked, setPicked] = useState(undefined);
 
-  const classes = useStyles();
   let keyValue = 0;
 
   useEffect(() => {
@@ -54,8 +42,9 @@ const Albums = (props) => {
   return (
     <Fragment>
       <main>
-        <form className={classes.root} noValidate autoComplete="off">
+        <form className="formDefault" noValidate autoComplete="off">
           <TextField
+            className="textFieldDefault"
             id="outlined-basic"
             label="Artist Name"
             variant="outlined"

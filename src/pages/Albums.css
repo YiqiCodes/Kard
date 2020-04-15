@@ -1,5 +1,12 @@
-.makeStyles-root-43 {
+.formDefault {
+  margin: auto;
+  background-color: white;
+  width: 70vw;
   text-align: center;
+}
+
+.textFieldDefault {
+  width: 100%;
 }
 
 .resultsBox {
