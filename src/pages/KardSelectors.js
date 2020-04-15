@@ -112,6 +112,7 @@ const KardSelector = () => {
                 <KardButtonThree onClick={() => setSelectedKard(3)}>
                 <MainKardImage src={movieIcon} alt=""></MainKardImage>
               </KardButtonThree>
+
               ) : (
                 <>
                   <img
@@ -140,9 +141,23 @@ const KardSelector = () => {
                     <div>{faveResto.name}</div>
                   </>
                 ) : (
+
+              {faveResto === null ? (
+                <KardButtonFour onClick={() => setSelectedKard(4)}>
+
                   <MainKardImage src={restaurantIcon} alt=""></MainKardImage>
-                )}
-              </KardButtonFour>
+                </KardButtonFour>
+              ) : (
+                <>
+                  <img
+                    className="resto_thumbnail"
+                    src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=100&photoreference=${faveResto.photos[0].photo_reference}&key=AIzaSyAcLOiaEp4qBb1Wt2V_dyR6Ze1sgIEfUhs`}
+                    alt="Restaurant"
+                    onClick={() => setSelectedKard(4)}
+                  />
+                  <div style={{ color: "white" }}>{faveResto.name}</div>
+                </>
+              )}
             </KardSelectorContainer>
           </WhichKardWrapper>
         </>
