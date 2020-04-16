@@ -8,7 +8,6 @@ export const WhichKardWrapper = styled.div`
   align-items: center;
   justify-content: center;
   position: absolute;
-  z-index: -1;
   min-width: 100vw;
   min-height: 100vh;
   max-height: 100vh;
@@ -35,7 +34,7 @@ export const KardSelectorContainer = styled.div`
   min-width: 100vw;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: initial;
   flex-direction: row;
   justify-content: space-evenly;
   flex-wrap: wrap;
@@ -52,6 +51,12 @@ export const KardCategoryContainer = styled.div`
   background: gray;
   border-radius: 0px 0px 5px 5px;
   box-shadow: 7px 7px 5px 0px #eeeeee;
+  @media (min-width: 1025px) {
+    min-height: 380px;
+    max-height: 380px;
+    min-width: 310px;
+    max-width: 310px;
+  }
 `;
 
 export const KardCategoryOutterContainer = styled.div`
@@ -59,8 +64,6 @@ export const KardCategoryOutterContainer = styled.div`
   flex-direction: column;
   height: 40vw;
   width: 40vw;
-  overfolw: none;
-
 
   @media (min-width: 1025px) {
     min-height: 380px;
