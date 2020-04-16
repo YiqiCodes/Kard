@@ -27,11 +27,13 @@ const Restaurants = (props) => {
         className="result"
         key={keyValue}
       >
+        {result.photos ?
         <img
           className="album_thumbnail"
           src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=100&photoreference=${result.photos[0].photo_reference}&key=AIzaSyAcLOiaEp4qBb1Wt2V_dyR6Ze1sgIEfUhs`}
           alt="Restaurant"
         />
+        : null}
         <div className="infoMargin">{result.name}</div>
         <div className="infoMargin">
           <button
@@ -87,7 +89,7 @@ const Restaurants = (props) => {
               onChange={(event) => setTerm(event.target.value)}
             />
           </form>
-          <div className="resultsBox">{ShowResults}</div>
+          <div className="resultsBox">{results !== undefined ? ShowResults : null}</div>
         </main>
       </Fragment>
     </>
