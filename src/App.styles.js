@@ -42,7 +42,9 @@ export const KardSelectorContainer = styled.div`
 `;
 
 export const KardCategoryContainer = styled.div`
-  min-height: 35vh;
+  width: 40vw;
+  min-height: 40vw;
+  height: 35vh;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -53,11 +55,12 @@ export const KardCategoryContainer = styled.div`
 `;
 
 export const KardCategoryOutterContainer = styled.div`
+  margin: 5% 0 5% 0;
   flex-direction: column;
-  min-height: 35vh;
-  max-height: 35vh;
-  min-width: 40%;
-  max-width: 40%;
+  height: 40vw;
+  width: 40vw;
+  overfolw: none;
+
 
   @media (min-width: 1025px) {
     min-height: 380px;
@@ -111,8 +114,8 @@ export const KardButton = styled.button`
 `;
 
 export const MainKardImage = styled.img`
-  width: 80%;
-  height: 80%;
+  max-width: 70%;
+  max-height: 70%;
 `;
 
 export const MainKardText = styled.text`
