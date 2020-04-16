@@ -100,7 +100,7 @@ class Search extends Component {
             }}
             className="mr-1 col-sm-9 form-control"
             type="text"
-            placeholder="Search by title, author or IBSN"
+            placeholder="Search by title or author"
             name="searchText"
             onChange={this.onTextChange}
             value={this.state.searchText}

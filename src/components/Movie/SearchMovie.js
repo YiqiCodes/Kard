@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./SearchMovie.css";
 import PropTypes from "prop-types";
+import { SearchDiv } from "../../App.styles";
 
 import AllMovieResults from "./AllMovieResults";
 
@@ -37,13 +38,26 @@ function SearchMovie(props) {
   };
 
   return (
-    <div className="search">
-      <div style={{ margin: "auto" }} className="form-group row">
+    <SearchDiv>
+      <div
+        style={{ margin: "auto", fontWeight: "200" }}
+        className="form-group row"
+      >
         <input
-          style={{ marginBottom: "2em" }}
+          style={{
+            marginBottom: "1em",
+            minWidth: "15rem",
+            minHeight: "2rem",
+            borderRadius: "8px",
+            border: "2px solid white",
+            textAlign: "center",
+            fontSize: "large",
+            fontWeight: "200",
+            padding: "0 1rem",
+          }}
           className="mr-1 col-sm-9 form-control"
           type="text"
-          placeholder="Search Books By title, author, or ISBN..."
+          placeholder="Search by title or author"
           name="searchText"
           onChange={onTextChange}
           value={title}
@@ -63,7 +77,7 @@ function SearchMovie(props) {
           />
         ) : null}
       </div>
-    </div>
+    </SearchDiv>
   );
 }
 
