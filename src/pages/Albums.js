@@ -6,7 +6,6 @@ import "./Albums.css";
 const Albums = (props) => {
   const [term, setTerm] = useState("");
   const [results, setResults] = useState([]);
-  const [picked, setPicked] = useState(undefined);
 
   let keyValue = 0;
 
@@ -16,7 +15,6 @@ const Albums = (props) => {
       `https://itunes.apple.com/search?term=${term}&media=music&entity=album`;
     axios.get(requestURL).then((response) => {
       setResults(response.data.results);
-      console.log(response.data.results);
     });
   }, [term]);
 
@@ -27,9 +25,6 @@ const Albums = (props) => {
       <div
         className="result"
         key={keyValue}
-        onClick={(event) => {
-          setPicked(result);
-        }}
       >
         <img
           className="album_thumbnail"
@@ -49,16 +44,22 @@ const Albums = (props) => {
           >
             Select
           </button>
-          <button
-            style={{
-              borderRadius: "5px",
-              marginLeft: "3px",
-              background: "white",
-            }}
-            // onClick={() => expandBook(bookData)}
+          <a
+            href={`${result.collectionViewUrl}`}
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            More Info
-          </button>
+            <button
+              style={{
+                borderRadius: "5px",
+                marginLeft: "3px",
+                background: "white",
+              }}
+            >
+              More Info
+            </button>
+          </a>
+
         </div>
       </div>
     );
@@ -86,26 +87,6 @@ const Albums = (props) => {
             onChange={(event) => setTerm(event.target.value)}
           />
         </form>
-        {/* <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            padding: "5px 0",
-          }}
-        >
-          {picked !== undefined ? (
-            <>
-              <img
-                className="album_thumbnail"
-                src={picked.artworkUrl60}
-                alt="Album"
-              />
-              <div style={{ margin: 0 }} className="album_name">
-                {picked.collectionName}
-              </div>
-            </>
-          ) : null}
-        </div> */}
         <div className="resultsBox">{ShowResults}</div>
       </main>
     </Fragment>
