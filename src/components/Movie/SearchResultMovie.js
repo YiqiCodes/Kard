@@ -10,7 +10,6 @@ const SearchResultMovie = ({movieData, expandBook, chgMovie}) => {
 
   // const { movieData } = props
 
-   console.log(movieData)
 
   const movieTitle = movieData.original_title;
   let displayTitle = movieTitle
@@ -32,7 +31,7 @@ const SearchResultMovie = ({movieData, expandBook, chgMovie}) => {
           }} 
           className="card-img-top pl-2 pr-2 pt-2"
           src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`}
-          alt="Book cover"
+          alt="Smiley face"
           height="200px"
         />
         <div className="card-body"
@@ -72,7 +71,7 @@ const SearchResultMovie = ({movieData, expandBook, chgMovie}) => {
             </button>
 
             <a
-              href={`https://www.imdb.com/`}
+              href={`https://www.themoviedb.org/movie/${movieData.id}`}
               target="_blank"
               rel="noopener noreferrer"
             >

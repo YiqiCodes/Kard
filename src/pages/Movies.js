@@ -12,14 +12,9 @@ function Movies(props) {
     setState({ results });
   };
 
-  // const collapseBook = () => {
-  //   setState({
-  //     expandedBook: null,
-  //   });
-  // };
+ 
 
   const expandBook = (expandedBook) => {
-    console.log("expanidng book 4 more info");
     setState({ expandedBook });
   };
 

@@ -71,7 +71,7 @@ const SearchResult = ({ bookData, expandBook, chgBook }) => {
               Select
             </button>
 
-            <button
+            {/* <button
               style={{
                 borderRadius: "5px",
                 marginLeft: "3px",
@@ -80,7 +80,29 @@ const SearchResult = ({ bookData, expandBook, chgBook }) => {
               onClick={() => expandBook(bookData)}
             >
               More Info
+            </button> */}
+
+            <a
+              href={`https://www.goodreads.com/book/show/${bookData.best_book.id}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+
+            <button
+              style={{
+                borderRadius: "5px",
+                marginLeft: "3px",
+                background: "white",
+              }}
+              // onClick={() => expandBook(bookData)}
+            >
+              More Info
             </button>
+            
+            </a>
+
+
+
           </div>
         </div>
       </div>
