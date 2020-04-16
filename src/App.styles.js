@@ -1,13 +1,8 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
 export const PageWrapper = styled.div``;
 
 // Which Phone Styles
-const animationName = keyframes`{
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
-}`;
 
 export const WhichKardWrapper = styled.div`
   display: flex;
@@ -21,10 +16,9 @@ export const WhichKardWrapper = styled.div`
   max-height: 100vh;
   background: #111111;
   color: black;
-  background-size: 400% 400%;
 `;
 
-export const AlbumsKardWrapper = styled.div`
+export const CategoryKardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -62,10 +56,8 @@ export const MoviesKardWrapper = styled.div`
   z-index: -1;
   min-width: 100vw;
   min-height: 100vh;
-  background: linear-gradient(270deg, #000000, #a3a3a3);
+  background: #111111;
   color: white;
-  background-size: 400% 400%;
-  animation: ${animationName} 10s ease infinite;
 `;
 
 export const RestaurantKardWrapper = styled.div`
@@ -78,10 +70,8 @@ export const RestaurantKardWrapper = styled.div`
   z-index: -1;
   min-width: 100vw;
   min-height: 100vh;
-  background: linear-gradient(270deg, #000000, #a3a3a3);
+  background: #111111;
   color: white;
-  background-size: 400% 400%;
-  animation: ${animationName} 10s ease infinite;
 `;
 
 export const KardSelectorContainer = styled.div`
@@ -98,14 +88,15 @@ export const KardSelectorContainer = styled.div`
 export const KardCategoryContainer = styled.div`
   max-width: 40%;
   min-width: 40%;
-  min-height: 30vh;
-  max-height: 30vh;
+  min-height: 35vh;
+  max-height: 35vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   background: gray;
   border-radius: 5px;
+  box-shadow: 0px 3px 5px 2px #eeeeee;
 `;
 
 export const KardContainer = styled.div`
