@@ -32,10 +32,36 @@ const Restaurants = (props) => {
         key={keyValue}
         onClick={(event) => {
           setPicked(result);
-          props.chgResto(result);
         }}
       >
-        {result.name}
+        <img
+          className="album_thumbnail"
+          src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=100&photoreference=${result.photos[0].photo_reference}&key=AIzaSyAcLOiaEp4qBb1Wt2V_dyR6Ze1sgIEfUhs`}
+          alt="Restaurant"
+        />
+        <div className="infoMargin">{result.name}</div>
+        <div className="infoMargin">
+          <button
+            style={{
+              borderRadius: "5px",
+              marginLeft: "3px",
+              background: "white",
+            }}
+            onClick={() => props.chgResto(result)}
+          >
+            Select
+          </button>
+          <button
+            style={{
+              borderRadius: "5px",
+              marginLeft: "3px",
+              background: "white",
+            }}
+            // onClick={() => expandBook(bookData)}
+          >
+            More Info
+          </button>
+        </div>
       </div>
     );
   });
@@ -44,6 +70,16 @@ const Restaurants = (props) => {
     <>
       <Fragment>
         <main>
+          <h3
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              fontWeight: "200",
+            }}
+            className="text-muted"
+          >
+            What's your favourite Restaurant?
+          </h3>
           <form className="formDefault" noValidate autoComplete="off">
             <TextField
               className="textFieldDefault"
@@ -53,7 +89,7 @@ const Restaurants = (props) => {
               onChange={(event) => setTerm(event.target.value)}
             />
           </form>
-          <div className="picked">
+          {/* <div className="picked">
             {picked !== undefined ? (
               <>
                 <img
@@ -64,7 +100,7 @@ const Restaurants = (props) => {
                 <div className="restaurant_name">{picked.name}</div>
               </>
             ) : null}
-          </div>
+          </div> */}
           <div className="resultsBox">{ShowResults}</div>
         </main>
       </Fragment>
