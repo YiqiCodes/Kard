@@ -95,7 +95,18 @@ export const KardSelectorContainer = styled.div`
   flex-wrap: wrap;
 `;
 
-export const KardCategoryContainer = styled.div``;
+export const KardCategoryContainer = styled.div`
+  max-width: 40%;
+  min-width: 40%;
+  min-height: 30vh;
+  max-height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: gray;
+  border-radius: 5px;
+`;
 
 export const KardContainer = styled.div`
   display: flex;
@@ -117,7 +128,7 @@ export const KardButtonOne = styled.button`
   height: 40px;
   width: 163px;
   box-shadow: 0px 3px 5px 2px #eeeeee;
-  min-height: 20vh;
+  min-height: 30vh;
 `;
 
 export const KardButtonTwo = styled.button`
@@ -127,9 +138,9 @@ export const KardButtonTwo = styled.button`
   background: #45806d;
   height: 40px;
   width: 163px;
-  padding: 0 30px;
+
   box-shadow: 0 3px 5px 2px #eeeeee;
-  min-height: 20vh;
+  min-height: 30vh;
 `;
 
 export const KardButtonThree = styled.button`
@@ -139,9 +150,9 @@ export const KardButtonThree = styled.button`
   background: #d6fff2;
   height: 40px;
   width: 163px;
-  padding: 0 30px;
+
   box-shadow: 0 3px 5px 2px #eeeeee;
-  min-height: 20vh;
+  min-height: 30vh;
 `;
 
 export const KardButtonFour = styled.button`
@@ -151,9 +162,9 @@ export const KardButtonFour = styled.button`
   background: #6b8079;
   height: 40px;
   width: 163px;
-  padding: 0 30px;
+
   box-shadow: 0 3px 5px 2px #eeeeee;
-  min-height: 20vh;
+  min-height: 30vh;
 `;
 
 export const KardButton = styled.button`
@@ -171,7 +182,17 @@ export const KardButton = styled.button`
 export const MainKardImage = styled.img`
   max-width: 100%;
   max-height: 100%;
+  min-width: 8rem;
+  min-height: 8rem;
 `;
+
+export const MainKardText = styled.text`
+  min-width: 100%;
+  text-align: center;
+  margin: 5px 0px;
+  color: white;
+`;
+
 export const BookDiv = styled.div`
   color: white !important;
   display: flex;
