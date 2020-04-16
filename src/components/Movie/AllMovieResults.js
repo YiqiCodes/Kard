@@ -3,6 +3,7 @@ import SearchResultMovie from "./SearchResultMovie";
 import PropTypes from "prop-types";
 
 import { SearchDiv } from "../../App.styles";
+import "../../pages/Albums.css";
 
 
 const AllMovieResults = ({ movies, chgMovie, expandBook }) => {
@@ -10,14 +11,16 @@ const AllMovieResults = ({ movies, chgMovie, expandBook }) => {
 console.log(movies)
 
   return (
-    <SearchDiv className="row">
-      {movies.map(movie => (
-       
-       <SearchResultMovie movieData={movie} key={movie.id} expandBook={expandBook}
-       chgMovie={chgMovie} />
+    <div className="resultContainer">
+      <SearchDiv className="row">
+        {movies.map(movie => (
+        
+        <SearchResultMovie movieData={movie} key={movie.id} expandBook={expandBook}
+        chgMovie={chgMovie} />
 
-      ))}
-    </SearchDiv>
+        ))}
+      </SearchDiv>
+    </div>
   );
 };
 

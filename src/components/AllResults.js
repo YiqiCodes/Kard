@@ -3,17 +3,20 @@ import SearchResult from "./SearchResult";
 import PropTypes from "prop-types";
 
 import { SearchDiv } from "../App.styles";
+import "../pages/Albums.css";
 
 
 const AllResults = ({ books, expandBook, chgBook }) => {
   return (
-    <SearchDiv className="row">
-      {books.map(book => (
-        <SearchResult bookData={book} key={book.id} expandBook={expandBook}
-        chgBook={chgBook} 
-        />
-      ))}
-    </SearchDiv>
+    <div className="resultContainer">
+      <SearchDiv className="row">
+        {books.map(book => (
+          <SearchResult bookData={book} key={book.id} expandBook={expandBook}
+          chgBook={chgBook} 
+          />
+        ))}
+      </SearchDiv>
+    </div>
   );
 };
 
