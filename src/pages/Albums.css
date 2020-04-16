@@ -32,8 +32,9 @@
 
 .album_thumbnail {
   align-self: center;
-  width: 200px;
-  height: 200px;
+  margin: 20px;
+  width: 100px;
+  height: 100px;
 }
 
 .result {
@@ -46,4 +47,10 @@
 
 .infoMargin {
   margin-top: 5px;
+}
+
+.resultContainer {
+  height: 400px;
+  overflow: auto;
+  overflow-wrap: break-word;
 }
