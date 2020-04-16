@@ -71,12 +71,21 @@ const SearchResultMovie = ({movieData, expandBook, chgMovie}) => {
               Select
             </button>
 
+            <a
+              href={`https://www.imdb.com/`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+
             <button
               className="btn btn-primary"
-              onClick={() => expandBook(movieData)}
+              // onClick={() => expandBook(movieData)}
             >
               More Info
             </button>
+            </a>
+
+
           </div>
         </div>
       </div>
