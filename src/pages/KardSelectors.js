@@ -79,10 +79,8 @@ const KardSelector = () => {
                     <>
                       <MainKardImage
                         style={{
-                          minWidth: "100px",
-                          minHeight: "100px",
-                          maxHeight: "100px",
-                          maxWidth: "100px",
+                          width: "100px",
+                          height: "100px",
                         }}
                         src={faveAlbum.artworkUrl60}
                         alt="Album cover"
