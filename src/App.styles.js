@@ -58,7 +58,6 @@ export const KardCategoryOutterContainer = styled.div`
   max-height: 35vh;
   min-width: 40%;
   max-width: 40%;
-  padding: 0;
 `;
 
 export const KardCategoryTitle = styled.div`
@@ -92,15 +91,6 @@ export const KardButtonMain = styled.button`
   min-height: 35vh;
 `;
 
-export const KardButtonMainTwo = styled.button`
-  flex-direction: column;
-  min-height: 35vh;
-  max-height: 35vh;
-  min-width: 40%;
-  max-width: 40%;
-  padding: 0;
-`;
-
 export const KardButton = styled.button`
   display: flex;
   width: 14rem;
@@ -116,8 +106,6 @@ export const KardButton = styled.button`
 export const MainKardImage = styled.img`
   max-width: 80%;
   max-height: 80%;
-  min-width: 8rem;
-  min-height: 8rem;
 `;
 
 export const MainKardText = styled.text`
