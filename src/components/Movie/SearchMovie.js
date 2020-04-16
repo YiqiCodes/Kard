@@ -27,8 +27,10 @@ function SearchMovie (props) {
       return response.json();
     })
     .then((data) => {
-      console.log(data);
-      setMovies(data)
+
+      //limit the number of movies shown
+      const shortData=data.results.slice(0, 6)
+      setMovies(shortData)
       setFetchingData(false)
     });
 

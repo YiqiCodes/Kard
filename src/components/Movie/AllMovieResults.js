@@ -11,7 +11,7 @@ const AllMovieResults = ({ movies, chgMovie, expandBook }) => {
 
   return (
     <SearchDiv className="row">
-      {movies.results.map(movie => (
+      {movies.map(movie => (
        
        <SearchResultMovie movieData={movie} key={movie.id} expandBook={expandBook}
        chgMovie={chgMovie} />

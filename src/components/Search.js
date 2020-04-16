@@ -54,6 +54,7 @@ class Search extends Component {
     } else {
       const XMLresults = new Array(...XMLResponse.getElementsByTagName("work"));
       const searchResults = XMLresults.map((result) => this.XMLToJson(result));
+      //limit of 5 books from seraching
       const shorterSearch = searchResults.slice(0, 5);
       this.setState({ fetchingData: false }, () => {
         this.props.setResults(shorterSearch);
