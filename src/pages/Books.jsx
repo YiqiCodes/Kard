@@ -32,7 +32,6 @@ function Books(props) {
             justifyContent: "center",
             fontWeight: "200",
           }}
-          className="text-muted"
         >
           What's your favourite Book?
         </h3>

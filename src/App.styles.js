@@ -85,11 +85,17 @@ export const RestaurantKardWrapper = styled.div`
 `;
 
 export const KardSelectorContainer = styled.div`
+  min-height: 100vh;
+  min-width: 100vw;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 `;
+
+export const KardCategoryContainer = styled.div``;
 
 export const KardContainer = styled.div`
   display: flex;
@@ -105,20 +111,18 @@ export const KardContainer = styled.div`
 // buttons
 export const KardButtonOne = styled.button`
   border-radius: 12px;
+  max-width: 40%;
   border: 0;
   background: #e6fff7;
   height: 40px;
   width: 163px;
   box-shadow: 0px 3px 5px 2px #eeeeee;
   min-height: 20vh;
-  margin-right: 1em;
-  margin-left: 1em;
-  margin-top: 10px;
-  margin-bottom: 10px;
 `;
 
 export const KardButtonTwo = styled.button`
   border-radius: 12px;
+  max-width: 40%;
   border: 0;
   background: #45806d;
   height: 40px;
@@ -126,14 +130,11 @@ export const KardButtonTwo = styled.button`
   padding: 0 30px;
   box-shadow: 0 3px 5px 2px #eeeeee;
   min-height: 20vh;
-  margin-right: 1em;
-  margin-left: 1em;
-  margin-top: 10px;
-  margin-bottom: 10px;
 `;
 
 export const KardButtonThree = styled.button`
   border-radius: 12px;
+  max-width: 40%;
   border: 0;
   background: #d6fff2;
   height: 40px;
@@ -141,14 +142,11 @@ export const KardButtonThree = styled.button`
   padding: 0 30px;
   box-shadow: 0 3px 5px 2px #eeeeee;
   min-height: 20vh;
-  margin-right: 1em;
-  margin-left: 1em;
-  margin-top: 10px;
-  margin-bottom: 10px;
 `;
 
 export const KardButtonFour = styled.button`
   border-radius: 12px;
+  max-width: 40%;
   border: 0;
   background: #6b8079;
   height: 40px;
@@ -156,10 +154,6 @@ export const KardButtonFour = styled.button`
   padding: 0 30px;
   box-shadow: 0 3px 5px 2px #eeeeee;
   min-height: 20vh;
-  margin-right: 1em;
-  margin-left: 1em;
-  margin-top: 10px;
-  margin-bottom: 10px;
 `;
 
 export const KardButton = styled.button`

@@ -23,6 +23,7 @@ import {
   KardButtonThree,
   KardButtonFour,
   MainKardImage,
+  KardCategoryContainer,
 } from "../App.styles";
 
 const KardSelector = () => {
@@ -32,7 +33,6 @@ const KardSelector = () => {
   const [faveBook, setFaveBook] = useState(null);
   const [faveResto, setFaveResto] = useState(null);
   const [faveMovie, setFaveMovie] = useState(null);
-
 
   const chgAlbum = function (info) {
     setFaveAlbum(info);
@@ -50,7 +50,6 @@ const KardSelector = () => {
   const chgMovie = function (info) {
     setFaveMovie(info);
     setSelectedKard(0);
-
   };
 
   return (
@@ -68,7 +67,7 @@ const KardSelector = () => {
                   ></MainKardImage>
                 </KardButtonOne>
               ) : (
-                <>
+                <KardCategoryContainer>
                   <img
                     style={{
                       margin: "auto",
@@ -83,14 +82,14 @@ const KardSelector = () => {
                   <div style={{ color: "white" }}>
                     {faveAlbum.collectionName}
                   </div>
-                </>
+                </KardCategoryContainer>
               )}
               {faveBook === null ? (
                 <KardButtonTwo onClick={() => setSelectedKard(2)}>
                   <MainKardImage src={bookIcon} alt=""></MainKardImage>
                 </KardButtonTwo>
               ) : (
-                <>
+                <KardCategoryContainer>
                   <img
                     className="Kard-dashboard"
                     src={faveBook.best_book.image_url}
@@ -103,42 +102,34 @@ const KardSelector = () => {
                   <div style={{ color: "white" }}>
                     {faveBook.best_book.title}
                   </div>
-                </>
+                </KardCategoryContainer>
               )}
-  {/* movies begin */}
-
+              {/* movies begin */}
 
               {faveMovie === null ? (
                 <KardButtonThree onClick={() => setSelectedKard(3)}>
-                <MainKardImage src={movieIcon} alt=""></MainKardImage>
-              </KardButtonThree>
-
+                  <MainKardImage src={movieIcon} alt=""></MainKardImage>
+                </KardButtonThree>
               ) : (
-                <>
+                <KardCategoryContainer>
                   <img
                     className="Kard-dashboard"
                     src={`https://image.tmdb.org/t/p/w500${faveMovie.poster_path}`}
                     alt="Book cover"
                     onClick={() => setSelectedKard(3)}
                   />
-                  
-                  <div style={{ color: "white" }}>
-                    {faveMovie.title}
-                  </div>
-                </>
+                  <div style={{ color: "white" }}>{faveMovie.title}</div>
+                </KardCategoryContainer>
               )}
 
-              
-  {/* restaurent begins */}
-      
+              {/* restaurent begins */}
 
               {faveResto === null ? (
                 <KardButtonFour onClick={() => setSelectedKard(4)}>
-
                   <MainKardImage src={restaurantIcon} alt=""></MainKardImage>
                 </KardButtonFour>
               ) : (
-                <>
+                <KardCategoryContainer>
                   <img
                     className="resto_thumbnail"
                     src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=100&photoreference=${faveResto.photos[0].photo_reference}&key=AIzaSyAcLOiaEp4qBb1Wt2V_dyR6Ze1sgIEfUhs`}
@@ -146,7 +137,7 @@ const KardSelector = () => {
                     onClick={() => setSelectedKard(4)}
                   />
                   <div style={{ color: "white" }}>{faveResto.name}</div>
-                </>
+                </KardCategoryContainer>
               )}
             </KardSelectorContainer>
           </WhichKardWrapper>
