@@ -24,6 +24,7 @@ import {
   KardButtonFour,
   MainKardImage,
   KardCategoryContainer,
+  MainKardText,
 } from "../App.styles";
 
 const KardSelector = () => {
@@ -65,6 +66,7 @@ const KardSelector = () => {
                     alt=""
                     style={{ maxHeight: "75%" }}
                   ></MainKardImage>
+                  <MainKardText style={{ color: "black" }}>Album</MainKardText>
                 </KardButtonOne>
               ) : (
                 <KardCategoryContainer>
@@ -78,15 +80,13 @@ const KardSelector = () => {
                     height="100px"
                     onClick={() => setSelectedKard(1)}
                   />
-                  <div style={{ color: "white" }}>{faveAlbum.artistName}</div>
-                  <div style={{ color: "white" }}>
-                    {faveAlbum.collectionName}
-                  </div>
+                  <MainKardText>{faveAlbum.collectionName}</MainKardText>
                 </KardCategoryContainer>
               )}
               {faveBook === null ? (
                 <KardButtonTwo onClick={() => setSelectedKard(2)}>
                   <MainKardImage src={bookIcon} alt=""></MainKardImage>
+                  <MainKardText style={{ color: "black" }}>Book</MainKardText>
                 </KardButtonTwo>
               ) : (
                 <KardCategoryContainer>
@@ -96,12 +96,8 @@ const KardSelector = () => {
                     alt="Book cover"
                     onClick={() => setSelectedKard(2)}
                   />
-                  <div style={{ color: "white" }}>
-                    {faveBook.best_book.author.name}
-                  </div>
-                  <div style={{ color: "white" }}>
-                    {faveBook.best_book.title}
-                  </div>
+
+                  <MainKardText>{faveBook.best_book.title}</MainKardText>
                 </KardCategoryContainer>
               )}
               {/* movies begin */}
@@ -109,6 +105,7 @@ const KardSelector = () => {
               {faveMovie === null ? (
                 <KardButtonThree onClick={() => setSelectedKard(3)}>
                   <MainKardImage src={movieIcon} alt=""></MainKardImage>
+                  <MainKardText style={{ color: "black" }}>Movie</MainKardText>
                 </KardButtonThree>
               ) : (
                 <KardCategoryContainer>
@@ -118,7 +115,7 @@ const KardSelector = () => {
                     alt="Book cover"
                     onClick={() => setSelectedKard(3)}
                   />
-                  <div style={{ color: "white" }}>{faveMovie.title}</div>
+                  <MainKardText>{faveMovie.title}</MainKardText>
                 </KardCategoryContainer>
               )}
 
@@ -127,6 +124,9 @@ const KardSelector = () => {
               {faveResto === null ? (
                 <KardButtonFour onClick={() => setSelectedKard(4)}>
                   <MainKardImage src={restaurantIcon} alt=""></MainKardImage>
+                  <MainKardText style={{ color: "black" }}>
+                    Restaurant
+                  </MainKardText>
                 </KardButtonFour>
               ) : (
                 <KardCategoryContainer>
@@ -136,7 +136,7 @@ const KardSelector = () => {
                     alt="Restaurant"
                     onClick={() => setSelectedKard(4)}
                   />
-                  <div style={{ color: "white" }}>{faveResto.name}</div>
+                  <MainKardText>{faveResto.name}</MainKardText>
                 </KardCategoryContainer>
               )}
             </KardSelectorContainer>
