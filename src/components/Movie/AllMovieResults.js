@@ -7,7 +7,7 @@ import { SearchDiv } from "../../App.styles";
 
 const AllMovieResults = ({ movies, chgMovie, expandBook }) => {
 
-
+console.log(movies)
 
   return (
     <SearchDiv className="row">
