@@ -14,10 +14,7 @@ import restaurantIcon from "../assets/images/restaurant2.png";
 import {
   KardSelectorContainer,
   WhichKardWrapper,
-  AlbumsKardWrapper,
-  BooksKardWrapper,
-  MoviesKardWrapper,
-  RestaurantKardWrapper,
+  CategoryKardWrapper,
   KardButtonOne,
   KardButtonTwo,
   KardButtonThree,
@@ -73,13 +70,9 @@ const KardSelector = () => {
               ) : (
                 <KardCategoryContainer>
                   <img
-                    style={{
-                      margin: "auto",
-                    }}
-                    className="card-img-top pl-2 pr-2 pt-2"
+                    style={{ height: "100px", width: "100px" }}
                     src={faveAlbum.artworkUrl60}
                     alt="Album cover"
-                    height="100px"
                     onClick={() => setSelectedKard(1)}
                   />
                   <MainKardText>{faveAlbum.collectionName}</MainKardText>
@@ -147,7 +140,7 @@ const KardSelector = () => {
       ) : null}
       {selectedKard === 1 ? (
         <>
-          <AlbumsKardWrapper>
+          <CategoryKardWrapper>
             <Albums chgAlbum={chgAlbum}></Albums>
             <KardButtonOne
               style={{
@@ -158,12 +151,12 @@ const KardSelector = () => {
             >
               Go Back
             </KardButtonOne>
-          </AlbumsKardWrapper>
+          </CategoryKardWrapper>
         </>
       ) : null}
       {selectedKard === 2 ? (
         <>
-          <BooksKardWrapper>
+          <CategoryKardWrapper>
             <Books chgBook={chgBook}></Books>
             <KardButtonTwo
               style={{
@@ -174,12 +167,12 @@ const KardSelector = () => {
             >
               Go Back
             </KardButtonTwo>
-          </BooksKardWrapper>
+          </CategoryKardWrapper>
         </>
       ) : null}
       {selectedKard === 3 ? (
         <>
-          <MoviesKardWrapper>
+          <CategoryKardWrapper>
             <Movies chgMovie={chgMovie}></Movies>
             <KardButtonOne
               style={{
@@ -190,12 +183,12 @@ const KardSelector = () => {
             >
               Go Back
             </KardButtonOne>
-          </MoviesKardWrapper>
+          </CategoryKardWrapper>
         </>
       ) : null}
       {selectedKard === 4 ? (
         <>
-          <RestaurantKardWrapper>
+          <CategoryKardWrapper>
             <Restaurants chgResto={chgResto}></Restaurants>
             <KardButtonTwo
               style={{
@@ -206,7 +199,7 @@ const KardSelector = () => {
             >
               Go Back
             </KardButtonTwo>
-          </RestaurantKardWrapper>
+          </CategoryKardWrapper>
         </>
       ) : null}
     </>
