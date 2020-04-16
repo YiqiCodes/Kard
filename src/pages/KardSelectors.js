@@ -37,6 +37,7 @@ const KardSelector = () => {
 
   const chgAlbum = function (info) {
     setFaveAlbum(info);
+    setSelectedKard(0);
   };
 
   const chgBook = function (info) {
@@ -46,6 +47,7 @@ const KardSelector = () => {
 
   const chgResto = function (info) {
     setFaveResto(info);
+    setSelectedKard(0);
   };
 
   const chgMovie = function (info) {

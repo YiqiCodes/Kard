@@ -29,11 +29,37 @@ const Albums = (props) => {
         key={keyValue}
         onClick={(event) => {
           setPicked(result);
-          props.chgAlbum(result);
-          console.log(result);
         }}
       >
-        {result.collectionName}
+        <img
+          className="album_thumbnail"
+          src={result.artworkUrl100}
+          alt="Album"
+        />
+        <div className="infoMargin">{result.collectionName}</div>
+        <div className="infoMargin">{result.artistName}</div>
+        <div className="infoMargin">
+          <button
+            style={{
+              borderRadius: "5px",
+              marginLeft: "3px",
+              background: "white",
+            }}
+            onClick={() => props.chgAlbum(result)}
+          >
+            Select
+          </button>
+          <button
+            style={{
+              borderRadius: "5px",
+              marginLeft: "3px",
+              background: "white",
+            }}
+            // onClick={() => expandBook(bookData)}
+          >
+            More Info
+          </button>
+        </div>
       </div>
     );
   });
@@ -60,7 +86,7 @@ const Albums = (props) => {
             onChange={(event) => setTerm(event.target.value)}
           />
         </form>
-        <div
+        {/* <div
           style={{
             display: "flex",
             justifyContent: "center",
@@ -79,7 +105,7 @@ const Albums = (props) => {
               </div>
             </>
           ) : null}
-        </div>
+        </div> */}
         <div className="resultsBox">{ShowResults}</div>
       </main>
     </Fragment>
