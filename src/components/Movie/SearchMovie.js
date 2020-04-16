@@ -7,7 +7,7 @@ import AllMovieResults from "./AllMovieResults";
 
 function SearchMovie(props) {
   const [title, setTitle] = useState("");
-  const [movies, setMovies] = useState([]);
+  // const [movies, setMovies] = useState([]);
 
   const sendRequest = (title) => {
     setTimeout(() => {
