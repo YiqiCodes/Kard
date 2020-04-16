@@ -152,6 +152,7 @@ const KardSelector = () => {
             <KardButtonOne
               style={{
                 minHeight: "40px",
+                marginBottom: "2rem",
               }}
               onClick={() => setSelectedKard(0)}
             >
@@ -167,6 +168,7 @@ const KardSelector = () => {
             <KardButtonTwo
               style={{
                 minHeight: "40px",
+                marginBottom: "2rem",
               }}
               onClick={() => setSelectedKard(0)}
             >
@@ -182,6 +184,7 @@ const KardSelector = () => {
             <KardButtonOne
               style={{
                 minHeight: "40px",
+                marginBottom: "2rem",
               }}
               onClick={() => setSelectedKard(0)}
             >
@@ -197,6 +200,7 @@ const KardSelector = () => {
             <KardButtonTwo
               style={{
                 minHeight: "40px",
+                marginBottom: "2rem",
               }}
               onClick={() => setSelectedKard(0)}
             >
