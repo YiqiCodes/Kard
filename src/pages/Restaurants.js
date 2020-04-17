@@ -1,6 +1,9 @@
 import React, { Fragment, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import "./Albums.css";
+
+import { CategoryKardWrapper, KardButtonMain } from "../App.styles";
 
 const Restaurants = (props) => {
   const [term, setTerm] = useState("");
@@ -23,29 +26,28 @@ const Restaurants = (props) => {
 
     if (term !== "") {
       return (
-        <div
-          className="result"
-          key={keyValue}
-        >
-          {result.photos ?
-          <img
-            className="album_thumbnail"
-            src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=100&photoreference=${result.photos[0].photo_reference}&key=AIzaSyAcLOiaEp4qBb1Wt2V_dyR6Ze1sgIEfUhs`}
-            alt="Restaurant"
-          />
-          : null}
+        <div className="result" key={keyValue}>
+          {result.photos ? (
+            <img
+              className="album_thumbnail"
+              src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=100&photoreference=${result.photos[0].photo_reference}&key=AIzaSyAcLOiaEp4qBb1Wt2V_dyR6Ze1sgIEfUhs`}
+              alt="Restaurant"
+            />
+          ) : null}
           <div className="infoMargin">{result.name}</div>
           <div className="infoMargin">
-            <button
-              style={{
-                borderRadius: "5px",
-                marginLeft: "3px",
-                background: "white",
-              }}
-              onClick={() => props.chgResto(result)}
-            >
-              Select
-            </button>
+            <Link to="/">
+              <button
+                style={{
+                  borderRadius: "5px",
+                  marginLeft: "3px",
+                  background: "white",
+                }}
+                onClick={() => props.chgResto(result)}
+              >
+                Select
+              </button>
+            </Link>
             <a
               href={`https://www.google.com/maps/place/?q=place_id:${result.place_id}`}
               target="_blank"
@@ -66,53 +68,63 @@ const Restaurants = (props) => {
       );
     }
 
-    return(
-      <div 
-        className="result"
-        key={keyValue}
-      />
-    )
+    return <div className="result" key={keyValue} />;
   });
 
   return (
     <>
-      <Fragment>
-        <main>
-          <h3
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              fontWeight: "200",
-            }}
-            className="text-muted"
-          >
-            What's your favourite Restaurant?
-          </h3>
-          <form className="formDefault" noValidate autoComplete="off">
-                    <div style={{ fontWeight: "200" }} className="form-group row">
-            <input
+      <CategoryKardWrapper>
+        <Fragment>
+          <main>
+            <h3
               style={{
-                marginBottom: "1em",
-                minWidth: "15rem",
-                minHeight: "2rem",
-                borderRadius: "8px",
-                border: "2px solid white",
-                textAlign: "center",
-                fontSize: "large",
+                display: "flex",
+                justifyContent: "center",
                 fontWeight: "200",
-                padding: "0 1rem",
               }}
-              className="mr-1 col-sm-9 form-control"
-              type="text"
-              placeholder="Search by Name"
-              name="searchText"
-              onChange={(event) => setTerm(event.target.value)}
-            />
-          </div>
-          </form>
-          <div className="resultsBox">{results !== undefined ? ShowResults : null}</div>
-        </main>
-      </Fragment>
+              className="text-muted"
+            >
+              What's your favourite Restaurant?
+            </h3>
+            <form className="formDefault" noValidate autoComplete="off">
+              <div style={{ fontWeight: "200" }} className="form-group row">
+                <input
+                  style={{
+                    marginBottom: "1em",
+                    minWidth: "15rem",
+                    minHeight: "2rem",
+                    borderRadius: "8px",
+                    border: "2px solid white",
+                    textAlign: "center",
+                    fontSize: "large",
+                    fontWeight: "200",
+                    padding: "0 1rem",
+                  }}
+                  className="mr-1 col-sm-9 form-control"
+                  type="text"
+                  placeholder="Search by Name"
+                  name="searchText"
+                  onChange={(event) => setTerm(event.target.value)}
+                />
+              </div>
+            </form>
+            <div className="resultsBox">
+              {results !== undefined ? ShowResults : null}
+            </div>
+          </main>
+        </Fragment>
+        <Link to="/">
+          <KardButtonMain
+            style={{
+              minHeight: "40px",
+              marginBottom: "2rem",
+              background: "#6b8079",
+            }}
+          >
+            Go Back
+          </KardButtonMain>
+        </Link>
+      </CategoryKardWrapper>
     </>
   );
 };

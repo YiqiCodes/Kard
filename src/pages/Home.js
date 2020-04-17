@@ -4,7 +4,12 @@ import KardSelectors from "./KardSelectors";
 const Home = (props) => {
   return (
     <>
-      <KardSelectors faveAlbum={props.faveAlbum}></KardSelectors>
+      <KardSelectors
+        faveAlbum={props.faveAlbum}
+        faveBook={props.faveBook}
+        faveMovie={props.faveMovie}
+        faveResto={props.faveResto}
+      ></KardSelectors>
     </>
   );
 };
