@@ -39,7 +39,11 @@ function App() {
         <header>
           <NavBar />
         </header>
-        <Route exact path="/" component={withRouter(Home)}></Route>
+        <Route
+          exact
+          path="/"
+          render={(props) => <Home faveAlbum={faveAlbum}></Home>}
+        ></Route>
         <Switch>
           <Route
             exact

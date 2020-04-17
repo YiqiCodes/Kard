@@ -25,16 +25,13 @@ import {
   MainKardText,
 } from "../App.styles";
 
-const KardSelector = () => {
+const KardSelector = (props) => {
   const [faveBook, setFaveBook] = useState(null);
   const [faveResto, setFaveResto] = useState(null);
   const [faveMovie, setFaveMovie] = useState(null);
-  const [faveAlbum, setFaveAlbum] = useState(null);
+  // const [faveAlbum, setFaveAlbum] = useState(null);
 
-  const chgAlbum = function (info) {
-    setFaveAlbum(info);
-    // setSelectedKard(0);
-  };
+  const { faveAlbum } = props;
 
   const chgBook = function (info) {
     setFaveBook(info);

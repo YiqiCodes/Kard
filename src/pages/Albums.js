@@ -33,16 +33,18 @@ const Albums = (props) => {
         <div className="infoMargin">{result.collectionName}</div>
         <div className="infoMargin">{result.artistName}</div>
         <div className="infoMargin">
-          <button
-            style={{
-              borderRadius: "5px",
-              marginLeft: "3px",
-              background: "white",
-            }}
-            onClick={() => props.chgAlbum(result)}
-          >
-            Select
-          </button>
+          <Link to="/">
+            <button
+              style={{
+                borderRadius: "5px",
+                marginLeft: "3px",
+                background: "white",
+              }}
+              onClick={() => props.chgAlbum(result)}
+            >
+              Select
+            </button>
+          </Link>
           <a
             href={`${result.collectionViewUrl}`}
             target="_blank"
