@@ -110,6 +110,7 @@ class Search extends Component {
         {/**
          * if fetching data, display "loading...", if error, display error message, else display search results
          */}
+
         {/* {this.state.fetchingData ? (
           <div style={{ height: "58vh", textAlign: "center" }}>Loading...</div>
         ) : ( */}
