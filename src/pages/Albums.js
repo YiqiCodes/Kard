@@ -110,7 +110,6 @@ const Albums = (props) => {
             minHeight: "40px",
             marginBottom: "2rem",
           }}
-          // onClick={() => setSelectedKard(0)}
         >
           Go Back
         </KardButtonMain>

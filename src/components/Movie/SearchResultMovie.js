@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 const SearchResultMovie = ({ movieData, expandBook, chgMovie }) => {
@@ -52,17 +53,18 @@ const SearchResultMovie = ({ movieData, expandBook, chgMovie }) => {
               marginBottom: "1em",
             }}
           >
-            <button
-              style={{
-                borderRadius: "5px",
-                marginLeft: "3px",
-                background: "white",
-              }}
-              onClick={() => chgMovie(movieData)}
-            >
-              Select
-            </button>
-
+            <Link to="/">
+              <button
+                style={{
+                  borderRadius: "5px",
+                  marginLeft: "3px",
+                  background: "white",
+                }}
+                onClick={() => chgMovie(movieData)}
+              >
+                Select
+              </button>
+            </Link>
             <a
               href={`https://www.themoviedb.org/movie/${movieData.id}`}
               target="_blank"

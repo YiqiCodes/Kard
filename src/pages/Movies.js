@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import SearchMovie from "../components/Movie/SearchMovie";
-import { BookDiv } from "../App.styles";
+import { BookDiv, CategoryKardWrapper, KardButtonMain } from "../App.styles";
 
 function Movies(props) {
   const [state, setState] = useState({
@@ -12,34 +13,45 @@ function Movies(props) {
     setState({ results });
   };
 
- 
-
   const expandBook = (expandedBook) => {
     setState({ expandedBook });
   };
 
   return (
-    <BookDiv style={{ height: "100%" }} className="container">
-      <div className="header clearfix mt-5">
-        <h3
+    <CategoryKardWrapper>
+      <BookDiv style={{ height: "100%" }} className="container">
+        <div className="header clearfix mt-5">
+          <h3
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              fontWeight: "200",
+            }}
+          >
+            What's your favourite Movie?
+          </h3>
+        </div>
+        <div className="jumbotron">
+          <SearchMovie
+            chgMovie={props.chgMovie}
+            results={state.results}
+            setResults={setResults}
+            expandBook={expandBook}
+          />
+        </div>
+      </BookDiv>
+      <Link to="/">
+        <KardButtonMain
           style={{
-            display: "flex",
-            justifyContent: "center",
-            fontWeight: "200",
+            minHeight: "40px",
+            marginBottom: "2rem",
+            background: "d6fff2",
           }}
         >
-          What's your favourite Movie?
-        </h3>
-      </div>
-      <div className="jumbotron">
-        <SearchMovie
-          chgMovie={props.chgMovie}
-          results={state.results}
-          setResults={setResults}
-          expandBook={expandBook}
-        />
-      </div>
-    </BookDiv>
+          Go Back
+        </KardButtonMain>
+      </Link>
+    </CategoryKardWrapper>
   );
 }
 export default Movies;

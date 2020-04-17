@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 const SearchResult = ({ bookData, expandBook, chgBook }) => {
@@ -60,17 +61,18 @@ const SearchResult = ({ bookData, expandBook, chgBook }) => {
               marginBottom: "1em",
             }}
           >
-            <button
-              style={{
-                borderRadius: "5px",
-                marginLeft: "3px",
-                background: "white",
-              }}
-              onClick={() => chgBook(bookData)}
-            >
-              Select
-            </button>
-
+            <Link to="/">
+              <button
+                style={{
+                  borderRadius: "5px",
+                  marginLeft: "3px",
+                  background: "white",
+                }}
+                onClick={() => chgBook(bookData)}
+              >
+                Select
+              </button>
+            </Link>
             {/* <button
               style={{
                 borderRadius: "5px",
@@ -87,22 +89,17 @@ const SearchResult = ({ bookData, expandBook, chgBook }) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-
-            <button
-              style={{
-                borderRadius: "5px",
-                marginLeft: "3px",
-                background: "white",
-              }}
-              // onClick={() => expandBook(bookData)}
-            >
-              More Info
-            </button>
-            
+              <button
+                style={{
+                  borderRadius: "5px",
+                  marginLeft: "3px",
+                  background: "white",
+                }}
+                // onClick={() => expandBook(bookData)}
+              >
+                More Info
+              </button>
             </a>
-
-
-
           </div>
         </div>
       </div>
