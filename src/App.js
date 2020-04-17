@@ -53,7 +53,12 @@ function App() {
     <PageWrapper>
       <Router history={history}>
         <header>
-          <NavBar />
+          <NavBar
+            faveAlbum={faveAlbum}
+            faveBook={faveBook}
+            faveResto={faveResto}
+            faveMovie={faveMovie}
+          />
         </header>
         <Route
           exact
