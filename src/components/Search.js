@@ -18,27 +18,55 @@ class Search extends Component {
       searchText: e.target.value,
     });
 
-    setTimeout(() => {
-      this.setState({
-        fetchingData: true,
-      });
-      const { searchText } = this.state;
-      const requestUri =
-        `https://cors-anywhere.herokuapp.com/` +
-        `https://www.goodreads.com/search/index.xml?key=${apiKey}&q=${searchText}`;
+    // setTimeout(() => {
+    //   this.setState({
+    //     fetchingData: true,
+    //   });
+    //   const { searchText } = this.state;
+    //   const requestUri =
+    //     `https://cors-anywhere.herokuapp.com/` +
+    //     `https://www.goodreads.com/search/index.xml?key=${apiKey}&q=${searchText}`;
 
-      Axios.get(requestUri)
-        .then((res) => {
-          this.parseXMLResponse(res.data);
-        })
-        .catch((error) => {
-          this.setState({
-            error: error.toString(),
-            fetchingData: false,
-          });
-        });
-    }, 500);
+    //   Axios.get(requestUri)
+    //     .then((res) => {
+    //       this.parseXMLResponse(res.data);
+    //     })
+    //     .catch((error) => {
+    //       this.setState({
+    //         error: error.toString(),
+    //         fetchingData: false,
+    //       });
+    //     });
+    // }, 500);
   };
+
+
+
+  onButtonClick = () => {
+    this.setState({
+      fetchingData: true
+    });
+    const { searchText } = this.state;
+    const requestUri =
+      `https://cors-anywhere.herokuapp.com/` +
+      `https://www.goodreads.com/search/index.xml?key=${apiKey}&q=${searchText}`;
+
+    Axios.get(requestUri)
+      .then(res => {
+        this.parseXMLResponse(res.data);
+      })
+      .catch(error => {
+        this.setState({
+          error: error.toString(),
+          fetchingData: false
+        });
+      });
+  };
+
+
+
+
+  onClick
 
   // parse string xml received from goodreads api
   parseXMLResponse = (response) => {
@@ -107,6 +135,14 @@ class Search extends Component {
             value={this.state.searchText}
           />
         </div>
+
+          <button
+            className="col-sm-2 btn btn-primary"
+            onClick={this.onButtonClick}
+          >
+            Search
+          </button>
+
         {/**
          * if fetching data, display "loading...", if error, display error message, else display search results
          */}
