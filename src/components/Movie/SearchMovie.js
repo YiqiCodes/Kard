@@ -66,7 +66,7 @@ function SearchMovie(props) {
 
       {/* <input className="button" type="submit" onClick={handleSubmit} value="Search"/> */}
 
-      <div className="movie-div">
+      <div style={{ minHeight: "480px" }} className="movie-div">
         {props.results.length !== 0 ? (
           <AllMovieResults
             // movies={movies}
