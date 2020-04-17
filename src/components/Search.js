@@ -82,7 +82,7 @@ class Search extends Component {
   render() {
     return (
       <SearchDiv>
-        <div style={{ fontWeight: "200" }} className="form-group row">
+        <div style={{ fontWeight: "200", textAlign: "center" }} className="form-group row">
           <input
             style={{
               marginBottom: "1em",
@@ -108,7 +108,7 @@ class Search extends Component {
          * if fetching data, display "loading...", if error, display error message, else display search results
          */}
         {this.state.fetchingData ? (
-          <div style={{ height: "58vh", textAlign: "center" }}>Loading...</div>
+          <div style={{ height: "480vh", textAlign: "center" }}>Loading...</div>
         ) : (
           (this.state.error && (
             <p className="text-danger">{this.state.error}</p>
