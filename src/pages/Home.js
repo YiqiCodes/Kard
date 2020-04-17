@@ -1,10 +1,10 @@
 import React from "react";
 import KardSelectors from "./KardSelectors";
 
-const Home = () => {
+const Home = (props) => {
   return (
     <>
-      <KardSelectors></KardSelectors>
+      <KardSelectors faveAlbum={props.faveAlbum}></KardSelectors>
     </>
   );
 };
