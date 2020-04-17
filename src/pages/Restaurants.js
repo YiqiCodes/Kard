@@ -64,7 +64,14 @@ const Restaurants = (props) => {
           </div>
         </div>
       );
-    };
+    }
+
+    return(
+      <div 
+        className="result"
+        key={keyValue}
+      />
+    )
   });
 
   return (
@@ -97,7 +104,7 @@ const Restaurants = (props) => {
               }}
               className="mr-1 col-sm-9 form-control"
               type="text"
-              placeholder="Search by title or author"
+              placeholder="Search by Name"
               name="searchText"
               onChange={(event) => setTerm(event.target.value)}
             />
