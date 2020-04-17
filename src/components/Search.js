@@ -4,7 +4,7 @@ import AllResults from "./AllResults";
 import PropTypes from "prop-types";
 import { SearchDiv } from "../App.styles";
 
-const apiKey = "zkKPyD9OsJFVQltErwnabg";
+const apiKey = "6NBPRLQ85WaAR1ebDnBg6tUSJTjsBuG9IONQlalw";
 
 class Search extends Component {
   state = {
@@ -82,7 +82,10 @@ class Search extends Component {
   render() {
     return (
       <SearchDiv>
-        <div style={{ fontWeight: "200" }} className="form-group row">
+        <div
+          style={{ fontWeight: "200", textAlign: "center" }}
+          className="form-group row"
+        >
           <input
             style={{
               marginBottom: "1em",
@@ -99,26 +102,25 @@ class Search extends Component {
             type="text"
             placeholder="Search by title or author"
             name="searchText"
+            autocomplete="off"
             onChange={this.onTextChange}
             value={this.state.searchText}
           />
         </div>
-
         {/**
          * if fetching data, display "loading...", if error, display error message, else display search results
          */}
-        {this.state.fetchingData ? (
+        {/* {this.state.fetchingData ? (
           <div style={{ height: "58vh", textAlign: "center" }}>Loading...</div>
-        ) : (
-          (this.state.error && (
-            <p className="text-danger">{this.state.error}</p>
-          )) || (
-            <AllResults
-              chgBook={this.props.chgBook}
-              books={this.props.results}
-              expandBook={this.props.expandBook}
-            />
-          )
+        ) : ( */}
+        {(this.state.error && (
+          <p className="text-danger">{this.state.error}</p>
+        )) || (
+          <AllResults
+            chgBook={this.props.chgBook}
+            books={this.props.results}
+            expandBook={this.props.expandBook}
+          />
         )}
       </SearchDiv>
     );
