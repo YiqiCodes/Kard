@@ -59,6 +59,7 @@ function SearchMovie(props) {
           type="text"
           placeholder="Search by title or author"
           name="searchText"
+          autocomplete="off"
           onChange={onTextChange}
           value={title}
         />
