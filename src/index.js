@@ -4,16 +4,14 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
-
-
 import { Auth0Provider } from "./react-auth0-spa";
 import config from "./auth_config.json";
 import history from "./utils/history";
-
+import { BrowserRouter } from "react-router-dom";
 
 // A function that routes the user to the right place
 // after login
-const onRedirectCallback = appState => {
+const onRedirectCallback = (appState) => {
   history.push(
     appState && appState.targetUrl
       ? appState.targetUrl
@@ -21,24 +19,20 @@ const onRedirectCallback = appState => {
   );
 };
 
-
 ReactDOM.render(
-
   <Auth0Provider
-  domain={config.domain}
-  client_id={config.clientId}
-  redirect_uri={window.location.origin}
-  onRedirectCallback={onRedirectCallback}
->
-
-
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-
+    domain={config.domain}
+    client_id={config.clientId}
+    redirect_uri={window.location.origin}
+    onRedirectCallback={onRedirectCallback}
+  >
+    <BrowserRouter>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </BrowserRouter>
   </Auth0Provider>,
 
-  
   document.getElementById("root")
 );
 

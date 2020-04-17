@@ -1,6 +1,9 @@
 import React, { Fragment, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import "./Albums.css";
+
+import { CategoryKardWrapper, KardButtonMain } from "../App.styles";
 
 const Albums = (props) => {
   const [term, setTerm] = useState("");
@@ -21,10 +24,7 @@ const Albums = (props) => {
     keyValue += 1;
 
     return (
-      <div
-        className="result"
-        key={keyValue}
-      >
+      <div className="result" key={keyValue}>
         <img
           className="album_thumbnail"
           src={result.artworkUrl100}
@@ -58,50 +58,62 @@ const Albums = (props) => {
               More Info
             </button>
           </a>
-
         </div>
       </div>
     );
   });
 
   return (
-    <Fragment>
-      <main>
-        <h3
+    <CategoryKardWrapper>
+      <Fragment>
+        <main>
+          <h3
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              fontWeight: "200",
+            }}
+            className="text-muted"
+          >
+            What's your favourite Album?
+          </h3>
+          <form className="formDefault" noValidate autoComplete="off">
+            <div style={{ fontWeight: "200" }} className="form-group row">
+              <input
+                style={{
+                  marginBottom: "1em",
+                  minWidth: "15rem",
+                  minHeight: "2rem",
+                  borderRadius: "8px",
+                  border: "2px solid white",
+                  textAlign: "center",
+                  fontSize: "large",
+                  fontWeight: "200",
+                  padding: "0 1rem",
+                }}
+                className="mr-1 col-sm-9 form-control"
+                type="text"
+                placeholder="Search by Artist"
+                name="searchText"
+                onChange={(event) => setTerm(event.target.value)}
+              />
+            </div>
+          </form>
+          <div className="resultsBox">{ShowResults}</div>
+        </main>
+      </Fragment>
+      <Link to="/">
+        <KardButtonMain
           style={{
-            display: "flex",
-            justifyContent: "center",
-            fontWeight: "200",
+            minHeight: "40px",
+            marginBottom: "2rem",
           }}
-          className="text-muted"
+          // onClick={() => setSelectedKard(0)}
         >
-          What's your favourite Album?
-        </h3>
-        <form className="formDefault" noValidate autoComplete="off">
-          <div style={{ fontWeight: "200" }} className="form-group row">
-            <input
-              style={{
-                marginBottom: "1em",
-                minWidth: "15rem",
-                minHeight: "2rem",
-                borderRadius: "8px",
-                border: "2px solid white",
-                textAlign: "center",
-                fontSize: "large",
-                fontWeight: "200",
-                padding: "0 1rem",
-              }}
-              className="mr-1 col-sm-9 form-control"
-              type="text"
-              placeholder="Search by Artist"
-              name="searchText"
-              onChange={(event) => setTerm(event.target.value)}
-            />
-          </div>
-        </form>
-        <div className="resultsBox">{ShowResults}</div>
-      </main>
-    </Fragment>
+          Go Back
+        </KardButtonMain>
+      </Link>
+    </CategoryKardWrapper>
   );
 };
 
