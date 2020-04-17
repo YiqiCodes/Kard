@@ -16,6 +16,8 @@ import { useAuth0 } from "./react-auth0-spa";
 import { Router, Route, Switch } from "react-router-dom";
 import Profile from "./components/Profile";
 import history from "./utils/history";
+import PrivateRoute from "./components/PrivateRoute";
+
 
 function App() {
   const [faveAlbum, setFaveAlbum] = useState(null);
@@ -39,7 +41,9 @@ function App() {
     setFaveMovie(info);
   };
 
-  const { loading } = useAuth0();
+  const { loading, user } = useAuth0();
+
+  console.log(user, 'in apphome')
 
   if (loading) {
     return <div>Loading...</div>;
@@ -84,7 +88,7 @@ function App() {
             path="/Restaurants"
             render={() => <Restaurants chgResto={chgResto}></Restaurants>}
           ></Route>
-          <Route path="/profile" component={Profile} />
+          <PrivateRoute path="/profile" component={Profile} />
         </Switch>
       </Router>
     </PageWrapper>
