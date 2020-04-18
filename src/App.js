@@ -6,6 +6,7 @@ import "./App.css";
 import { PageWrapper } from "./App.styles";
 import Home from "./pages/Home";
 
+import About from "../src/pages/About";
 import Books from "../src/pages/Books";
 import Albums from "../src/pages/Albums";
 import Movies from "../src/pages/Movies";
@@ -93,6 +94,7 @@ function App() {
           )}
         ></Route>
         <Switch>
+          <Route exact path="/about" render={() => <About></About>}></Route>
           <Route
             exact
             path="/albums"
