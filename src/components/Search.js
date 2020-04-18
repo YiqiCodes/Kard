@@ -40,11 +40,9 @@ class Search extends Component {
     // }, 500);
   };
 
-
-
   onButtonClick = () => {
     this.setState({
-      fetchingData: true
+      fetchingData: true,
     });
     const { searchText } = this.state;
     const requestUri =
@@ -52,21 +50,18 @@ class Search extends Component {
       `https://www.goodreads.com/search/index.xml?key=${apiKey}&q=${searchText}`;
 
     Axios.get(requestUri)
-      .then(res => {
+      .then((res) => {
         this.parseXMLResponse(res.data);
       })
-      .catch(error => {
+      .catch((error) => {
         this.setState({
           error: error.toString(),
-          fetchingData: false
+          fetchingData: false,
         });
       });
   };
 
-
-
-
-  onClick
+  onClick;
 
   // parse string xml received from goodreads api
   parseXMLResponse = (response) => {
@@ -136,12 +131,13 @@ class Search extends Component {
           />
         </div>
 
-          <button
-            className="col-sm-2 btn btn-primary"
-            onClick={this.onButtonClick}
-          >
-            Search
-          </button>
+        <button
+          style={{ color: "white", minHeight: "2rem", fontSize: "large" }}
+          className="col-sm-2 btn btn-primary"
+          onClick={this.onButtonClick}
+        >
+          Submit
+        </button>
 
         {/**
          * if fetching data, display "loading...", if error, display error message, else display search results
