@@ -2,6 +2,7 @@
 
 import React, { Fragment } from "react";
 import { useAuth0 } from "../react-auth0-spa";
+import "./Profile.css";
 
 const Profile = () => {
   const { loading, user } = useAuth0();
@@ -14,11 +15,20 @@ const Profile = () => {
 
   return (
     <Fragment>
-      <img src={user.picture} alt="Profile" />
-
-      <h2>{user.name}</h2>
-      <p>{user.email}</p>
-      <code>{JSON.stringify(user, null, 2)}</code>
+      <div className="profileGrid">
+        <div className="profile01">
+          <img 
+            className="profileImg"
+            src={user.picture}
+            alt="Profile"
+          />
+        </div>
+        <div className="profile02">
+          <p>{user.name}</p>
+          <p>{user.email}</p>
+        </div>
+        <code>{JSON.stringify(user, null, 2)}</code>
+      </div>
     </Fragment>
   );
 };

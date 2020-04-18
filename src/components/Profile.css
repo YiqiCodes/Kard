@@ -1,0 +1,29 @@
+.profileGrid {
+  height: 100vh;
+  width: 100vw;
+  overflow: none;
+  overflow-wrap: break-word;
+  text-align: center;
+
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 120px 200px 200px;
+}
+
+.profile01 {
+  grid-row: 1/2;
+}
+
+.profile02 {
+  grid-row: 2/3;
+}
+
+.profile03 {
+  grid-row: 3/4;
+}
+
+.profileImg {
+  height: 100px;
+  width: 100px;
+  margin: 10px;
+}
