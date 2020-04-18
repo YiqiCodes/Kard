@@ -40,21 +40,31 @@ const KardSelector = (props) => {
               >
                 {faveAlbum === null ? (
                   <>
-                    <Link to="/albums">
-                      <MainKardImage
-                        src={musicIcon}
-                        alt=""
-                        style={{ maxHeight: "75%" }}
-                      />
+                    <Link
+                      to="/albums"
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <MainKardImage src={musicIcon} alt="" />
                     </Link>
                   </>
                 ) : (
                   <>
-                    <Link to="/albums">
+                    <Link
+                      to="/albums"
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
                       <MainKardImage
                         style={{
-                          width: "100px",
-                          height: "100px",
+                          minWidth: "100px",
+                          minHeight: "100px",
                         }}
                         src={faveAlbum.artworkUrl60}
                         alt="Album cover"
@@ -76,14 +86,32 @@ const KardSelector = (props) => {
               >
                 {faveBook === null ? (
                   <>
-                    <Link to="/books">
+                    <Link
+                      to="/books"
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
                       <MainKardImage src={bookIcon} alt="" />
                     </Link>
                   </>
                 ) : (
                   <>
-                    <Link to="/books">
+                    <Link
+                      to="/books"
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
                       <MainKardImage
+                        style={{
+                          minWidth: "100%",
+                          minHeight: "100%",
+                        }}
                         className="Kard-dashboard"
                         src={faveBook.best_book.image_url}
                         alt="Book cover"
@@ -105,18 +133,35 @@ const KardSelector = (props) => {
               >
                 {faveMovie === null ? (
                   <>
-                    <Link to="/movies">
+                    <Link
+                      to="/movies"
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
                       <MainKardImage src={movieIcon} alt="" />
                     </Link>
                   </>
                 ) : (
                   <>
-                    <Link to="/movies">
+                    <Link
+                      to="/movies"
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
                       <MainKardImage
+                        style={{
+                          minWidth: "100%",
+                          minHeight: "100%",
+                        }}
                         className="Kard-dashboard"
                         src={`https://image.tmdb.org/t/p/w500${faveMovie.poster_path}`}
                         alt="Book cover"
-                        // onClick={() => setSelectedKard(3)}
                       />
                     </Link>
                     <MainKardText>{faveMovie.title}</MainKardText>
@@ -137,14 +182,32 @@ const KardSelector = (props) => {
               >
                 {faveResto === null ? (
                   <>
-                    <Link to="/restaurants">
+                    <Link
+                      to="/restaurants"
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
                       <MainKardImage src={restaurantIcon} alt="" />
                     </Link>
                   </>
                 ) : (
                   <>
-                    <Link to="/restaurants">
+                    <Link
+                      to="/restaurants"
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
                       <MainKardImage
+                        style={{
+                          minWidth: "100%",
+                          minHeight: "100%",
+                        }}
                         className="resto_thumbnail"
                         src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=100&photoreference=${faveResto.photos[0].photo_reference}&key=AIzaSyAcLOiaEp4qBb1Wt2V_dyR6Ze1sgIEfUhs`}
                         alt="Restaurant"
