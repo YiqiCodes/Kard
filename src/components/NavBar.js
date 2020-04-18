@@ -1,11 +1,8 @@
-// src/components/NavBar.js
-
 import React from "react";
 import { useAuth0 } from "../react-auth0-spa";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
-import "./NavBar.css";
+import { NavBarButton, NavBarContainer } from "./Components.styles.js";
 
 const NavBar = (props) => {
   const { isAuthenticated, loginWithRedirect, logout, user } = useAuth0();
@@ -33,23 +30,15 @@ const NavBar = (props) => {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        border: "1px solid black",
-        background: "black",
-        padding: "5px",
-      }}
-    >
+    <NavBarContainer>
       {isAuthenticated && (
         <span>
           <Link
-            className="NavBar-Button"
             style={{
               color: "white",
               font: "400 15px Arial",
               textDecoration: "none",
+              paddingLeft: "1rem",
             }}
             to="/"
           >
@@ -57,7 +46,6 @@ const NavBar = (props) => {
           </Link>
 
           <Link
-            className="NavBar-Button"
             style={{
               marginLeft: "1rem",
               color: "white",
@@ -68,21 +56,9 @@ const NavBar = (props) => {
           >
             Profile
           </Link>
-          <button
-            className="NavBar-Button"
-            style={{
-              marginLeft: "1rem",
-              color: "white",
-              font: "400 15px Arial",
-              textDecoration: "none",
-            }}
-            onClick={() => saveData()}
-          >
-            Save Kard
-          </button>
+          <NavBarButton onClick={() => saveData()}>Save Kard</NavBarButton>
 
           <Link
-            className="NavBar-Button"
             style={{
               marginLeft: "1rem",
               color: "white",
@@ -96,25 +72,22 @@ const NavBar = (props) => {
         </span>
       )}
       {!isAuthenticated && (
-        <button
-          className="NavBar-Button"
-          style={{ color: "white" }}
-          onClick={() => loginWithRedirect({})}
-        >
+        <NavBarButton onClick={() => loginWithRedirect({})}>
           Log In
-        </button>
+        </NavBarButton>
       )}
 
       {isAuthenticated && (
-        <button
-          className="NavBar-Button"
-          style={{ color: "white" }}
+        <NavBarButton
+          style={{
+            paddingRight: "1rem",
+          }}
           onClick={() => logout()}
         >
           Log Out
-        </button>
+        </NavBarButton>
       )}
-    </div>
+    </NavBarContainer>
   );
 };
 
