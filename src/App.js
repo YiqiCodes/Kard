@@ -13,10 +13,12 @@ import Restaurants from "../src/pages/Restaurants";
 
 import NavBar from "./components/NavBar";
 import { useAuth0 } from "./react-auth0-spa";
+import { useEffect } from "react";
 import { Router, Route, Switch } from "react-router-dom";
 import Profile from "./components/Profile";
 import history from "./utils/history";
 import PrivateRoute from "./components/PrivateRoute";
+import axios from "axios";
 
 
 function App() {
@@ -24,6 +26,7 @@ function App() {
   const [faveBook, setFaveBook] = useState(null);
   const [faveResto, setFaveResto] = useState(null);
   const [faveMovie, setFaveMovie] = useState(null);
+  const [AppUser, setAppUser] = useState(null);
 
   const chgAlbum = function (info) {
     setFaveAlbum(info);
@@ -41,9 +44,29 @@ function App() {
     setFaveMovie(info);
   };
 
-  const { loading, user } = useAuth0();
+  const { loading, isAuthenticated, user } = useAuth0();
 
   console.log(user, 'in apphome')
+
+  if (isAuthenticated && AppUser === null && user !== undefined) {
+    console.log(isAuthenticated, user)
+    setAppUser(user);
+    Promise.all([
+      axios.get(`http://localhost:8001/api/users/${user.email}`),
+    ])
+      .then(response => {
+        const {album, book, movie, resto} = response[0].data[0].categories;
+        setFaveAlbum(album);
+        setFaveBook(book);
+        setFaveMovie(movie);
+        setFaveResto(resto);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  } else if (!isAuthenticated && AppUser !== null && user === undefined) {
+    setAppUser(null);
+  }
 
   if (loading) {
     return <div>Loading...</div>;
