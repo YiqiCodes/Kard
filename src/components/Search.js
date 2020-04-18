@@ -4,7 +4,7 @@ import AllResults from "./AllResults";
 import PropTypes from "prop-types";
 import { SearchDiv } from "../App.styles";
 
-const apiKey = "6NBPRLQ85WaAR1ebDnBg6tUSJTjsBuG9IONQlalw";
+const apiKey = "e3rR2eTf1QhFgSuofz8aag";
 
 class Search extends Component {
   state = {
