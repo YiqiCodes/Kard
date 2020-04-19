@@ -27,11 +27,7 @@ const Public = ({ match }) => {
   const [faveResto, setFaveResto] = useState(null);
   const [faveMovie, setFaveMovie] = useState(null);
 
-  console.log(faveAlbum)
-  console.log(faveBook)
   console.log(faveResto)
-  // console.log(faveResto.place_id)
-  console.log(faveMovie)
 
   useEffect(() => {
     
@@ -187,18 +183,20 @@ const Public = ({ match }) => {
                 {(faveResto === null || faveResto === undefined) ? (
                   <>
                     
-                    <a
-                      href={`https://www.google.com/maps/place/?q=place_id:${faveResto}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
+                    
 
                       <MainKardImage src={restaurantIcon} alt="" />
-                      </a>       
+                           
                   </>
                 ) : (
                   <>
                     
+                    <a
+                      href={`https://www.google.com/maps/place/?q=place_id:${faveResto.place_id}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+
                       <MainKardImage
                         style={{
                           minWidth: "100%",
@@ -208,7 +206,7 @@ const Public = ({ match }) => {
                         src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=100&photoreference=${faveResto.photos[0].photo_reference}&key=AIzaSyAcLOiaEp4qBb1Wt2V_dyR6Ze1sgIEfUhs`}
                         alt="Restaurant"
                       />
-                    
+                    </a>
                     <MainKardText>{faveResto.name}</MainKardText>
                   </>
                 )}
