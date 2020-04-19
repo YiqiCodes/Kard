@@ -10,6 +10,7 @@ import Books from "../src/pages/Books";
 import Albums from "../src/pages/Albums";
 import Movies from "../src/pages/Movies";
 import Restaurants from "../src/pages/Restaurants";
+import About from "../src/pages/About";
 
 import NavBar from "./components/NavBar";
 import { useAuth0 } from "./react-auth0-spa";
@@ -19,7 +20,6 @@ import Profile from "./components/Profile";
 import history from "./utils/history";
 import PrivateRoute from "./components/PrivateRoute";
 import axios from "axios";
-
 
 function App() {
   const [faveAlbum, setFaveAlbum] = useState(null);
@@ -66,7 +66,7 @@ function App() {
         setAge(age);
         setGender(gender);
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
       });
   } else if (!isAuthenticated && AppUser !== null && user === undefined) {
@@ -128,6 +128,7 @@ function App() {
           )}
         ></Route>
         <Switch>
+          <Route exact path="/about" render={() => <About></About>}></Route>
           <Route
             exact
             path="/albums"
