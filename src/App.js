@@ -54,7 +54,6 @@ function App() {
 
   const { loading, isAuthenticated, user } = useAuth0();
 
-  console.log(user)
 
   if (isAuthenticated && AppUser === null && user !== undefined) {
     setAppUser(user);
@@ -108,9 +107,9 @@ function App() {
       });
   };
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  // if (loading) {
+  //   return <div>Loading...</div>;
+  // }
 
   return (
     <PageWrapper>
