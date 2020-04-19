@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 //components
@@ -48,7 +48,7 @@ const KardSelector = (props) => {
                   boxShadow: "7px 7px 5px 0px #e6fff7",
                 }}
               >
-                {(faveAlbum === null || faveAlbum === undefined) ? (
+                {faveAlbum === null || faveAlbum === undefined ? (
                   <>
                     <Link
                       to="/albums"
@@ -76,7 +76,10 @@ const KardSelector = (props) => {
                           minWidth: "100px",
                           minHeight: "100px",
                         }}
-                        src={faveAlbum.artworkUrl60}
+                        src={faveAlbum.artworkUrl60.replace(
+                          /60x60/g,
+                          "500x500"
+                        )}
                         alt="Album cover"
                       />
                     </Link>
@@ -94,7 +97,7 @@ const KardSelector = (props) => {
               <KardCategoryContainer
                 style={{ boxShadow: "7px 7px 5px 0px #45806d" }}
               >
-                {(faveBook === null || faveBook === undefined) ? (
+                {faveBook === null || faveBook === undefined ? (
                   <>
                     <Link
                       to="/books"
@@ -141,7 +144,7 @@ const KardSelector = (props) => {
               <KardCategoryContainer
                 style={{ boxShadow: "7px 7px 5px 0px #6b8079" }}
               >
-                {(faveMovie === null || faveMovie === undefined) ? (
+                {faveMovie === null || faveMovie === undefined ? (
                   <>
                     <Link
                       to="/movies"
@@ -190,7 +193,7 @@ const KardSelector = (props) => {
               <KardCategoryContainer
                 style={{ boxShadow: "7px 7px 5px 0px #d6fff2" }}
               >
-                {(faveResto === null || faveResto === undefined) ? (
+                {faveResto === null || faveResto === undefined ? (
                   <>
                     <Link
                       to="/restaurants"

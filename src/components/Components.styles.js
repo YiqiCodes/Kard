@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const NavBarContainer = styled.div`
+  height: 2.5vh;
   display: flex;
   justify-content: space-between;
   background: black;

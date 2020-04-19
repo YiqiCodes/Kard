@@ -43,7 +43,7 @@ function Movies(props) {
       <Link to="/">
         <KardButtonMain
           style={{
-            minHeight: "100%",
+            minHeight: "60%",
             minWidth: "100%",
             marginBottom: "2rem",
             background: "d6fff2",
