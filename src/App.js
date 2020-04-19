@@ -27,6 +27,7 @@ function App() {
   const [faveResto, setFaveResto] = useState(null);
   const [faveMovie, setFaveMovie] = useState(null);
   const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
   const [age, setAge] = useState(0);
   const [gender, setGender] = useState('female');
 
@@ -55,12 +56,13 @@ function App() {
     Promise.all([axios.get(`http://localhost:8001/api/users/${user.email}`)])
       .then((response) => {
         const { album, book, movie, resto } = response[0].data[0].categories;
-        const { name, age, gender } = response[0].data[0];
+        const { name, email, age, gender } = response[0].data[0];
         setFaveAlbum(album);
         setFaveBook(book);
         setFaveMovie(movie);
         setFaveResto(resto);
         setName(name);
+        setEmail(email);
         setAge(age);
         setGender(gender);
       })
@@ -80,11 +82,14 @@ function App() {
         resto: faveResto,
       },
       favorites: { fav: "album book movie resto" },
-      email: user.email,
-      name: name,
-      age: age,
-      gender: gender
+      user_id: user.email,
+      email,
+      name,
+      age,
+      gender
     };
+
+    console.log('sending', dataForm);
 
     axios
       .put(`http://localhost:8001/api/users`, dataForm)
@@ -150,10 +155,12 @@ function App() {
                 saveData={saveData}
                 name={name}
                 age={age}
+                email={email}
                 gender={gender}
                 setName={setName}
                 setAge={setAge}
                 setGender={setGender}
+                setEmail={setEmail}
               />
             }
           />
