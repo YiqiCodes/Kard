@@ -9,6 +9,14 @@ import config from "./auth_config.json";
 import history from "./utils/history";
 import { BrowserRouter } from "react-router-dom";
 
+import Axios from "axios";
+
+if (process.env.REACT_APP_API_BASE_URL) {
+  Axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
+} else {
+  Axios.defaults.baseURL = `http://localhost:8001`;
+}
+
 // A function that routes the user to the right place
 // after login
 const onRedirectCallback = (appState) => {
