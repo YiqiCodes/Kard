@@ -110,7 +110,7 @@ const Public = ({ match }) => {
                       <MainKardImage src={bookIcon} alt="" />
                     
                   </>
-                ) : (
+                ) : ( 
                   <>
                      <a
                       href={`https://www.goodreads.com/book/show/${faveBook.best_book.id}`}
