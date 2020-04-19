@@ -45,7 +45,7 @@ const Public = ({ match }) => {
       console.log(error);
     });
 
-  });
+  }, []);
 
 
 
