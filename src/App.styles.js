@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-export const PageWrapper = styled.div``;
+export const PageWrapper = styled.div`
+  max-height: 100vh;
+`;
 
 export const WhichKardWrapper = styled.div`
   display: flex;
@@ -9,8 +11,7 @@ export const WhichKardWrapper = styled.div`
   justify-content: center;
   position: absolute;
   min-width: 100vw;
-  min-height: 100vh;
-  max-height: 100vh;
+  height: 97.5vh;
   background: #111111;
   color: black;
 `;
@@ -24,13 +25,13 @@ export const CategoryKardWrapper = styled.div`
   position: absolute;
   z-index: -1;
   min-width: 100vw;
-  min-height: 100vh;
+  height: 97.5vh;
   background: #111111;
   color: white;
 `;
 
 export const KardSelectorContainer = styled.div`
-  min-height: 100vh;
+  min-height: 100%;
   min-width: 100vw;
   display: flex;
   flex-direction: row;

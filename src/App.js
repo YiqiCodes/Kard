@@ -26,10 +26,10 @@ function App() {
   const [faveBook, setFaveBook] = useState(null);
   const [faveResto, setFaveResto] = useState(null);
   const [faveMovie, setFaveMovie] = useState(null);
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [age, setAge] = useState(0);
-  const [gender, setGender] = useState('female');
+  const [gender, setGender] = useState("female");
 
   const [AppUser, setAppUser] = useState(null);
 
@@ -48,7 +48,7 @@ function App() {
   const chgMovie = function (info) {
     setFaveMovie(info);
   };
- 
+
   const { loading, isAuthenticated, user } = useAuth0();
 
   if (isAuthenticated && AppUser === null && user !== undefined) {
@@ -73,7 +73,7 @@ function App() {
     setAppUser(null);
   }
 
-  const saveData = function() {
+  const saveData = function () {
     const dataForm = {
       categories: {
         album: faveAlbum,
@@ -86,10 +86,10 @@ function App() {
       email,
       name,
       age,
-      gender
+      gender,
     };
 
-    console.log('sending', dataForm);
+    console.log("sending", dataForm);
 
     axios
       .put(`http://localhost:8001/api/users`, dataForm)
@@ -107,14 +107,8 @@ function App() {
 
   return (
     <PageWrapper>
-      <Router
-        history={history}
-      >     
-        <header>
-          <NavBar
-            saveData={saveData}
-          />
-        </header>
+      <Router history={history}>
+        <NavBar saveData={saveData} />
         <Route
           exact
           path="/"
@@ -149,9 +143,9 @@ function App() {
             path="/Restaurants"
             render={() => <Restaurants chgResto={chgResto}></Restaurants>}
           ></Route>
-          <PrivateRoute 
-            path="/profile" 
-            render={() =>
+          <PrivateRoute
+            path="/profile"
+            render={() => (
               <Profile
                 saveData={saveData}
                 name={name}
@@ -163,7 +157,7 @@ function App() {
                 setGender={setGender}
                 setEmail={setEmail}
               />
-            }
+            )}
           />
         </Switch>
       </Router>
