@@ -9,7 +9,7 @@ const NavBar = (props) => {
   return (
     <NavBarContainer>
       {isAuthenticated && (
-        <span>
+        <div style={{ display: "flex", alignItems: "center" }}>
           <Link
             style={{
               color: "white",
@@ -34,10 +34,6 @@ const NavBar = (props) => {
             Profile
           </Link>
 
-          <NavBarButton onClick={() => props.saveData()}>
-            Save Kard
-          </NavBarButton>
-
           <Link
             style={{
               marginLeft: "1rem",
@@ -50,11 +46,7 @@ const NavBar = (props) => {
             Public
           </Link>
 
-
-          <NavBarButton onClick={() => props.saveData()}>Save Kard</NavBarButton>
-
-
-
+          <NavBarButton onClick={() => props.saveData()}>Save</NavBarButton>
 
           <Link
             style={{
@@ -67,7 +59,7 @@ const NavBar = (props) => {
           >
             About
           </Link>
-        </span>
+        </div>
       )}
       {!isAuthenticated && (
         <NavBarButton onClick={() => loginWithRedirect({})}>
