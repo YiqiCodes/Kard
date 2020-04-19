@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
+import NoImage from "../../assets/images/NoImage.jpg";
+
 const SearchResultMovie = ({ movieData, expandBook, chgMovie }) => {
   /**
    * truncate book title to first 4 words and append it with '...'
@@ -10,6 +12,8 @@ const SearchResultMovie = ({ movieData, expandBook, chgMovie }) => {
    */
 
   // const { movieData } = props
+
+  console.log("MOVIE DATAA", movieData);
 
   const movieTitle = movieData.original_title;
   let displayTitle = movieTitle.split(" ").slice(0, 6).join(" ");
@@ -20,13 +24,23 @@ const SearchResultMovie = ({ movieData, expandBook, chgMovie }) => {
   return (
     <div className="col-lg-2 col-sm-4 col-md-3">
       <div className="card">
-        <img
-          style={{ display: "flex ", margin: "auto" }}
-          className="card-img-top pl-2 pr-2 pt-2"
-          src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`}
-          alt="Smiley face"
-          height="200px"
-        />
+        {movieData.poster_path === null ? (
+          <img
+            style={{ display: "flex ", margin: "auto" }}
+            className="card-img-top pl-2 pr-2 pt-2"
+            src={NoImage}
+            alt="Smiley face"
+            height="200px"
+          />
+        ) : (
+          <img
+            style={{ display: "flex ", margin: "auto" }}
+            className="card-img-top pl-2 pr-2 pt-2"
+            src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`}
+            alt="Smiley face"
+            height="200px"
+          />
+        )}
         <div
           className="card-body"
           style={{ display: "flex ", flexDirection: "column", margin: "auto" }}

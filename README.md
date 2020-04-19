@@ -1,4 +1,6 @@
-# Kard is where the business card become sociable.
+# Kard
+
+Kard is where the business card become sociable.
 
 Pick your favourite album, book, movie and restaurant and let the
 world know.
@@ -11,10 +13,4 @@ https://mykard.netlify.com/
 
 ## Built With
 
-React
-PSQL
-Auth0
-iTunes API
-GoodReads API
-TheMovieDB API
-Google Places API
+React, PSQL, Auth0, iTunes API, GoodReads API, TheMovieDB API, Google Places API
