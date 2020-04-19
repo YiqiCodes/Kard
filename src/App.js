@@ -6,7 +6,6 @@ import "./App.css";
 import { PageWrapper } from "./App.styles";
 import Home from "./pages/Home";
 
-import About from "../src/pages/About";
 import Books from "../src/pages/Books";
 import Albums from "../src/pages/Albums";
 import Movies from "../src/pages/Movies";
@@ -14,12 +13,13 @@ import Restaurants from "../src/pages/Restaurants";
 
 import NavBar from "./components/NavBar";
 import { useAuth0 } from "./react-auth0-spa";
-// import { useEffect } from "react";
+import { useEffect } from "react";
 import { Router, Route, Switch } from "react-router-dom";
 import Profile from "./components/Profile";
 import history from "./utils/history";
 import PrivateRoute from "./components/PrivateRoute";
 import axios from "axios";
+
 
 function App() {
   const [faveAlbum, setFaveAlbum] = useState(null);
@@ -64,7 +64,7 @@ function App() {
         setAge(age);
         setGender(gender);
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error);
       });
   } else if (!isAuthenticated && AppUser !== null && user === undefined) {
@@ -123,7 +123,6 @@ function App() {
           )}
         ></Route>
         <Switch>
-          <Route exact path="/about" render={() => <About></About>}></Route>
           <Route
             exact
             path="/albums"
