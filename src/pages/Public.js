@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 //components
@@ -6,6 +6,8 @@ import bookIcon from "../assets/images/book2.png";
 import movieIcon from "../assets/images/movie2.png";
 import restaurantIcon from "../assets/images/restaurant2.png";
 import musicIcon from "../assets/images/album.png";
+import axios from "axios";
+
 
 //styles
 import {
@@ -19,13 +21,41 @@ import {
 } from "../App.styles";
 
 const Public = ({ match }) => {
-  
-  console.log(match.params.nickname)
-  
+    
   const [faveAlbum, setFaveAlbum] = useState(null);
   const [faveBook, setFaveBook] = useState(null);
   const [faveResto, setFaveResto] = useState(null);
   const [faveMovie, setFaveMovie] = useState(null);
+
+  console.log(faveAlbum)
+  console.log(faveBook)
+  console.log(faveResto)
+  // console.log(faveResto.place_id)
+  console.log(faveMovie)
+
+  useEffect(() => {
+    
+    Promise.all([axios.get(`http://localhost:8001/api/kard/${match.params.nickname}`)])
+    .then((response) => {
+  
+      console.log(response)
+  
+      const { album, book, movie, resto } = response[0].data[0].categories;
+      setFaveAlbum(album);
+      setFaveBook(book);
+      setFaveMovie(movie);
+      setFaveResto(resto);
+      
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
+  }, []);
+
+
+
+
 
   return (
     <>
@@ -46,26 +76,14 @@ const Public = ({ match }) => {
               >
                 {(faveAlbum === null || faveAlbum === undefined) ? (
                   <>
-                    <Link
-                      to="/albums"
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
                       <MainKardImage src={musicIcon} alt="" />
-                    </Link>
                   </>
                 ) : (
                   <>
-                    <Link
-                      to="/albums"
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
+                    <a
+                      href={`${faveAlbum.collectionViewUrl}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <MainKardImage
                         style={{
@@ -75,7 +93,7 @@ const Public = ({ match }) => {
                         src={faveAlbum.artworkUrl60}
                         alt="Album cover"
                       />
-                    </Link>
+                    </a>
                     <MainKardText>{faveAlbum.collectionName}</MainKardText>
                   </>
                 )}
@@ -92,27 +110,17 @@ const Public = ({ match }) => {
               >
                 {(faveBook === null || faveBook === undefined) ? (
                   <>
-                    <Link
-                      to="/books"
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
+                    
                       <MainKardImage src={bookIcon} alt="" />
-                    </Link>
+                    
                   </>
                 ) : (
                   <>
-                    <Link
-                      to="/books"
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
+                     <a
+                      href={`https://www.goodreads.com/book/show/${faveBook.best_book.id}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      > 
                       <MainKardImage
                         style={{
                           minWidth: "100%",
@@ -122,7 +130,7 @@ const Public = ({ match }) => {
                         src={faveBook.best_book.image_url}
                         alt="Book cover"
                       />
-                    </Link>
+                      </a>
                     <MainKardText>{faveBook.best_book.title}</MainKardText>
                   </>
                 )}
@@ -139,26 +147,16 @@ const Public = ({ match }) => {
               >
                 {(faveMovie === null || faveMovie === undefined) ? (
                   <>
-                    <Link
-                      to="/movies"
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
+                    
                       <MainKardImage src={movieIcon} alt="" />
-                    </Link>
+                    
                   </>
                 ) : (
                   <>
-                    <Link
-                      to="/movies"
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
+                    <a
+                      href={`https://www.themoviedb.org/movie/${faveMovie.id}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <MainKardImage
                         style={{
@@ -169,7 +167,7 @@ const Public = ({ match }) => {
                         src={`https://image.tmdb.org/t/p/w500${faveMovie.poster_path}`}
                         alt="Book cover"
                       />
-                    </Link>
+                    </a>
                     <MainKardText>{faveMovie.title}</MainKardText>
                   </>
                 )}
@@ -188,27 +186,19 @@ const Public = ({ match }) => {
               >
                 {(faveResto === null || faveResto === undefined) ? (
                   <>
-                    <Link
-                      to="/restaurants"
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
+                    
+                    <a
+                      href={`https://www.google.com/maps/place/?q=place_id:${faveResto}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
+
                       <MainKardImage src={restaurantIcon} alt="" />
-                    </Link>
+                      </a>       
                   </>
                 ) : (
                   <>
-                    <Link
-                      to="/restaurants"
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
+                    
                       <MainKardImage
                         style={{
                           minWidth: "100%",
@@ -218,7 +208,7 @@ const Public = ({ match }) => {
                         src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=100&photoreference=${faveResto.photos[0].photo_reference}&key=AIzaSyAcLOiaEp4qBb1Wt2V_dyR6Ze1sgIEfUhs`}
                         alt="Restaurant"
                       />
-                    </Link>
+                    
                     <MainKardText>{faveResto.name}</MainKardText>
                   </>
                 )}

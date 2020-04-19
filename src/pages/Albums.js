@@ -11,6 +11,7 @@ const Albums = (props) => {
 
   let keyValue = 0;
 
+
   useEffect(() => {
     const requestURL =
       `https://cors-anywhere.herokuapp.com/` +
