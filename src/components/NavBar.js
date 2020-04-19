@@ -34,6 +34,10 @@ const NavBar = (props) => {
             Profile
           </Link>
 
+          <NavBarButton onClick={() => props.saveData()}>
+            Save Kard
+          </NavBarButton>
+
           <Link
             style={{
               marginLeft: "1rem",
