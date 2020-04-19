@@ -9,6 +9,8 @@ import config from "./auth_config.json";
 import history from "./utils/history";
 import { BrowserRouter } from "react-router-dom";
 
+import Axios from "axios";
+
 if (process.env.REACT_APP_API_BASE_URL) {
   Axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
 } else {
