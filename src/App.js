@@ -6,7 +6,6 @@ import "./App.css";
 import { PageWrapper } from "./App.styles";
 import Home from "./pages/Home";
 
-import About from "../src/pages/About";
 import Books from "../src/pages/Books";
 import Albums from "../src/pages/Albums";
 import Movies from "../src/pages/Movies";
@@ -14,12 +13,13 @@ import Restaurants from "../src/pages/Restaurants";
 
 import NavBar from "./components/NavBar";
 import { useAuth0 } from "./react-auth0-spa";
-// import { useEffect } from "react";
+import { useEffect } from "react";
 import { Router, Route, Switch } from "react-router-dom";
 import Profile from "./components/Profile";
 import history from "./utils/history";
 import PrivateRoute from "./components/PrivateRoute";
 import axios from "axios";
+
 
 function App() {
   const [faveAlbum, setFaveAlbum] = useState(null);
@@ -46,20 +46,22 @@ function App() {
 
   const { loading, isAuthenticated, user } = useAuth0();
 
-  // console.log(user, "in apphome");
+  console.log(user, 'in apphome')
 
   if (isAuthenticated && AppUser === null && user !== undefined) {
-    // console.log(isAuthenticated, user);
+    console.log(isAuthenticated, user)
     setAppUser(user);
-    Promise.all([axios.get(`http://localhost:8001/api/users/${user.email}`)])
-      .then((response) => {
-        const { album, book, movie, resto } = response[0].data[0].categories;
+    Promise.all([
+      axios.get(`http://localhost:8001/api/users/${user.email}`),
+    ])
+      .then(response => {
+        const {album, book, movie, resto} = response[0].data[0].categories;
         setFaveAlbum(album);
         setFaveBook(book);
         setFaveMovie(movie);
         setFaveResto(resto);
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error);
       });
   } else if (!isAuthenticated && AppUser !== null && user === undefined) {
@@ -94,7 +96,6 @@ function App() {
           )}
         ></Route>
         <Switch>
-          <Route exact path="/about" render={() => <About></About>}></Route>
           <Route
             exact
             path="/albums"
@@ -115,7 +116,11 @@ function App() {
             path="/Restaurants"
             render={() => <Restaurants chgResto={chgResto}></Restaurants>}
           ></Route>
-          <PrivateRoute path="/profile" component={Profile} />
+          
+          <PrivateRoute 
+          path="/profile" 
+          render={() => <Profile yolo='yesyesyyes'> </Profile>}
+          />          
         </Switch>
       </Router>
     </PageWrapper>
