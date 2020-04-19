@@ -107,7 +107,7 @@ const Albums = (props) => {
       <Link to="/">
         <KardButtonMain
           style={{
-            minHeight: "100%",
+            minHeight: "60%",
             minWidth: "100%",
             marginBottom: "2rem",
           }}
