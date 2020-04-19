@@ -14,7 +14,7 @@ import About from "../src/pages/About";
 
 import NavBar from "./components/NavBar";
 import { useAuth0 } from "./react-auth0-spa";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { Router, Route, Switch } from "react-router-dom";
 import Profile from "./components/Profile";
 import history from "./utils/history";
