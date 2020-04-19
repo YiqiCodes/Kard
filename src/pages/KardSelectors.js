@@ -38,7 +38,7 @@ const KardSelector = (props) => {
                   boxShadow: "7px 7px 5px 0px #e6fff7",
                 }}
               >
-                {faveAlbum === null ? (
+                {(faveAlbum === null || faveAlbum === undefined) ? (
                   <>
                     <Link
                       to="/albums"
@@ -84,7 +84,7 @@ const KardSelector = (props) => {
               <KardCategoryContainer
                 style={{ boxShadow: "7px 7px 5px 0px #45806d" }}
               >
-                {faveBook === null ? (
+                {(faveBook === null || faveBook === undefined) ? (
                   <>
                     <Link
                       to="/books"
@@ -131,7 +131,7 @@ const KardSelector = (props) => {
               <KardCategoryContainer
                 style={{ boxShadow: "7px 7px 5px 0px #6b8079" }}
               >
-                {faveMovie === null ? (
+                {(faveMovie === null || faveMovie === undefined) ? (
                   <>
                     <Link
                       to="/movies"
@@ -180,7 +180,7 @@ const KardSelector = (props) => {
               <KardCategoryContainer
                 style={{ boxShadow: "7px 7px 5px 0px #d6fff2" }}
               >
-                {faveResto === null ? (
+                {(faveResto === null || faveResto === undefined) ? (
                   <>
                     <Link
                       to="/restaurants"

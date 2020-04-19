@@ -26,6 +26,11 @@ function App() {
   const [faveBook, setFaveBook] = useState(null);
   const [faveResto, setFaveResto] = useState(null);
   const [faveMovie, setFaveMovie] = useState(null);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [age, setAge] = useState(0);
+  const [gender, setGender] = useState('female');
+
   const [AppUser, setAppUser] = useState(null);
 
   const chgAlbum = function (info) {
@@ -43,21 +48,23 @@ function App() {
   const chgMovie = function (info) {
     setFaveMovie(info);
   };
-
+ 
   const { loading, isAuthenticated, user } = useAuth0();
 
-  console.log(user, "in apphome");
-
   if (isAuthenticated && AppUser === null && user !== undefined) {
-    console.log(isAuthenticated, user);
     setAppUser(user);
     Promise.all([axios.get(`http://localhost:8001/api/users/${user.email}`)])
       .then((response) => {
         const { album, book, movie, resto } = response[0].data[0].categories;
+        const { name, email, age, gender } = response[0].data[0];
         setFaveAlbum(album);
         setFaveBook(book);
         setFaveMovie(movie);
         setFaveResto(resto);
+        setName(name);
+        setEmail(email);
+        setAge(age);
+        setGender(gender);
       })
       .catch((error) => {
         console.log(error);
@@ -66,19 +73,46 @@ function App() {
     setAppUser(null);
   }
 
+  const saveData = function() {
+    const dataForm = {
+      categories: {
+        album: faveAlbum,
+        book: faveBook,
+        movie: faveMovie,
+        resto: faveResto,
+      },
+      favorites: { fav: "album book movie resto" },
+      user_id: user.email,
+      email,
+      name,
+      age,
+      gender
+    };
+
+    console.log('sending', dataForm);
+
+    axios
+      .put(`http://localhost:8001/api/users`, dataForm)
+      .then((res1) => {
+        console.log(res1.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   if (loading) {
     return <div>Loading...</div>;
   }
 
   return (
     <PageWrapper>
-      <Router history={history}>
+      <Router
+        history={history}
+      >     
         <header>
           <NavBar
-            faveAlbum={faveAlbum}
-            faveBook={faveBook}
-            faveResto={faveResto}
-            faveMovie={faveMovie}
+            saveData={saveData}
           />
         </header>
         <Route
@@ -115,10 +149,21 @@ function App() {
             path="/Restaurants"
             render={() => <Restaurants chgResto={chgResto}></Restaurants>}
           ></Route>
-
-          <PrivateRoute
-            path="/profile"
-            render={() => <Profile yolo="yesyesyyes"> </Profile>}
+          <PrivateRoute 
+            path="/profile" 
+            render={() =>
+              <Profile
+                saveData={saveData}
+                name={name}
+                age={age}
+                email={email}
+                gender={gender}
+                setName={setName}
+                setAge={setAge}
+                setGender={setGender}
+                setEmail={setEmail}
+              />
+            }
           />
         </Switch>
       </Router>
