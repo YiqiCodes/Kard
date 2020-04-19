@@ -13,8 +13,6 @@ import Restaurants from "../src/pages/Restaurants";
 import About from "../src/pages/About";
 import Public from "../src/pages/Public";
 
-
-
 import NavBar from "./components/NavBar";
 import { useAuth0 } from "./react-auth0-spa";
 
@@ -155,9 +153,9 @@ function App() {
             // render={() => <Public> </Public>}
           ></Route>
 
-          <PrivateRoute 
-            path="/profile" 
-            render={() =>
+          <PrivateRoute
+            path="/profile"
+            render={() => (
               <Profile
                 saveData={saveData}
                 name={name}
