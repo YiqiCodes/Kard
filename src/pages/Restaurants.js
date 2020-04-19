@@ -116,7 +116,7 @@ const Restaurants = (props) => {
         <Link to="/">
           <KardButtonMain
             style={{
-              minHeight: "100%",
+              minHeight: "60%",
               minWidth: "100%",
               marginBottom: "2rem",
               background: "#6b8079",

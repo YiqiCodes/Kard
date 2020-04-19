@@ -24,11 +24,14 @@ const Albums = (props) => {
   const ShowResults = results.map((result) => {
     keyValue += 1;
 
+    let urlFiveHundredPixels = result.artworkUrl100;
+    urlFiveHundredPixels = urlFiveHundredPixels.replace(/100x100/g, "500x500");
+
     return (
       <div className="result" key={keyValue}>
         <img
           className="album_thumbnail"
-          src={result.artworkUrl100}
+          src={urlFiveHundredPixels}
           alt="Album"
         />
         <div className="infoMargin">{result.collectionName}</div>
@@ -108,7 +111,7 @@ const Albums = (props) => {
       <Link to="/">
         <KardButtonMain
           style={{
-            minHeight: "100%",
+            minHeight: "60%",
             minWidth: "100%",
             marginBottom: "2rem",
           }}
