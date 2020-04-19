@@ -1,33 +1,10 @@
 import React from "react";
 import { useAuth0 } from "../react-auth0-spa";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import { NavBarButton, NavBarContainer } from "./Components.styles.js";
 
 const NavBar = (props) => {
-  const { isAuthenticated, loginWithRedirect, logout, user } = useAuth0();
-
-  const saveData = function () {
-    const dataForm = {
-      categories: {
-        album: props.faveAlbum,
-        book: props.faveBook,
-        movie: props.faveMovie,
-        resto: props.faveResto,
-      },
-      favorites: { fav: "album book movie resto" },
-      name: user.email,
-    };
-
-    axios
-      .put(`http://localhost:8001/api/users`, dataForm)
-      .then((res1) => {
-        console.log(res1.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
   return (
     <NavBarContainer>
@@ -56,7 +33,7 @@ const NavBar = (props) => {
           >
             Profile
           </Link>
-          <NavBarButton onClick={() => saveData()}>Save Kard</NavBarButton>
+          <NavBarButton onClick={() => props.saveData()}>Save Kard</NavBarButton>
 
           <Link
             style={{
