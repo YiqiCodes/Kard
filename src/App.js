@@ -44,7 +44,7 @@ function App() {
     setFaveBook(info);
   };
 
-  const chgResto = function (info) {
+  const chgResto = function (info) { 
     setFaveResto(info);
   };
 
@@ -53,6 +53,8 @@ function App() {
   };
 
   const { loading, isAuthenticated, user } = useAuth0();
+
+  console.log(user)
 
   if (isAuthenticated && AppUser === null && user !== undefined) {
     setAppUser(user);
@@ -90,6 +92,8 @@ function App() {
       name,
       age,
       gender,
+      nickname:user.nickname
+
     };
 
     console.log("sending", dataForm);
