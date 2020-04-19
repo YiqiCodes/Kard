@@ -20,3 +20,17 @@ export const NavBarButton = styled.button`
     opacity: 0.8;
   }
 `;
+
+export const BookSubmitButton = styled.button`
+  max-width: 50%;
+  margin: 0;
+  justify-self: center;
+  min-height: 2rem;
+  font-size: large;
+  border: 2px solid white;
+  padding: 0px 10px;
+  border-radius: 5px;
+  background: indianred;
+  font: 400 15px Arial;
+  text-decoration: none;
+`;

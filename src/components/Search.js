@@ -3,6 +3,7 @@ import Axios from "axios";
 import AllResults from "./AllResults";
 import PropTypes from "prop-types";
 import { SearchDiv } from "../App.styles";
+import { BookSubmitButton } from "./Components.styles.js";
 
 const apiKey = "e3rR2eTf1QhFgSuofz8aag";
 
@@ -131,13 +132,7 @@ class Search extends Component {
           />
         </div>
 
-        <button
-          style={{ color: "white", minHeight: "2rem", fontSize: "large" }}
-          className="col-sm-2 btn btn-primary"
-          onClick={this.onButtonClick}
-        >
-          Submit
-        </button>
+        <BookSubmitButton onClick={this.onButtonClick}>Submit</BookSubmitButton>
 
         {/**
          * if fetching data, display "loading...", if error, display error message, else display search results
