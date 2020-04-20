@@ -47,36 +47,72 @@ const NavBar = (props) => {
           </Link>
 
           <NavBarButton onClick={() => props.saveData()}>Save</NavBarButton>
-
-          <Link
-            style={{
-              marginLeft: "1rem",
-              color: "white",
-              font: "400 15px Arial",
-              textDecoration: "none",
-            }}
-            to="/about"
-          >
-            About
-          </Link>
         </div>
       )}
       {!isAuthenticated && (
-        <NavBarButton onClick={() => loginWithRedirect({})}>
-          Log In
-        </NavBarButton>
+        <>
+          <div style={{ alignSelf: "center" }}>
+            <NavBarButton
+              style={{
+                alignSelf: "center",
+              }}
+              onClick={() => loginWithRedirect({})}
+            >
+              Log In
+            </NavBarButton>
+            <Link
+              style={{
+                marginLeft: "1rem",
+                color: "white",
+                font: "400 15px Arial",
+                textDecoration: "none",
+                alignSelf: "center",
+              }}
+              to="/"
+            >
+              Home
+            </Link>
+            <Link
+              style={{
+                marginLeft: "1rem",
+                color: "white",
+                font: "400 15px Arial",
+                textDecoration: "none",
+                alignSelf: "center",
+              }}
+              to="/about"
+            >
+              About
+            </Link>
+          </div>
+        </>
       )}
 
       {isAuthenticated && (
-        <NavBarButton
-          style={{
-            paddingRight: "1rem",
-            alignSelf: "center",
-          }}
-          onClick={() => logout()}
-        >
-          Log Out
-        </NavBarButton>
+        <>
+          <div style={{ alignSelf: "center" }}>
+            <Link
+              style={{
+                color: "white",
+                font: "400 15px Arial",
+                textDecoration: "none",
+                alignSelf: "center",
+              }}
+              to="/about"
+            >
+              About
+            </Link>
+            <NavBarButton
+              style={{
+                marginRight: "1rem",
+                alignSelf: "center",
+              }}
+              onClick={() => logout()}
+            >
+              Log Out
+            </NavBarButton>
+          </div>
+        </>
       )}
     </NavBarContainer>
   );
