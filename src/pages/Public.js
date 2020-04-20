@@ -29,7 +29,7 @@ const Public = ({ match }) => {
 
   useEffect(() => {
     
-    Promise.all([axios.get(`http://localhost:8001/api/kard/${match.params.nickname}`)])
+    Promise.all([axios.get(`/api/kard/${match.params.nickname}`)])
     .then((response) => {
   
       console.log(response)
