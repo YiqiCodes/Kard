@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 
 //components
 import bookIcon from "../assets/images/book2.png";
@@ -7,7 +6,6 @@ import movieIcon from "../assets/images/movie2.png";
 import restaurantIcon from "../assets/images/restaurant2.png";
 import musicIcon from "../assets/images/album.png";
 import axios from "axios";
-
 
 //styles
 import {
@@ -21,35 +19,26 @@ import {
 } from "../App.styles";
 
 const Public = ({ match }) => {
-    
   const [faveAlbum, setFaveAlbum] = useState(null);
   const [faveBook, setFaveBook] = useState(null);
   const [faveResto, setFaveResto] = useState(null);
   const [faveMovie, setFaveMovie] = useState(null);
 
   useEffect(() => {
-    
     Promise.all([axios.get(`/api/kard/${match.params.nickname}`)])
-    .then((response) => {
-  
-      console.log(response)
-  
-      const { album, book, movie, resto } = response[0].data[0].categories;
-      setFaveAlbum(album);
-      setFaveBook(book);
-      setFaveMovie(movie);
-      setFaveResto(resto);
-      
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+      .then((response) => {
+        console.log(response);
 
+        const { album, book, movie, resto } = response[0].data[0].categories;
+        setFaveAlbum(album);
+        setFaveBook(book);
+        setFaveMovie(movie);
+        setFaveResto(resto);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
-
-
-
-
 
   return (
     <>
@@ -68,9 +57,9 @@ const Public = ({ match }) => {
                   boxShadow: "7px 7px 5px 0px #e6fff7",
                 }}
               >
-                {(faveAlbum === null || faveAlbum === undefined) ? (
+                {faveAlbum === null || faveAlbum === undefined ? (
                   <>
-                      <MainKardImage src={musicIcon} alt="" />
+                    <MainKardImage src={musicIcon} alt="" />
                   </>
                 ) : (
                   <>
@@ -102,19 +91,17 @@ const Public = ({ match }) => {
               <KardCategoryContainer
                 style={{ boxShadow: "7px 7px 5px 0px #45806d" }}
               >
-                {(faveBook === null || faveBook === undefined) ? (
+                {faveBook === null || faveBook === undefined ? (
                   <>
-                    
-                      <MainKardImage src={bookIcon} alt="" />
-                    
+                    <MainKardImage src={bookIcon} alt="" />
                   </>
                 ) : (
                   <>
-                     <a
+                    <a
                       href={`https://www.goodreads.com/book/show/${faveBook.best_book.id}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      > 
+                    >
                       <MainKardImage
                         style={{
                           minWidth: "100%",
@@ -124,7 +111,7 @@ const Public = ({ match }) => {
                         src={faveBook.best_book.image_url}
                         alt="Book cover"
                       />
-                      </a>
+                    </a>
                     <MainKardText>{faveBook.best_book.title}</MainKardText>
                   </>
                 )}
@@ -139,11 +126,9 @@ const Public = ({ match }) => {
               <KardCategoryContainer
                 style={{ boxShadow: "7px 7px 5px 0px #6b8079" }}
               >
-                {(faveMovie === null || faveMovie === undefined) ? (
+                {faveMovie === null || faveMovie === undefined ? (
                   <>
-                    
-                      <MainKardImage src={movieIcon} alt="" />
-                    
+                    <MainKardImage src={movieIcon} alt="" />
                   </>
                 ) : (
                   <>
@@ -178,23 +163,17 @@ const Public = ({ match }) => {
               <KardCategoryContainer
                 style={{ boxShadow: "7px 7px 5px 0px #d6fff2" }}
               >
-                {(faveResto === null || faveResto === undefined) ? (
+                {faveResto === null || faveResto === undefined ? (
                   <>
-                    
-                    
-
-                      <MainKardImage src={restaurantIcon} alt="" />
-                           
+                    <MainKardImage src={restaurantIcon} alt="" />
                   </>
                 ) : (
                   <>
-                    
                     <a
                       href={`https://www.google.com/maps/place/?q=place_id:${faveResto.place_id}`}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-
                       <MainKardImage
                         style={{
                           minWidth: "100%",

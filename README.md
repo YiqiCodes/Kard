@@ -11,9 +11,9 @@ https://mykard.netlify.com/
 
 ## Screenshots
 
-!["Completed Kard"](https://github.com/TylerZhang00/SentimentAnalysis/blob/master/docs/SentimentGreat.png?raw=true)
+!["Completed Kard"](https://github.com/TylerZhang00/Kard/blob/master/src/assets/images/KardMain.png?raw=true)
 
-!["Select Favourite Album"](https://github.com/TylerZhang00/SentimentAnalysis/blob/master/docs/SentimentAngry.png?raw=true)
+!["Select Favourite Album"](https://github.com/TylerZhang00/Kard/blob/master/src/assets/images/KardSearch.png?raw=true)
 
 ## Built With
 

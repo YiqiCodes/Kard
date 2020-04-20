@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 //components
@@ -21,15 +21,16 @@ import {
 const KardSelector = (props) => {
   const { faveAlbum, faveBook, faveResto, faveMovie } = props;
 
-  console.log(faveAlbum)
-  
-  if (faveAlbum !== null){
+  console.log(faveAlbum);
+
+  if (faveAlbum !== null) {
     var urlFiveHundredPixels = faveAlbum.artworkUrl60;
-    var urlFiveHundredPixelz = urlFiveHundredPixels.replace(/100x100/g, "500x500");
-    console.log(urlFiveHundredPixelz)
-
+    var urlFiveHundredPixelz = urlFiveHundredPixels.replace(
+      /100x100/g,
+      "500x500"
+    );
+    console.log(urlFiveHundredPixelz);
   }
-
 
   return (
     <>

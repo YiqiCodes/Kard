@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 
 import "./App.css";
@@ -19,7 +18,7 @@ import { useAuth0 } from "./react-auth0-spa";
 
 // import { useEffect } from "react";
 
-import { Router, Route, Switch, HashRouter } from "react-router-dom";
+import { Route, Switch, HashRouter } from "react-router-dom";
 import Profile from "./components/Profile";
 import history from "./utils/history";
 import PrivateRoute from "./components/PrivateRoute";
@@ -45,7 +44,7 @@ function App() {
     setFaveBook(info);
   };
 
-  const chgResto = function (info) { 
+  const chgResto = function (info) {
     setFaveResto(info);
   };
 
@@ -54,7 +53,6 @@ function App() {
   };
 
   const { loading, isAuthenticated, user } = useAuth0();
-
 
   if (isAuthenticated && AppUser === null && user !== undefined) {
     setAppUser(user);
@@ -92,8 +90,7 @@ function App() {
       name,
       age,
       gender,
-      nickname:user.nickname
-
+      nickname: user.nickname,
     };
 
     console.log("sending", dataForm);
