@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 
 import "./App.css";
@@ -57,7 +58,7 @@ function App() {
 
   if (isAuthenticated && AppUser === null && user !== undefined) {
     setAppUser(user);
-    Promise.all([axios.get(`http://localhost:8001/api/users/${user.email}`)])
+    Promise.all([axios.get(`/api/users/${user.email}`)])
       .then((response) => {
         const { album, book, movie, resto } = response[0].data[0].categories;
         const { name, email, age, gender } = response[0].data[0];
@@ -98,7 +99,7 @@ function App() {
     console.log("sending", dataForm);
 
     axios
-      .put(`http://localhost:8001/api/users`, dataForm)
+      .put(`/api/users`, dataForm)
       .then((res1) => {
         console.log(res1.data);
       })
