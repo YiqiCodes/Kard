@@ -71,6 +71,7 @@ const NavBar = (props) => {
         <NavBarButton
           style={{
             paddingRight: "1rem",
+            alignSelf: "center",
           }}
           onClick={() => logout()}
         >
