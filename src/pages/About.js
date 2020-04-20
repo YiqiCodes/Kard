@@ -62,6 +62,16 @@ const About = () => {
           >
             GitHub
           </a>
+          <a
+            href="https://mykard.netlify.app/#/kard/lim1017"
+            style={{
+              color: "blue",
+            }}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            My Kard
+          </a>
           <br></br>
           <br></br>
           <div style={{ fontWeight: "800" }}> James Ra </div>
@@ -122,7 +132,7 @@ const About = () => {
         <br></br>
         <div style={{ minWidth: "100%", textAlign: "center" }}>
           <div style={{ fontWeight: "500" }}>Built With: </div>
-          React, PSQL, Auth0, iTunes API, GoodReads API, TheMovieDB API, Google
+          React, NodeJS, Express, PSQL, Auth0, iTunes API, GoodReads API, TheMovieDB API, Google
           Places API
         </div>
       </div>
