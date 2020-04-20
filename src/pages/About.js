@@ -62,6 +62,8 @@ const About = () => {
           >
             GitHub
           </a>
+          <br></br>
+
           <a
             href="https://mykard.netlify.app/#/kard/lim1017"
             style={{
