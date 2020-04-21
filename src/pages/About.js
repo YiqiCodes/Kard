@@ -27,19 +27,19 @@ const About = () => {
           world know!
           <br></br>
           <br></br>
-          "Home" : Edit your kard!
+          "Home" : Edit your kard.
           <br></br>
-          "Profile" : Edit your profile!
+          "Login" : Create an account or login via email, Google or Facebook.
+          <br></br>
+          "Profile" : Edit your profile.
           <br></br>
           "Public" : Get your own shareable Kard link.
           <br></br>
-          "Save" : Save your changes!
+          "Save" : Save your changes.
         </div>
         <br></br>
         <div style={{ minWidth: "100%", textAlign: "center" }}>
           <div style={{ fontWeight: "500" }}>Built By: </div>
-          <br></br>
-          <br></br>
           <div style={{ fontWeight: "800" }}> Tom Lim </div>
           <a
             href="https://www.linkedin.com/in/tom-lim-9114061a2/"
