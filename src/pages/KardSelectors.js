@@ -10,6 +10,7 @@ import restaurantIcon from "../assets/images/restaurant2.png";
 import musicIcon from "../assets/images/album.png";
 import ShareLink from "../components/ShareLink"
 
+
 //styles
 import {
   KardSelectorContainer,
@@ -32,10 +33,15 @@ const KardSelector = (props) => {
     justifyContent: "center",
   };
 
+  
+
+
   return (
     <>
       <>
+
       <ShareLink user={user} />
+
         <WhichKardWrapper>
           <KardSelectorContainer>
             {/* album begins */}
