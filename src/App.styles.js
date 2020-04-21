@@ -11,7 +11,7 @@ export const WhichKardWrapper = styled.div`
   justify-content: center;
   position: absolute;
   min-width: 100vw;
-  height: 97.5vh;
+  height: 95vh;
   background: #111111;
   color: black;
 `;
@@ -25,7 +25,7 @@ export const CategoryKardWrapper = styled.div`
   position: absolute;
   z-index: -1;
   min-width: 100vw;
-  height: 97.5vh;
+  height: 95vh;
   background: #111111;
   color: white;
 `;
@@ -77,9 +77,10 @@ export const KardCategoryOutterContainer = styled.div`
 export const KardCategoryTitle = styled.div`
   display: flex;
   justify-content: center;
-  opacity: 0.8;
+  opacity: 1;
   border-radius: 10px 10px 0px 0px;
-  color: white;
+  color: black;
+  padding: 2px 0px;
 `;
 
 export const KardContainer = styled.div`
@@ -98,7 +99,7 @@ export const KardButtonMain = styled.button`
   border-radius: 12px;
   max-width: 40%;
   border: 0;
-  background: #e6fff7;
+  background: #fdf79a;
   height: 40px;
   width: 163px;
   box-shadow: 0px 3px 5px 2px #eeeeee;

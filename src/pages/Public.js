@@ -48,13 +48,13 @@ const Public = ({ match }) => {
             {/* album begins */}
             <KardCategoryOutterContainer>
               <KardCategoryTitle
-                style={{ background: "#e6fff7", color: "black" }}
+                style={{ background: "#FFD1BD", color: "black" }}
               >
                 Album
               </KardCategoryTitle>
               <KardCategoryContainer
                 style={{
-                  boxShadow: "7px 7px 5px 0px #e6fff7",
+                  boxShadow: "7px 7px 5px 0px #FFD1BD",
                 }}
               >
                 {faveAlbum === null || faveAlbum === undefined ? (
@@ -85,11 +85,13 @@ const Public = ({ match }) => {
 
             {/* book begins */}
             <KardCategoryOutterContainer>
-              <KardCategoryTitle style={{ background: "#45806d" }}>
+              <KardCategoryTitle
+                style={{ background: "#FFB0CD", color: "black" }}
+              >
                 Book
               </KardCategoryTitle>
               <KardCategoryContainer
-                style={{ boxShadow: "7px 7px 5px 0px #45806d" }}
+                style={{ boxShadow: "7px 7px 5px 0px #FFB0CD" }}
               >
                 {faveBook === null || faveBook === undefined ? (
                   <>
@@ -120,11 +122,13 @@ const Public = ({ match }) => {
 
             {/* movie begins */}
             <KardCategoryOutterContainer>
-              <KardCategoryTitle style={{ background: "#6b8079" }}>
+              <KardCategoryTitle
+                style={{ background: "#FFFFFF", color: "black" }}
+              >
                 Movie
               </KardCategoryTitle>
               <KardCategoryContainer
-                style={{ boxShadow: "7px 7px 5px 0px #6b8079" }}
+                style={{ boxShadow: "7px 7px 5px 0px #FFFFFF" }}
               >
                 {faveMovie === null || faveMovie === undefined ? (
                   <>
@@ -156,12 +160,12 @@ const Public = ({ match }) => {
             {/* restaurent begins */}
             <KardCategoryOutterContainer>
               <KardCategoryTitle
-                style={{ background: "#d6fff2", color: "black" }}
+                style={{ background: "#C2F0FC", color: "black" }}
               >
                 Restaurant
               </KardCategoryTitle>
               <KardCategoryContainer
-                style={{ boxShadow: "7px 7px 5px 0px #d6fff2" }}
+                style={{ boxShadow: "7px 7px 5px 0px #C2F0FC" }}
               >
                 {faveResto === null || faveResto === undefined ? (
                   <>

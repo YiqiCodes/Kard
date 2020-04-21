@@ -5,113 +5,45 @@ import { NavBarButton, NavBarContainer } from "./Components.styles.js";
 
 const NavBar = (props) => {
   const { isAuthenticated, loginWithRedirect, logout, user } = useAuth0();
+  const linkStyles = {
+    color: "black",
+    font: "400 15px Arial",
+    textDecoration: "none",
+    alignSelf: "center",
+  };
 
   return (
     <NavBarContainer>
       {isAuthenticated && (
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <Link
-            style={{
-              color: "white",
-              font: "400 15px Arial",
-              textDecoration: "none",
-              paddingLeft: "1rem",
-            }}
-            to="/"
-          >
+        <>
+          <Link style={linkStyles} to="/">
             Home
           </Link>
-
-          <Link
-            style={{
-              marginLeft: "1rem",
-              color: "white",
-              font: "400 15px Arial",
-              textDecoration: "none",
-            }}
-            to="/profile"
-          >
+          <Link style={linkStyles} to="/profile">
             Profile
           </Link>
-
-          <Link
-            style={{
-              marginLeft: "1rem",
-              color: "white",
-              font: "400 15px Arial",
-              textDecoration: "none",
-            }}
-            to={`/kard/${user.nickname}`}
-          >
+          <Link style={linkStyles} to={`/kard/${user.nickname}`}>
             Public
           </Link>
-
           <NavBarButton onClick={() => props.saveData()}>Save</NavBarButton>
-        </div>
-      )}
-      {!isAuthenticated && (
-        <>
-          <div style={{ alignSelf: "center" }}>
-            <NavBarButton
-              style={{
-                alignSelf: "center",
-              }}
-              onClick={() => loginWithRedirect({})}
-            >
-              Log In
-            </NavBarButton>
-            <Link
-              style={{
-                marginLeft: "1rem",
-                color: "white",
-                font: "400 15px Arial",
-                textDecoration: "none",
-                alignSelf: "center",
-              }}
-              to="/"
-            >
-              Home
-            </Link>
-            <Link
-              style={{
-                marginLeft: "1rem",
-                color: "white",
-                font: "400 15px Arial",
-                textDecoration: "none",
-                alignSelf: "center",
-              }}
-              to="/about"
-            >
-              About
-            </Link>
-          </div>
+          <Link style={linkStyles} to="/about">
+            About
+          </Link>
+          <NavBarButton onClick={() => logout()}>Log Out</NavBarButton>
         </>
       )}
 
-      {isAuthenticated && (
+      {!isAuthenticated && (
         <>
-          <div style={{ alignSelf: "center" }}>
-            <Link
-              style={{
-                color: "white",
-                font: "400 15px Arial",
-                textDecoration: "none",
-                alignSelf: "center",
-              }}
-              to="/about"
-            >
-              About
-            </Link>
-            <NavBarButton
-              style={{
-                marginRight: "1rem",
-                alignSelf: "center",
-              }}
-              onClick={() => logout()}
-            >
-              Log Out
-            </NavBarButton>
-          </div>
+          <Link style={linkStyles} to="/">
+            Home
+          </Link>
+          <Link style={linkStyles} to="/about">
+            About
+          </Link>
+          <NavBarButton onClick={() => loginWithRedirect({})}>
+            Log In
+          </NavBarButton>
         </>
       )}
     </NavBarContainer>

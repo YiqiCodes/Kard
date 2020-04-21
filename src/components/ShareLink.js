@@ -1,36 +1,41 @@
-import React from "react";
+import React, { useRef, useState } from 'react';
 
+function ShareLink(props) {
 
-function myFunction() {
-  console.log('my function')
-  /* Get the text field */
-  var copyText = document.getElementById("myInput");
+  const [copySuccess, setCopySuccess] = useState('');
+  const textAreaRef = useRef(null);
 
-  /* Select the text field */
-  copyText.select();
-  copyText.setSelectionRange(0, 99999); /*For mobile devices*/
-
-  /* Copy the text inside the text field */
-  document.execCommand("copy");
-
-  /* Alert the copied text */
-  alert("Copied the text: " + copyText.value);
-}
-
-
-const ShareLink = (props) => {
-  
-
+  function copyToClipboard(e) {
+    textAreaRef.current.select();
+    document.execCommand('copy');
+    // This is just personal preference.
+    // I prefer to not show the the whole text area selected.
+    e.target.focus();
+    setCopySuccess('Copied!');
+  };
 
   return (
-
-    <div style={{display:'flex', justifyContent:'center'}}>
-      <input type="text" value="Hello World" id="myInput" />    
-      <button onclick={()=>myFunction()}>Copy text</button>
+    <div style={{
+      display:'flex',
+      justifyContent:'center'
+    }}>
+      {
+       /* Logical shortcut for only displaying the 
+          button if the copy command exists */
+       document.queryCommandSupported('copy') &&
+      
+          <button onClick={copyToClipboard}>Share Your Kard</button> 
+      
+      }
+      
+        <textarea
+          ref={textAreaRef}
+          value={`mykard.netlify.app/#/kard/${props.user.nickname}`}
+        />
+      
     </div>
-
-  )
-
+  );
 }
 
 export default ShareLink;
+

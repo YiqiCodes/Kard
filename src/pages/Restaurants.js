@@ -119,7 +119,7 @@ const Restaurants = (props) => {
               minHeight: "60%",
               minWidth: "100%",
               marginBottom: "2rem",
-              background: "#6b8079",
+              background: "#fdf79a",
             }}
           >
             Go Back
