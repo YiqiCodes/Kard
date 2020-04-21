@@ -13,7 +13,7 @@ https://mykard.netlify.com/
 
 !["Completed Kard"](https://github.com/TylerZhang00/Kard/blob/master/src/assets/images/KardMain2.png?raw=true)
 
-!["Select Favourite Album"](https://github.com/TylerZhang00/Kard/blob/master/src/assets/images/KardSearch2.png?raw=true)
+!["Select Favourite Album"](https://github.com/TylerZhang00/Kard/blob/master/src/assets/images/KardSearch3.png?raw=true)
 
 ## Built With
 
