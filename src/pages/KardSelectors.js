@@ -6,6 +6,8 @@ import bookIcon from "../assets/images/book2.png";
 import movieIcon from "../assets/images/movie2.png";
 import restaurantIcon from "../assets/images/restaurant2.png";
 import musicIcon from "../assets/images/album.png";
+import ShareLink from "../components/ShareLink";
+
 
 //styles
 import {
@@ -32,9 +34,13 @@ const KardSelector = (props) => {
     console.log(urlFiveHundredPixelz);
   }
 
+  
+
+
   return (
     <>
       <>
+      <ShareLink />
         <WhichKardWrapper>
           <KardSelectorContainer>
             {/* album begins */}
