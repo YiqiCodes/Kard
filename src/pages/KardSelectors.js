@@ -1,11 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useAuth0 } from "../react-auth0-spa";
+
 
 //components
 import bookIcon from "../assets/images/book2.png";
 import movieIcon from "../assets/images/movie2.png";
 import restaurantIcon from "../assets/images/restaurant2.png";
 import musicIcon from "../assets/images/album.png";
+import ShareLink from "../components/ShareLink"
 
 //styles
 import {
@@ -20,6 +23,8 @@ import {
 
 const KardSelector = (props) => {
   const { faveAlbum, faveBook, faveResto, faveMovie } = props;
+  const { user } = useAuth0();
+
 
   const linkStyles = {
     display: "flex",
@@ -30,6 +35,7 @@ const KardSelector = (props) => {
   return (
     <>
       <>
+      <ShareLink user={user} />
         <WhichKardWrapper>
           <KardSelectorContainer>
             {/* album begins */}
