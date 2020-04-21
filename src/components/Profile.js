@@ -134,7 +134,7 @@ const Profile = (props) => {
               className="profileSaveButton"
               onClick={() => props.saveData()}
             >
-              save
+              Save
             </button>
           </Link>
         </div>
