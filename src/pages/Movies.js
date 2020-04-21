@@ -46,7 +46,7 @@ function Movies(props) {
             minHeight: "60%",
             minWidth: "100%",
             marginBottom: "2rem",
-            background: "d6fff2",
+            background: "#fdf79a",
           }}
         >
           Go Back

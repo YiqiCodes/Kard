@@ -99,7 +99,7 @@ export const KardButtonMain = styled.button`
   border-radius: 12px;
   max-width: 40%;
   border: 0;
-  background: #e6fff7;
+  background: #fdf79a;
   height: 40px;
   width: 163px;
   box-shadow: 0px 3px 5px 2px #eeeeee;
