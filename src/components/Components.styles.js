@@ -30,7 +30,7 @@ export const BookSubmitButton = styled.button`
   border: 2px solid white;
   padding: 0px 10px;
   border-radius: 5px;
-  background: indianred;
+  background: #fdf79a;
   font: 400 15px Arial;
   text-decoration: none;
 `;
