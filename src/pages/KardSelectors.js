@@ -21,16 +21,11 @@ import {
 const KardSelector = (props) => {
   const { faveAlbum, faveBook, faveResto, faveMovie } = props;
 
-  console.log(faveAlbum);
-
-  if (faveAlbum !== null) {
-    var urlFiveHundredPixels = faveAlbum.artworkUrl60;
-    var urlFiveHundredPixelz = urlFiveHundredPixels.replace(
-      /100x100/g,
-      "500x500"
-    );
-    console.log(urlFiveHundredPixelz);
-  }
+  const linkStyles = {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  };
 
   return (
     <>
@@ -39,39 +34,23 @@ const KardSelector = (props) => {
           <KardSelectorContainer>
             {/* album begins */}
             <KardCategoryOutterContainer>
-              <KardCategoryTitle
-                style={{ background: "#e6fff7", color: "black" }}
-              >
+              <KardCategoryTitle style={{ background: "#FFD1BD" }}>
                 Album
               </KardCategoryTitle>
               <KardCategoryContainer
                 style={{
-                  boxShadow: "7px 7px 5px 0px #e6fff7",
+                  boxShadow: "7px 7px 5px 0px #FFD1BD",
                 }}
               >
                 {faveAlbum === null || faveAlbum === undefined ? (
                   <>
-                    <Link
-                      to="/albums"
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
+                    <Link to="/albums" style={linkStyles}>
                       <MainKardImage src={musicIcon} alt="" />
                     </Link>
                   </>
                 ) : (
                   <>
-                    <Link
-                      to="/albums"
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
+                    <Link to="/albums" style={linkStyles}>
                       <MainKardImage
                         style={{
                           minWidth: "100px",
@@ -92,35 +71,21 @@ const KardSelector = (props) => {
 
             {/* book begins */}
             <KardCategoryOutterContainer>
-              <KardCategoryTitle style={{ background: "#45806d" }}>
+              <KardCategoryTitle style={{ background: "#FFB0CD" }}>
                 Book
               </KardCategoryTitle>
               <KardCategoryContainer
-                style={{ boxShadow: "7px 7px 5px 0px #45806d" }}
+                style={{ boxShadow: "7px 7px 5px 0px #FFB0CD" }}
               >
                 {faveBook === null || faveBook === undefined ? (
                   <>
-                    <Link
-                      to="/books"
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
+                    <Link to="/books" style={linkStyles}>
                       <MainKardImage src={bookIcon} alt="" />
                     </Link>
                   </>
                 ) : (
                   <>
-                    <Link
-                      to="/books"
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
+                    <Link to="/books" style={linkStyles}>
                       <MainKardImage
                         style={{
                           minWidth: "100%",
@@ -139,35 +104,21 @@ const KardSelector = (props) => {
 
             {/* movie begins */}
             <KardCategoryOutterContainer>
-              <KardCategoryTitle style={{ background: "#6b8079" }}>
+              <KardCategoryTitle style={{ background: "#FFFFFF" }}>
                 Movie
               </KardCategoryTitle>
               <KardCategoryContainer
-                style={{ boxShadow: "7px 7px 5px 0px #6b8079" }}
+                style={{ boxShadow: "7px 7px 5px 0px #FFFFFF" }}
               >
                 {faveMovie === null || faveMovie === undefined ? (
                   <>
-                    <Link
-                      to="/movies"
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
+                    <Link to="/movies" style={linkStyles}>
                       <MainKardImage src={movieIcon} alt="" />
                     </Link>
                   </>
                 ) : (
                   <>
-                    <Link
-                      to="/movies"
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
+                    <Link to="/movies" style={linkStyles}>
                       <MainKardImage
                         style={{
                           minWidth: "100%",
@@ -186,37 +137,21 @@ const KardSelector = (props) => {
 
             {/* restaurent begins */}
             <KardCategoryOutterContainer>
-              <KardCategoryTitle
-                style={{ background: "#d6fff2", color: "black" }}
-              >
+              <KardCategoryTitle style={{ background: "#C2F0FC" }}>
                 Restaurant
               </KardCategoryTitle>
               <KardCategoryContainer
-                style={{ boxShadow: "7px 7px 5px 0px #d6fff2" }}
+                style={{ boxShadow: "7px 7px 5px 0px #C2F0FC" }}
               >
                 {faveResto === null || faveResto === undefined ? (
                   <>
-                    <Link
-                      to="/restaurants"
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
+                    <Link to="/restaurants" style={linkStyles}>
                       <MainKardImage src={restaurantIcon} alt="" />
                     </Link>
                   </>
                 ) : (
                   <>
-                    <Link
-                      to="/restaurants"
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
+                    <Link to="/restaurants" style={linkStyles}>
                       <MainKardImage
                         style={{
                           minWidth: "100%",

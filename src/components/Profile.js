@@ -123,7 +123,7 @@ const Profile = (props) => {
         <div className="profile06">
           <Link
             style={{
-              color: "white",
+              color: "black",
               font: "400 15px Arial",
               textDecoration: "none",
               paddingLeft: "1rem",

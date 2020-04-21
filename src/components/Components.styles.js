@@ -1,19 +1,18 @@
 import styled from "styled-components";
 
 export const NavBarContainer = styled.div`
-  height: 2.5vh;
   display: flex;
-  justify-content: space-between;
-  background: black;
+  justify-content: space-evenly;
+  height: 5vh;
   border-bottom: 1px solid white;
   padding: 2px 0px;
+  background: #fdf79a;
 `;
 
 export const NavBarButton = styled.button`
-  margin-left: 1rem;
   border: none;
   background: transparent;
-  color: white;
+  color: black;
   font: 400 15px Arial;
   text-decoration: none;
   padding: 0px;
