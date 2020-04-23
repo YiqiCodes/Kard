@@ -63,7 +63,7 @@ const KardSelector = (props) => {
                         alt="Album cover"
                       />
                     </Link>
-                    <MainKardText>{faveAlbum.collectionName}</MainKardText>
+                    {/* <MainKardText>{faveAlbum.collectionName}</MainKardText> */}
                   </>
                 )}
               </KardCategoryContainer>
@@ -96,7 +96,7 @@ const KardSelector = (props) => {
                         alt="Book cover"
                       />
                     </Link>
-                    <MainKardText>{faveBook.best_book.title}</MainKardText>
+                    {/* <MainKardText>{faveBook.best_book.title}</MainKardText> */}
                   </>
                 )}
               </KardCategoryContainer>
@@ -129,7 +129,7 @@ const KardSelector = (props) => {
                         alt="Book cover"
                       />
                     </Link>
-                    <MainKardText>{faveMovie.title}</MainKardText>
+                    {/* <MainKardText>{faveMovie.title}</MainKardText> */}
                   </>
                 )}
               </KardCategoryContainer>
