@@ -77,7 +77,7 @@ const Public = ({ match }) => {
                         alt="Album cover"
                       />
                     </a>
-                    <MainKardText>{faveAlbum.collectionName}</MainKardText>
+                    {/* <MainKardText>{faveAlbum.collectionName}</MainKardText> */}
                   </>
                 )}
               </KardCategoryContainer>
@@ -114,7 +114,7 @@ const Public = ({ match }) => {
                         alt="Book cover"
                       />
                     </a>
-                    <MainKardText>{faveBook.best_book.title}</MainKardText>
+                    {/* <MainKardText>{faveBook.best_book.title}</MainKardText> */}
                   </>
                 )}
               </KardCategoryContainer>
@@ -151,7 +151,7 @@ const Public = ({ match }) => {
                         alt="Book cover"
                       />
                     </a>
-                    <MainKardText>{faveMovie.title}</MainKardText>
+                    {/* <MainKardText>{faveMovie.title}</MainKardText> */}
                   </>
                 )}
               </KardCategoryContainer>
