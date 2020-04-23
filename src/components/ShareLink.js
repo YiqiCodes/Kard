@@ -4,6 +4,16 @@ function ShareLink(props) {
 
   const [copySuccess, setCopySuccess] = useState('');
   const textAreaRef = useRef(null);
+  let share = ''
+
+  const { user } = props
+
+  if (user !== undefined){
+    share = user.nickname
+  }
+
+  // const share = (props.user.nickname === undefined) ? '' : props.user.nickname;
+
 
   function copyToClipboard(e) {
     textAreaRef.current.select();
@@ -30,7 +40,7 @@ function ShareLink(props) {
       
         <textarea
           ref={textAreaRef}
-          value={`mykard.netlify.app/#/kard/${props.user.nickname}`}
+          value={`mykard.netlify.app/#/kard/${share}`}
         />
       
     </div>
