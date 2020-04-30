@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import instance from "../util/Database";
+
 
 //components
 import bookIcon from "../assets/images/book2.png";
@@ -23,11 +25,15 @@ const Public = ({ match }) => {
   const [faveBook, setFaveBook] = useState(null);
   const [faveResto, setFaveResto] = useState(null);
   const [faveMovie, setFaveMovie] = useState(null);
+  const [data, setData] = useState(null);
+
 
   useEffect(() => {
-    Promise.all([axios.get(`/api/kard/${match.params.nickname}`)])
+    Promise.all([instance.get(`/api/kard/${match.params.nickname}`)])
       .then((response) => {
-        console.log(response);
+        console.log(response[0].data[0]);
+
+        setData(response[0].data[0])
 
         const { album, book, movie, resto } = response[0].data[0].categories;
         setFaveAlbum(album);
@@ -43,6 +49,10 @@ const Public = ({ match }) => {
   return (
     <>
       <>
+      {data ? <h3 style={{display:'flex', justifyContent:'center', fontSize:'15'}}>{data.nickname}</h3>
+       :null}
+      
+
         <WhichKardWrapper>
           <KardSelectorContainer>
             {/* album begins */}
@@ -72,8 +82,13 @@ const Public = ({ match }) => {
                         style={{
                           minWidth: "100px",
                           minHeight: "100px",
+                          margin: "auto",
+                          display: "flex"
                         }}
-                        src={faveAlbum.artworkUrl60}
+                        src={faveAlbum.artworkUrl60.replace(
+                          /60x60/g,
+                          "500x500"
+                        )}
                         alt="Album cover"
                       />
                     </a>
