@@ -38,9 +38,10 @@ function ShareLink(props) {
       
       }
       
-        <textarea
+        <input
           ref={textAreaRef}
           value={`mykard.netlify.app/#/kard/${share}`}
+          size='25'
         />
       
     </div>

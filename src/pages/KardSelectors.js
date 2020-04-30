@@ -33,15 +33,14 @@ const KardSelector = (props) => {
     justifyContent: "center",
   };
 
-  
+  console.log(user)
 
 
   return (
     <>
       <>
-
-      <ShareLink user={user} />
-
+      { user ? <ShareLink user={user} /> : null}
+ 
         <WhichKardWrapper>
           <KardSelectorContainer>
             {/* album begins */}
