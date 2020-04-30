@@ -33,6 +33,7 @@ export const CategoryKardWrapper = styled.div`
 export const KardSelectorContainer = styled.div`
   min-height: 100%;
   min-width: 100vw;
+  max-height:100vh;
   display: flex;
   flex-direction: row;
   align-items: initial;

@@ -10,6 +10,87 @@
   }
 }
 
+.kard-border{
+ 
+  width: 100%;
+  height: 100%;
+}
+
+.nickname{
+  display: none;
+}
+
+.mobile-nickname{
+  color: white;
+  margin-top: 8px;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: center;
+  
+}
+
+/* desktopview */
+@media only screen and (min-width: 1400px) {
+  .appbody{
+    background-color:black !important;
+  }  
+
+  .kard-border{
+    border: solid 3px red;
+    width: 80%;
+    height: 90%;
+    border-radius: 40px;
+    
+  }
+
+  .KardSelectorContainer{
+    min-width: 0 !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: 47% 47% 6% !important;
+    justify-content: center !important;
+    flex-direction: row !important;
+  }
+
+  .album{
+    grid-column-start: 1;
+    grid-row-start: 1;
+    margin: auto !important;
+  }
+
+  .book{
+    grid-column-start: 2;
+    grid-row-start: 1;
+    margin: auto !important;
+
+  }
+
+  .movie{
+    grid-column-start: 1;
+    grid-row-start: 2;
+    margin: auto !important;
+
+  }
+
+  .restaurent{
+    grid-column-start: 2;
+    grid-row-start: 2;
+    margin: auto !important;
+
+  }
+  .nickname{
+    grid-column: 1/span 2;
+    grid-row-start: 3;
+    margin: auto !important;
+    color: white;
+    display: block;
+  }
+
+  .mobile-nickname{
+    display: none;
+  }
+
+}
 
 
 
@@ -49,5 +130,13 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+
+
+@media only screen and (max-width: 500px) {
+  .Kard-dashboard{
+    height: 140px;
   }
 }
